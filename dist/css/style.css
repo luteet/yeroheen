@@ -618,7 +618,7 @@ summary {
     cursor: default
 }
 
-.iti--container:hover,button {
+.btn,.btn-2,.header__burger,.iti--container:hover,button {
     cursor: pointer
 }
 
@@ -2067,10 +2067,6 @@ input::-ms-clear {
     display: none
 }
 
-.header,.wrapper,body {
-    display: flex
-}
-
 address {
     font-style: normal
 }
@@ -2165,11 +2161,8 @@ body {
     min-width: 320px;
     font-family: var(--main-font);
     font-weight: 500;
+    display: flex;
     background: var(--black-bg)
-}
-
-.main-title,.title {
-    font-family: var(--title-font)
 }
 
 .image-aspect-ratio {
@@ -2198,6 +2191,7 @@ section {
 
 .wrapper {
     flex: 1 1 auto;
+    display: flex;
     flex-direction: column
 }
 
@@ -2210,16 +2204,12 @@ section {
     padding-right: var(--mob-container-padding)
 }
 
-.btn,.btn-2 {
-    align-items: center;
-    padding: 9px 24px;
-    cursor: pointer;
-    text-align: center
-}
-
 .btn {
     display: inline-flex;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 9px 24px;
     background: rgba(0,0,0,0);
     color: var(--white);
     font-size: 1rem;
@@ -2238,13 +2228,16 @@ section {
     color: var(--white);
     font-weight: 600;
     line-height: 150%;
-    font-size: 1rem;
-    letter-spacing: -.04rem
+    letter-spacing: -.04rem;
+    font-size: 1rem
 }
 
 .btn-2 {
     display: inline-grid;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 9px 24px;
     background: var(--black);
     border: 1px solid rgba(255,255,255,.1);
     border-radius: 100px;
@@ -2307,6 +2300,12 @@ section {
     overflow: hidden
 }
 
+.link::after,.link::before {
+    bottom: 0;
+    height: 2px;
+    content: ""
+}
+
 .split-text p {
     -webkit-font-kerning: none;
     font-kerning: none
@@ -2324,20 +2323,14 @@ section {
 }
 
 .link::before {
-    content: "";
     left: 0;
-    bottom: 0;
     width: 100%;
-    height: 2px;
     background: rgba(255,255,255,.2)
 }
 
 .link::after {
-    content: "";
     right: 0;
-    bottom: 0;
     width: 0;
-    height: 2px;
     background: var(--white);
     transition: width .3s ease
 }
@@ -2387,6 +2380,7 @@ section {
 }
 
 .main-title {
+    font-family: var(--title-font);
     color: rgba(255,255,255,.6);
     font-weight: 500;
     line-height: 93.478%;
@@ -2395,14 +2389,18 @@ section {
 }
 
 .title {
+    font-family: var(--title-font);
     font-weight: 700;
     font-size: 1.125rem
 }
 
-.section-title {
+.header__nav--list>li>a,.section-title {
     color: var(--black);
-    font-weight: 500;
     font-size: 2.25rem;
+    font-weight: 500
+}
+
+.section-title {
     line-height: 111.111%;
     letter-spacing: -.135rem
 }
@@ -2472,6 +2470,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     min-width: 320px;
     background: linear-gradient(180deg,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 100%);
     z-index: 4;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -2558,9 +2557,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     overflow: hidden;
     display: grid;
     padding: 9px 16px;
-    color: var(--black);
-    font-size: 2.25rem;
-    font-weight: 500;
     line-height: 111%;
     letter-spacing: -.135rem
 }
@@ -2592,7 +2588,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     height: 30px;
     background: rgba(0,0,0,0);
     z-index: 4;
-    cursor: pointer;
     display: block
 }
 
@@ -2693,12 +2688,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     height: 100%
 }
 
-.index-hero__background.is-initialized .index-hero__background--slide img {
-    transition: -webkit-transform .7s ease;
-    transition: transform .7s ease;
-    transition: transform .7s ease,-webkit-transform .7s ease
-}
-
 .index-hero__background--slide {
     width: 100%;
     height: 100%;
@@ -2717,9 +2706,12 @@ input:focus::placeholder,textarea:focus::placeholder {
     transform: scale(1.1)
 }
 
-.index-hero__background--slide.is-active img {
+.index-hero__background--slide.is-actived img {
     -webkit-transform: scale(1);
-    transform: scale(1)
+    transform: scale(1);
+    transition: -webkit-transform 2s ease;
+    transition: transform 2s ease;
+    transition: transform 2s ease,-webkit-transform 2s ease
 }
 
 .index-hero__title {
@@ -2789,6 +2781,12 @@ input:focus::placeholder,textarea:focus::placeholder {
     font-size: 2.25rem
 }
 
+.our-work__card--content h3,.services__card--title {
+    font-size: 1.4375rem;
+    font-weight: 500;
+    overflow: hidden
+}
+
 .about-us__text .char {
     opacity: .125
 }
@@ -2810,19 +2808,17 @@ input:focus::placeholder,textarea:focus::placeholder {
     gap: 32px
 }
 
+.our-work__title {
+    color: var(--theme-color-1);
+    transition: color .3s ease
+}
+
 .our-work__text {
     color: var(--grey);
     font-weight: 500;
     line-height: 137.5%;
     letter-spacing: -.04rem;
     max-width: 328px
-}
-
-.our-work__card--content h3,.services__card--title {
-    letter-spacing: -.0862rem;
-    font-size: 1.4375rem;
-    font-weight: 500;
-    overflow: hidden
 }
 
 .our-work__card--image {
@@ -2882,6 +2878,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     display: grid;
     padding-top: 8px;
     line-height: 121.739%;
+    letter-spacing: -.0862rem;
     color: var(--black)
 }
 
@@ -2941,6 +2938,10 @@ input:focus::placeholder,textarea:focus::placeholder {
     counter-reset: service-card-number
 }
 
+.work-stages__list,.work-stages__slider--list {
+    counter-reset: work-stages-number
+}
+
 .services__card {
     min-width: 90%;
     min-height: 180px;
@@ -2968,6 +2969,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 .services__card--title {
     color: var(--black);
     line-height: 121.429%;
+    letter-spacing: -.0862rem;
     display: grid;
     counter-increment: service-card-number
 }
@@ -3125,7 +3127,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    counter-reset: work-stages-number;
     max-width: 325px
 }
 
@@ -3231,16 +3232,11 @@ input:focus::placeholder,textarea:focus::placeholder {
     color: var(--white);
     font-weight: 500;
     line-height: 137.5%;
-    letter-spacing: -.04rem;
-    text-shadow: 0 1px 5px var(--black),0 -1px 5px var(--black)
+    letter-spacing: -.04rem
 }
 
 .work-stages__slider {
     padding-right: 14px
-}
-
-.work-stages__slider--list {
-    counter-reset: work-stages-number
 }
 
 .work-stages__slider--slide:nth-child(-n+9) .work-stages__slider--name::before {
@@ -3303,7 +3299,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .marquee__element {
-    color: var(--white)
+    color: var(--theme-color-1);
+    transition: color .5s ease
 }
 
 .marquee__element svg {

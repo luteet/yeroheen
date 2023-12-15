@@ -143,6 +143,7 @@ window.onresize = resize;
 
 document.querySelectorAll('.index-hero__background').forEach(sliderElement => {
 
+	const slides = sliderElement.querySelectorAll('.splide__slide');
 	const slider = new Splide(sliderElement, {
 
 		type: "fade",
@@ -151,16 +152,25 @@ document.querySelectorAll('.index-hero__background').forEach(sliderElement => {
 		pagination: false,
 		drag: false,
 		easing: "ease",
-		speed: 700,
-		interval: 2000,
+		speed: 1700,
+		interval: 3000,
 		pauseOnHover: false,
 		autoplay: true,
 		updateOnMove: true,
 
 	});
+	
+	slider.on('moved', function () {
+		//console.log(slides[slider.index]);
+		slides[slider.index].classList.remove('is-actived');
+		setTimeout(() => {
+			slides[slider.index].classList.add('is-actived');
+		},0)
+	})
 
 	const sliderWord = new Splide(sliderElement.closest('section').querySelector('.index-hero__title--word'), {
 
+		type: "loop",
 		direction: "ttb",
 		height: "1.6ch",
 		rewind: true,
@@ -169,7 +179,7 @@ document.querySelectorAll('.index-hero__background').forEach(sliderElement => {
 		drag: false,
 		easing: "ease",
 		speed: 700,
-		interval: 2000,
+		interval: 3000,
 		pauseOnHover: false,
 		autoplay: true,
 		updateOnMove: true,
@@ -332,29 +342,32 @@ document.querySelectorAll('.split-text').forEach(splitText => {
 		}, */
 	}).pause();
 
-	timeline.to(splitText.querySelectorAll('.char'), {
+	gsap.to(splitText.querySelectorAll('.char'), {
 		opacity: 1,
 		stagger: 0.05,
-		duration: 0.5,
-		/* scrollTrigger: {
+		duration: 1,
+		scrollTrigger: {
 			trigger: splitText.closest('section'),
-			scrub: true,
-			
-			start: "top bottom",
-			end: "bottom top",
-		}, */
+			scrub: 1,
+			start: `top center`,
+			end: `bottom bottom`,
+			//markers: true,
+			onUpdate: ({progress}) => {
+				//timeline.progress(progress)
+			}
+		},
 	})
 
-	const ST = ScrollTrigger.create({
+	/* const ST = ScrollTrigger.create({
 		trigger: splitText.querySelectorAll('.char'),
-		scrub: true,
+		scrub: 3,
 		start: "-300 center",
 		end: `${splitText.closest('section').offsetHeight - 100}px bottom`,
 		//markers: true,
 		onUpdate: ({progress}) => {
 			timeline.progress(progress)
 		}
-	});
+	}); */
 
 	//timeline.play();
 })
@@ -440,7 +453,7 @@ document.querySelectorAll('.video').forEach(video => {
 		},
 		scrollTrigger: {
 			//trigger: video,
-			scrub: true,
+			scrub: 2,
 			start: `${video.offsetTop - window.innerHeight} top`,
 			end: `${video.offsetTop + window.innerHeight} bottom`,
 			
@@ -483,8 +496,8 @@ Object.keys(document.querySelectorAll('[data-change-theme-to]')).reverse().forEa
 		trigger: section,
 		scrub: true,
 		//markers: (index == 1) ? true : false,
-		start: `+200 bottom`,
-		end: `+1000 bottom`,
+		start: `+${window.innerHeight - 200} bottom`,
+		end: `+${window.innerHeight * 1.5} bottom`,
 		onUpdate: (self) => {
 			//console.log(self.progress)
 			timeline.progress(self.progress);
