@@ -1,0 +1,106 @@
+
+@font-face {
+	@include font-include('Inter', 500, swap, normal, 'Inter-Medium');
+}
+
+@font-face {
+	@include font-include('Inter', 600, swap, normal, 'Inter-SemiBold');
+}
+
+.main-title {
+	font-family: var(--title-font);
+	color: rgba(255, 255, 255, 0.6);
+	font-weight: 500;
+	line-height: 93.478%;
+	letter-spacing: -0.1969rem;
+
+	font-size: 2.8125rem; // 45px
+
+	@include _550 {
+		font-size: 3rem; // 48px
+	}
+	
+	@include _768 {
+		font-size: 4.5rem; // 72px
+	}
+	
+	@include _992 {
+		font-size: 5.75rem; // 92px
+		letter-spacing: -0.46rem;
+	}
+}
+
+.title {
+	
+	font-family: var(--title-font);
+	font-weight: 700;
+
+	font-size: 1.125rem;
+
+	@include _768 {
+		font-size: 1.5rem;
+	}
+
+	@include _992 {
+		font-size: 1.875rem;
+	}
+
+}
+
+.section-title {
+	color: var(--black);
+	font-weight: 500;
+	font-size: 2.25rem; // 36px
+	line-height: 111.111%;
+	letter-spacing: -0.135rem;
+
+	&.is-min {
+		font-size: 1.75rem; // 28px
+		line-height: 114.286%;
+		letter-spacing: -0.105rem;
+	}
+	
+	@include _550 {
+		font-size: 3rem; // 48px
+		&.is-min {
+			font-size: 2rem; // 32px
+		}
+	}
+	
+	@include _768 {
+		font-size: 3.5rem; // 56px
+
+		&.is-min {
+			font-size: 2.25rem; // 36px
+		}
+	}
+	
+	@include _992 {
+		line-height: 107.576%;
+		letter-spacing: -0.33rem;
+		font-size: 4.125rem; // 66px
+
+		&.is-min {
+			font-size: 2.75rem; // 44px
+			line-height: 118.182%;
+			letter-spacing: -0.22rem;
+		}
+	}
+}
+
+
+
+.section-name {
+
+	color: var(--grey-text);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	line-height: 123.077%;
+	letter-spacing: -0.0325rem;
+	text-transform: uppercase;
+
+}
+
+.txt-center {
+	text-align: center;
+}

@@ -1,0 +1,23 @@
+.marquee {
+
+	padding-top: 150px; padding-bottom: 75px;
+	@include _992 {
+		padding-top: 350px; padding-bottom: 110px;
+	}
+
+	// .marquee__slider
+
+	&__slider {
+	}
+
+	// .marquee__element
+
+	&__element {
+		color: var(--white);
+		svg {
+			width: 1.3ch; height: auto;
+			margin-right: -0.2ch; margin-left: 0.2ch;
+			transform: translate(0,0.1ch);
+		}
+	}
+}

@@ -1,0 +1,163 @@
+.footer {
+
+	flex: 0 0 auto;
+
+	padding-bottom: 16px; padding-top: 80px;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 16px;
+
+	@include _992 {
+		padding-top: 60px;
+
+		grid-template-columns: 1fr 1fr 1fr;
+		align-items: center;
+		gap: 20px;
+	}
+
+	// .footer__nav
+
+	&__nav {
+		@include _992 {
+			grid-column: 2; grid-row: 2;
+		}
+
+		ul {
+			display: grid;
+			grid-template-columns: 100%;
+			@include _768 {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			@include _992 {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+		}
+
+		a {
+			color: var(--white);
+			font-weight: 500;
+			line-height: 137.5%;
+			letter-spacing: -0.04rem;
+
+			font-size: 1.375rem;
+
+			@include _992 {
+				font-size: 1rem;
+				padding: 9px;
+			}
+
+			display: block;
+			padding: 8px;
+
+			@media (any-hover: hover) and (min-width: 992px) {
+				&:hover::before {
+					opacity: 1;
+				}
+			}
+
+			position: relative;
+			&::before {
+				content: '';
+				position: absolute;
+				left: 9px; bottom: 0;
+				width: calc(100% - 9px - 9px); height: 1px;
+				background: var(--white);
+				opacity: 0;
+			}
+		}
+	}
+
+	// .footer__offices
+
+	&__offices {
+		margin-top: 0;
+	}
+
+	// .footer__contacts
+
+	&__contacts {
+		margin-top: 80px;
+
+		grid-column: 2 span;
+	}
+
+	// .footer__logo
+
+	&__logo {
+
+		margin-top: 80px;
+		@include _992 {
+			margin-top: 0;
+			grid-column: 1; grid-row: 1;
+		}
+
+		// .footer__logo--link
+
+		&--link {
+		}
+
+		// .footer__logo--img
+
+		&--img {
+		}
+	}
+
+	// .footer__copyright
+
+	&__copyright {
+		grid-column: 2 span;
+		margin-top: 20px;
+		@include _992 {
+			grid-column: 1; grid-row: 2;
+			margin-top: 0;
+		}
+
+		color: var(--grey-text);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		line-height: 123.077%;
+		letter-spacing: -0.0325rem;
+		text-transform: uppercase;
+	}
+
+	// .footer__privacy
+
+	&__privacy {
+		grid-column: 2 span;
+		margin-top: 16px;
+		@include _992 {
+			margin-top: 0;
+			grid-column: 3; grid-row: 2;
+		}
+
+		a {
+			color: var(--grey-text);
+			font-size: 0.8125rem;
+			font-weight: 600;
+			line-height: 123.077%;
+			letter-spacing: -0.0325rem;
+			text-transform: uppercase;
+
+			@media (any-hover: hover) {
+				transition: color .15s ease;
+				&:hover {
+					color: var(--white);
+				}
+				
+				&:active {
+					color: var(--grey);
+				}
+			}
+		}
+
+		
+
+		@include _992 {
+			justify-self: end;
+		}
+	}
+}
