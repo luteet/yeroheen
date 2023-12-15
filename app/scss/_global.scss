@@ -185,7 +185,7 @@ section {
 
 	&.is-alternative {
 		background: transparent;
-		border-color: var(--white);
+		border-color: rgba(255, 255, 255, 0.50);
 	}
 
 	border-radius: 100px;
@@ -199,7 +199,7 @@ section {
 		align-self: center; justify-self: center;
 		display: inline-block;
 
-		transition: transform .2s ease, opacity .2s ease;
+		transition: transform .3s ease, opacity .3s ease;
 
 		&:nth-child(2) {
 			transform: translate3d(0,150%,0.0001px);
@@ -208,6 +208,9 @@ section {
 	}
 
 	@media (any-hover: hover) {
+		&.is-alternative:hover {
+			border-color: var(--white);
+		}
 		&:hover span {
 			&:nth-child(1) {
 				transform: translate3d(0,-150%,0.0001px);

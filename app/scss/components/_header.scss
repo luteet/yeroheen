@@ -25,7 +25,6 @@
 	}
 	
 	align-items: center;
-	
 
 	padding-top: 20px; padding-bottom: 20px;
 
@@ -151,8 +150,24 @@
 
 		&--list > li > a {
 			width: 100%;
-			display: block;
-			padding: 8px 16px;
+			overflow: hidden;
+			display: grid;
+			> * {
+				grid-area: 1/1;
+				display: block;
+
+				transition: transform .3s ease;
+				&:nth-child(2) {
+					transform: translate(0,100%);
+					color: var(--grey);
+
+					display: none;
+					@include _992 {
+						display: block;
+					}
+				}
+			}
+			padding: 9px 16px;
 
 			color: var(--black);
 			font-size: 2.25rem;
@@ -161,15 +176,19 @@
 			letter-spacing: -0.135rem;
 
 			@media (min-width: 992px) and (any-hover: hover) {
-				transition: border-color .2s ease;
-				border-bottom: 1px solid transparent;
-				&:hover {
-					border-bottom: 1px solid var(--white);
+				&:hover > * {
+					&:nth-child(1) {
+						transform: translate(0,-100%);
+					}
+
+					&:nth-child(2) {
+						transform: translate(0,0);
+					}
 				}
 			}
 
 			@include _992 {
-				padding: 5px 0;
+				padding: 0;
 				margin: 0 14px;
 				width: auto;
 				font-size: 1rem;

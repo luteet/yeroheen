@@ -47,15 +47,34 @@
 
 			@include _992 {
 				font-size: 1rem;
-				padding: 9px;
+				padding: 0 9px;
 			}
 
-			display: block;
+			display: grid;
+			overflow: hidden;
+			> * {
+				grid-area: 1/1;
+
+				display: block;
+				transition: transform .2s ease;
+
+				&:nth-child(2) {
+					transform: translate(0,100%);
+					color: var(--grey);
+				}
+			}
+
 			padding: 8px;
 
 			@media (any-hover: hover) and (min-width: 992px) {
-				&:hover::before {
-					opacity: 1;
+				&:hover > * {
+					&:nth-child(1) {
+						transform: translate(0,-100%);
+					}
+
+					&:nth-child(2) {
+						transform: translate(0,0%);
+					}
 				}
 			}
 

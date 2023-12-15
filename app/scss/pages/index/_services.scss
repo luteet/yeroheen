@@ -99,6 +99,10 @@
 			&:hover &--open::before {
 				width: 100%;
 			}
+
+			&:hover &--open svg {
+				transform: rotate(45deg);
+			}
 		}
 
 		&--body {
@@ -180,8 +184,8 @@
 			&::before {
 				content: '';
 				position: absolute;
-				left: 0; bottom: 0;
-				width: 0; height: 2px;
+				left: 0; bottom: 3px;
+				width: 0; height: 1px;
 				background: var(--black);
 				transition: width .3s ease;
 			}
@@ -189,6 +193,8 @@
 			svg {
 				flex: 0 0 8px;
 				margin-left: 10px;
+
+				transition: transform .2s ease;
 			}
 		}
 	}

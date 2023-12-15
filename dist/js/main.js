@@ -586,7 +586,7 @@ function validateName(name) {
 	return reg.test(name);
 }
 
-document.querySelectorAll('.contacts__form input').forEach(input => {
+document.querySelectorAll('.form input').forEach(input => {
 	if(input.name == "first-name" || input.name == "last-name" && input.type == "text") {
 		input.addEventListener('blur', function (event) {
 			if(!validateName(input.value)) {
@@ -612,7 +612,17 @@ document.querySelectorAll('.contacts__form input').forEach(input => {
 	}
 })
 
-document.querySelectorAll('.contacts__form textarea').forEach(textarea => {
+document.querySelectorAll('.form').forEach(form => {
+	form.addEventListener('submit', function (event) {
+		if(form.querySelector('.is-error')) event.preventDefault();
+	})
+})
+
+document.querySelectorAll('.form textarea').forEach(textarea => {
+
+	textarea.addEventListener('input', function (event) {
+		textarea.style.height = textarea.scrollHeight + 'px';
+	})
 	
 	textarea.addEventListener('blur', function (event) {
 		if(textarea.value != "") {
