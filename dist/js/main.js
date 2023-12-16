@@ -204,9 +204,11 @@ document.querySelectorAll('.index-hero__background').forEach(sliderElement => {
 		},500)
 	})
 
-	sliderWord.sync(slider);
-	sliderWord.mount();
-	slider.mount();
+	setTimeout(() => {
+		sliderWord.sync(slider);
+		sliderWord.mount();
+		slider.mount();
+	},0)
 
 	/* setTimeout(() => {
 		sliderWord.go('>');
