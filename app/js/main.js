@@ -70,7 +70,7 @@ body.addEventListener('click', function (event) {
 		})
 
 		clearTimeout(headerNavTimeout);
-		headerNav.style.setProperty('--transition', 'opacity .3s ease, visibility .3s ease');
+		headerNav.style.setProperty('--transition', 'transform .3s ease');
 
 		headerNavTimeout = setTimeout(() => {
 			headerNav.style.removeProperty('--transition');
@@ -106,9 +106,15 @@ function resizeCheckFunc(size, minWidth, maxWidth) {
 
 let workStagesGallery = [];
 
+const telLabels = document.querySelectorAll('.tel-input-label');
+
 function resize() {
 
 	windowSize = window.innerWidth;
+
+	telLabels.forEach(tel => {
+		tel.style.setProperty('--width', tel.offsetWidth + 'px');
+	})
 
 	html.style.setProperty("--height-header", header.offsetHeight + "px");
 	html.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
@@ -208,8 +214,8 @@ document.querySelectorAll('.index-hero__background').forEach(sliderElement => {
 
 })
 
-document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 
+document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 	const navList = sliderElement.closest('section').querySelector('.work-stages__list'),
 	number = sliderElement.querySelector('.work-stages__gallery--number');
 
@@ -217,7 +223,12 @@ document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 
 		type: "fade",
 		rewind: true,
-		autoplay: true,
+		autoplay: "pause",
+		intersection: {
+			inView: {
+			  autoplay: true,
+			},
+		},
 		arrows: false,
 		pagination: false,
 		drag: false,
@@ -315,6 +326,28 @@ document.querySelectorAll('.marquee__slider').forEach(sliderElement => {
 
 })
 
+document.querySelectorAll('.services__slider').forEach(sliderElement => {
+
+	const slider = new Splide(sliderElement, {
+
+		perPage: 2,
+		perMove: 1,
+		//easing: "ease",
+		speed: 500,
+		arrows: false,
+
+		breakpoints: {
+			600: {
+				perPage: 1,
+			}
+		}
+
+	});
+
+	slider.mount();
+
+})
+
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
@@ -373,61 +406,77 @@ document.querySelectorAll('.split-text').forEach(splitText => {
 })
 
 
-document.querySelectorAll('.services__wrapper').forEach(wrapper => {
 
-	let height = 0;
-	const cards = wrapper.querySelector('.services__list').querySelectorAll('.services__card'),
-	pagination = wrapper.parentElement.querySelector('.services__pagination');
 
-	cards.forEach(card => {
-		height += card.offsetWidth;
-		pagination.insertAdjacentHTML("beforeend", `<li class="services__pagination--dot"></li>`);
-	})
+const animMedia = gsap.matchMedia();
+	animMedia.add("(min-width: 992px)", () => {
+		document.querySelectorAll('.services__wrapper').forEach(wrapper => {
 
-	const paginationDots = pagination.querySelectorAll('.services__pagination--dot');
-
-	gsap.to(wrapper.querySelector('.services__list'), {
-		transform: `translate3d(-${wrapper.scrollWidth - windowSize}px,0,0.0001px)`,
-		//duration: 3,
-		ease: "none",
-		scrollTrigger: {
-			trigger: wrapper.closest('section'),
-			scrub: 1,
-			pin: true,
-			start: `${wrapper.closest('section').offsetHeight + 100} bottom`,
-			end: `${height} center`,
-			onUpdate: (self) => {
-
-				/* clearTimeout(timeout)
-				timeout = setTimeout(() => {
-					console.log('test')
-					wrapper.querySelector('.servides__list').style.setProperty('transform', `translateX(${(wrapper.scrollWidth - windowSize) / 100 * self.progress * 100}px)`)
-				},100) */
-				//wrapper.scrollLeft = (wrapper.scrollWidth - windowSize) / 100 * self.progress * 100;
-				/* debounce(function() {
-					
-				}, 100) */
-
-				let lastCardCheck = false;
-				Object.keys(cards).reverse().forEach(index => {
-					//console.log(cards[index].getBoundingClientRect().left);
-					if(cards[index].getBoundingClientRect().left <= 150 && !lastCardCheck) {
-
-						lastCardCheck = true;
-						
-						paginationDots.forEach(dot => {
-							dot.classList.remove('is-active');
-						})
-
-						paginationDots[index].classList.add('is-active');
-						
-					}
-				})
-			}
-		},
+			let height = 0;
+			const cards = wrapper.querySelector('.services__list').querySelectorAll('.services__card');
 		
+			cards.forEach(card => {
+				height += card.offsetWidth;
+			})
+		
+			gsap.to(wrapper.querySelector('.services__list'), {
+				transform: `translate3d(-${wrapper.scrollWidth - windowSize}px,0,0.0001px)`,
+				//duration: 3,
+				ease: "none",
+				scrollTrigger: {
+					trigger: wrapper.closest('section'),
+					scrub: 0.5,
+					pin: true,
+					start: `${wrapper.closest('section').offsetHeight + 100} bottom`,
+					end: `${height} center`,
+				},
+				
+			})
+		})
 	})
-})
+
+	const animElements = document.querySelectorAll('[data-animation]');
+	animElements.forEach(element => {
+		if(element.dataset.animation == "fade-in") {
+			element.style.setProperty('--delay', element.dataset.animationDelay + 's');
+			const anchor = element.dataset.animationAnchor ? document.querySelector(element.dataset.animationAnchor) : false;
+			const cb = function(entries){
+				entries.forEach(entry => {
+					if(entry.isIntersecting){
+						element.classList.add('anim-fade-in');
+						
+					} else{
+						element.classList.remove('anim-fade-in');
+					}
+				});
+			}
+
+			const io = new IntersectionObserver(cb);
+			if(anchor) {
+				io.observe(anchor);
+			} else {
+				io.observe(element);
+			}
+			/* let timeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: element,
+					scrub: 1,
+					start: `-${window.innerHeight} bottom`,
+					end: `+${window.innerHeight} bottom`,
+				}
+			});
+
+			timeline.to(element, {
+				opacity: 0,
+				delay: element.dataset.animationDelay ? Number(element.dataset.animationDelay) : 0,
+			})
+
+			timeline.to(element, {
+				opacity: 1,
+				delay: element.dataset.animationDelay ? Number(element.dataset.animationDelay) : 0,
+			}) */
+		}
+	})
 
 document.querySelectorAll('.video').forEach(video => {
 	const videoElement = video.querySelector('.video__element'),
@@ -486,18 +535,56 @@ Object.keys(document.querySelectorAll('[data-change-theme-to]')).reverse().forEa
 		background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
 	})
 
-	timeline.to(body, {
-		background: section.dataset.changeThemeTo,
+	/* gsap.set(body, {
+		'--theme-color-1': '#171718',
 	})
 
+	timeline.to(body, {
+		background: section.dataset.changeThemeTo,
+		'--theme-color-1': '#fff',
+	}) */
+
+	if(section.dataset.changeThemeIs == "light") {
+		gsap.set(body, {
+			'--theme-color-1': '#fff',
+			'--theme-color-1-reverse': '#171718',
+		})
+	
+		timeline.to(body, {
+			background: section.dataset.changeThemeTo,
+			'--theme-color-1': '#171718',
+			'--theme-color-1-reverse': '#fff',
+		})
+	} else {
+		gsap.set(body, {
+			'--theme-color-1': '#171718',
+			'--theme-color-1-reverse': '#fff',
+		})
+	
+		timeline.to(body, {
+			background: section.dataset.changeThemeTo,
+			'--theme-color-1': '#fff',
+			'--theme-color-1-reverse': '#171718',
+		})
+	}
+
 	timeline.pause();
+
+	let start, end;
+	if(section.hasAttribute('data-change-theme-on-top')) {
+		start = `+100 bottom`;
+		end = `+500 bottom`;
+	} else {
+		start = `+100 25%`;
+		end = `+300 25%`;
+	}
 
 	ScrollTrigger.create({
 		trigger: section,
 		scrub: true,
 		//markers: (index == 1) ? true : false,
-		start: `+${window.innerHeight - 200} bottom`,
-		end: `+${window.innerHeight * 1.5} bottom`,
+		start: start,
+		end: end,
 		onUpdate: (self) => {
 			//console.log(self.progress)
 			timeline.progress(self.progress);
@@ -511,12 +598,14 @@ Object.keys(document.querySelectorAll('[data-change-theme-to]')).reverse().forEa
 				
 				changeTheme = true;
 				if(section.dataset.changeThemeIs == "light") {
-					html.style.setProperty('--theme-color-1', '#171718');
+					header.classList.add('is-light');
+					html.style.setProperty('--theme-color-2', '#171718');
 					document.querySelectorAll('.start-button').forEach(startButton => {
 						startButton.classList.add('is-reverse-theme');
 					})
 				} else {
-					html.style.setProperty('--theme-color-1', '#FFF');
+					header.classList.remove('is-light');
+					html.style.setProperty('--theme-color-2', '#FFF');
 					document.querySelectorAll('.start-button').forEach(startButton => {
 						startButton.classList.remove('is-reverse-theme');
 					})
@@ -525,12 +614,14 @@ Object.keys(document.querySelectorAll('[data-change-theme-to]')).reverse().forEa
 			} else if(self.progress < 0.3 && changeTheme) {
 				changeTheme = false;
 				if(section.dataset.changeThemeIs == "light") {
-					html.style.setProperty('--theme-color-1', '#FFF');
+					header.classList.remove('is-light');
+					html.style.setProperty('--theme-color-2', '#FFF');
 					document.querySelectorAll('.start-button').forEach(startButton => {
 						startButton.classList.remove('is-reverse-theme');
 					})
 				} else {
-					html.style.setProperty('--theme-color-1', '#171718');
+					header.classList.add('is-light');
+					html.style.setProperty('--theme-color-2', '#171718');
 					document.querySelectorAll('.start-button').forEach(startButton => {
 						startButton.classList.add('is-reverse-theme');
 					})
@@ -689,9 +780,15 @@ document.querySelectorAll('.tel-input').forEach(telInput => {
 // =-=-=-=-=-=-=-=-=-=-=-=- <scroll> -=-=-=-=-=-=-=-=-=-=-=-=
 
 const startButtons = document.querySelectorAll('.start-button');
-let scrollButtonCheck = false;
+let scrollButtonCheck = false, headerOnTop = false;
 function scroll() {
-	
+	if(window.scrollY > 100 && !headerOnTop) {
+		headerOnTop = true;
+		header.classList.add('on-scroll');
+	} else if(window.scrollY <= 100 && headerOnTop) {
+		headerOnTop = false;
+		header.classList.remove('on-scroll');
+	}
 	if(window.scrollY + body.offsetHeight > wrapper.offsetHeight - 300 && !scrollButtonCheck) {
 		scrollButtonCheck = true;
 		startButtons.forEach(button => {
@@ -708,6 +805,96 @@ function scroll() {
 scroll()
 
 window.addEventListener('scroll', scroll)
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <get-coords> -=-=-=-=-=-=-=-=-=-=-=-=
+
+function getCoords(elem) {
+	let box = elem.getBoundingClientRect();
+
+	return {
+		top: box.top + window.scrollY,
+		right: box.right + window.scrollX,
+		bottom: box.bottom + window.scrollY,
+		left: box.left + window.scrollX
+	};
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </get-coords> -=-=-=-=-=-=-=-=-=-=-=-=
+
+function headerScroll(arg) {
+
+    let header = document.querySelector('.header'),
+
+        hToDown = 300,
+        hToUp = 50,
+
+        headerPos = getCoords(header),
+
+        hPosToDown, hPosToUp, hCheck = [true, true], hPosCheck = false,
+        hTopCheck = false, scrolled = [0, 0], checkScrolled = '';
+  
+
+  function headerScrollFunc() {
+    
+    scrolled[0] = headerPos.top
+    headerPos = getCoords(header);
+    scrolled[1] = headerPos.top
+    
+        if (!hPosCheck) {
+
+            hPosCheck = true;
+
+            hPosToDown = headerPos.top + hToDown;
+            hPosToUp = headerPos.top - hToUp;
+
+        }
+
+        if (scrolled[0] > scrolled[1]) {
+          
+            checkScrolled = 'up';
+          
+          } else if (scrolled[0] < scrolled[1]) {
+            
+            checkScrolled = 'down';
+            
+          }
+
+          /* if (!hTopCheck && headerPos.top > 0) {
+            hTopCheck = true;
+        
+            header.classList.remove('_top');
+          } else if (headerPos.top == 0) {
+            hTopCheck = false;
+            header.classList.add('_top');
+          } */
+        
+        
+          if (checkScrolled == 'down') hPosToUp = headerPos.top - hToUp;
+          if (checkScrolled == 'up') hPosToDown = headerPos.top + hToDown;
+        
+        
+          if (hPosToUp >= headerPos.top && hCheck[0]) {
+            hCheck[0] = false; hCheck[1] = true;
+        
+            header.classList.remove('is-hide'); // SHOW HEADER
+          }
+        
+          if (hPosToDown <= headerPos.top && hCheck[1]) {
+            hCheck[1] = false; hCheck[0] = true;
+        
+            header.classList.add('is-hide'); // HIDE HEADER
+          }
+
+  }
+  
+  headerScrollFunc();
+  
+  window.addEventListener('scroll', headerScrollFunc);
+
+}
+
+
+headerScroll();
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </scroll> -=-=-=-=-=-=-=-=-=-=-=-=
 

@@ -165,6 +165,9 @@
 			gap: 40px 20px;
 		}
 		
+		position: relative;
+
+		
 
 		label {
 			display: flex;
@@ -181,11 +184,32 @@
 			&.is-valid::after {
 				content: '';
 				position: absolute;
-				right: 0; top: 10px;
+				right: 0; top: 15px;
 				width: 14px; height: 14px;
 				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='14' height='14' rx='7' fill='white'/%3E%3Cpath d='M3.95312 6.87201L6.06196 9.17578L10.0453 4.82422' stroke='%23171718'/%3E%3C/svg%3E%0A")
 				center / contain no-repeat;
-			} 
+			}
+
+			&.is-error::after {
+				content: '';
+				position: absolute;
+				right: 0; top: 15px;
+				width: 14px; height: 14px;
+				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='14' height='14' rx='7' fill='%23EA2525'/%3E%3Cpath d='M4.5 4.5L9.42611 9.5M4.57389 9.5L9.5 4.5' stroke='white'/%3E%3C/svg%3E%0A")
+				center / contain no-repeat;
+			}
+
+			&.is-error::before {
+				content: attr(data-error-text);
+				position: absolute;
+				left: 0; top: calc(100% + 2px);
+				width: 100%;
+				color: #EA2525;
+				font-size: 0.625rem;
+				font-weight: 500;
+				line-height: 138.298%;
+				letter-spacing: -0.0138rem;
+			}
 
 			textarea {
 				//min-height: 120px;
@@ -224,10 +248,15 @@
 				
 			}
 
-			input:focus + span, input:not(:placeholder-shown) + span, textarea:focus + span, textarea:not(:placeholder-shown) + span {
+			input:focus + span, input:not(:placeholder-shown) + span {
 				top: -10px;
 				font-size: 0.625rem;
 				color: var(--grey-text);
+			}
+
+			textarea:focus + span, textarea:not(:placeholder-shown) + span {
+				top: -10px;
+				font-size: 0.625rem;
 			}
 
 			> span {
@@ -266,9 +295,7 @@
 			}
 		}
 
-		.iti {
-			width: 100%;
-		}
+		
 
 		@include _550 {
 			.is-full {

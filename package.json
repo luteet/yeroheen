@@ -11,6 +11,7 @@
   "devDependencies": {
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@splidejs/splide-extension-intersection": "^0.2.0",
     "browser-sync": "^2.26.13",
     "del": "^6.0.0",
     "gsap": "^3.12.2",

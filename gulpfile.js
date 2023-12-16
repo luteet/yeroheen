@@ -94,6 +94,7 @@ function scriptsLib() {
 	return src([
 		'node_modules/@splidejs/splide/dist/js/splide.min.js', // Слайдер | npm i @splidejs/splide --save-dev | https://splidejs.com/guides/getting-started/
 		'node_modules/@splidejs/splide-extension-auto-scroll/dist/js/splide-extension-auto-scroll.min.js', // autoscroll для слайдера | $ npm install @splidejs/splide-extension-auto-scroll --save-dev | https://splidejs.com/guides/getting-started/
+		'node_modules/@splidejs/splide-extension-intersection/dist/js/splide-extension-intersection.min.js', // autoscroll для слайдера | $ npm install @splidejs/splide-extension-intersection --save-dev | https://splidejs.com/guides/getting-started/
 		//'node_modules/@splidejs/splide-extension-grid/dist/js/splide-extension-grid.min.js', // Сетка для слайдера | npm install @splidejs/splide-extension-grid --save-dev | https://splidejs.com/guides/getting-started/
 		//'node_modules/vanilla-lazyload/dist/lazyload.min.js', // Lazyload img | npm i vanilla-lazyload --save-dev | https://www.npmjs.com/package/vanilla-lazyload
 		//'node_modules/smoothscroll-polyfill/dist/smoothscroll.min.js', // Полифил для window.scroll() | npm i smoothscroll-polyfill --save-dev

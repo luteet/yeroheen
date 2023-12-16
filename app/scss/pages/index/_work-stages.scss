@@ -98,18 +98,18 @@
 
 			@media (any-hover: hover) {
 				&:hover {
-					color: var(--theme-color-1);
+					color: var(--theme-color-2);
 					span::before {
-						color: var(--theme-color-1);
+						color: var(--theme-color-2);
 					}
 				}
 				
-				&:active {
+				/* &:active {
 					color: var(--black-bg);
 					span::before {
 						color: var(--black-bg);
 					}
-				}
+				} */
 			}
 
 			&::before {
@@ -125,15 +125,15 @@
 				position: absolute;
 				left: 0; bottom: 0;
 				width: 0; height: 2px;
-				background: var(--theme-color-1);
+				background: var(--theme-color-2);
 
 				transition: width .2s ease;
 			}
 
 			&.is-active {
-				color: var(--theme-color-1);
+				color: var(--theme-color-2);
 				span::before {
-					color: var(--theme-color-1);
+					color: var(--theme-color-2);
 				}
 			}
 
@@ -297,22 +297,7 @@
 		}
 
 		&--pagination {
-			position: static;
-			margin-top: 32px;
-
-			.splide__pagination__page {
-				width: 10px; height: 10px;
-				opacity: 1;
-				margin: 4px;
-
-				background: #D5D7DD;
-				transition: background .2s ease;
-
-				&.is-active {
-					transform: none;
-					background: var(--theme-color-1);
-				}
-			}
+			
 		}
 	}
 }
