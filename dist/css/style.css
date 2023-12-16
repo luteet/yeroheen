@@ -10,7 +10,7 @@ progress,sub,sup {
     padding: 0
 }
 
-.iti__v-hide,.splide {
+.header.is-hide,.index-hero__background,.iti__v-hide,.splide,.start-button.is-hidden {
     visibility: hidden
 }
 
@@ -190,10 +190,6 @@ summary {
     -webkit-tap-highlight-color: transparent
 }
 
-.btn,.iti__country,.iti__selected-flag,.splide__arrow {
-    align-items: center
-}
-
 .splide__slide img {
     vertical-align: bottom
 }
@@ -295,6 +291,7 @@ summary {
 }
 
 .splide__arrow {
+    align-items: center;
     background: #ccc;
     border: 0;
     border-radius: 50%;
@@ -512,6 +509,7 @@ summary {
     z-index: 1;
     position: relative;
     display: flex;
+    align-items: center;
     height: 100%;
     padding: 0 6px 0 8px
 }
@@ -572,6 +570,7 @@ summary {
 
 .iti__country {
     display: flex;
+    align-items: center;
     padding: 5px 10px
 }
 
@@ -618,7 +617,7 @@ summary {
     cursor: default
 }
 
-.iti--container:hover,button {
+.btn,.btn-2,.header__burger,.iti--container:hover,button {
     cursor: pointer
 }
 
@@ -2192,10 +2191,6 @@ section {
     flex-direction: column
 }
 
-.btn,.link {
-    display: inline-flex
-}
-
 .main {
     overflow: hidden;
     flex: 1 0 auto
@@ -2209,17 +2204,18 @@ section {
 .btn,.btn-2 {
     padding: 9px 24px;
     font-weight: 600;
-    cursor: pointer;
-    font-size: 1rem;
-    letter-spacing: -.04rem
+    line-height: 150%;
+    letter-spacing: -.04rem;
+    text-align: center
 }
 
 .btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    text-align: center;
     background: rgba(0,0,0,0);
     color: var(--white);
-    line-height: 150%;
+    font-size: 1rem;
     border: 1px solid var(--grey-headings);
     border-radius: 100px
 }
@@ -2232,8 +2228,7 @@ section {
     display: inline-grid;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    line-height: 150%;
+    font-size: 1rem;
     border: 1px solid rgba(255,255,255,.1);
     background: var(--black);
     color: var(--white);
@@ -2312,8 +2307,7 @@ section {
 }
 
 .start-button.is-hidden {
-    opacity: 0;
-    visibility: hidden
+    opacity: 0
 }
 
 .visually-hidden {
@@ -2333,6 +2327,7 @@ section {
 }
 
 .link {
+    display: inline-flex;
     align-items: center;
     position: relative;
     padding: 10px 0;
@@ -2344,23 +2339,21 @@ section {
     letter-spacing: -.04rem
 }
 
-.link::before {
-    content: "";
+.link::after,.link::before {
     position: absolute;
-    left: 0;
     bottom: 0;
-    width: 100%;
     height: 2px;
+    left: 0;
+    content: ""
+}
+
+.link::before {
+    width: 100%;
     background: rgba(255,255,255,.2)
 }
 
 .link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 0;
-    height: 2px;
     background: var(--white);
     transition: width .3s ease
 }
@@ -2369,7 +2362,7 @@ section {
     color: var(--black)
 }
 
-.index-hero__title--word,.iti-fullscreen-popup .iti--container .iti__country-name,.tel-input-label .iti__country-name {
+.iti-fullscreen-popup .iti--container .iti__country-name,.tel-input-label .iti__country-name {
     color: var(--white)
 }
 
@@ -2504,12 +2497,12 @@ section {
 .header__nav--list>li>a,.section-title {
     color: var(--black);
     font-size: 2.25rem;
+    letter-spacing: -.135rem;
     font-weight: 500
 }
 
 .section-title {
-    line-height: 111.111%;
-    letter-spacing: -.135rem
+    line-height: 111.111%
 }
 
 .section-title.is-min {
@@ -2525,10 +2518,6 @@ section {
     line-height: 123.077%;
     letter-spacing: -.0325rem;
     text-transform: uppercase
-}
-
-.header.is-light .header__feedback span,.header.is-light .header__nav--list a span:first-child {
-    color: var(--black-bg)
 }
 
 .txt-center {
@@ -2607,8 +2596,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .header.is-hide {
-    opacity: 0;
-    visibility: hidden
+    opacity: 0
 }
 
 .header.on-scroll {
@@ -2629,8 +2617,16 @@ input:focus::placeholder,textarea:focus::placeholder {
     background: var(--black)
 }
 
+.header.is-light .header__nav--list a span:first-child {
+    color: var(--black-bg)
+}
+
 .header.is-light .header__feedback {
     border-color: var(--black-bg)
+}
+
+.header.is-light .header__feedback span {
+    color: var(--black-bg)
 }
 
 .header.is-light .header__logo--img {
@@ -2719,8 +2715,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     overflow: hidden;
     display: grid;
     padding: 9px 16px;
-    line-height: 111%;
-    letter-spacing: -.135rem
+    line-height: 111%
 }
 
 .header__nav--list>li>a>* {
@@ -2755,7 +2750,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     height: 30px;
     background: rgba(0,0,0,0);
     z-index: 4;
-    cursor: pointer;
     display: block
 }
 
@@ -2832,8 +2826,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     height: 100%;
     z-index: -1;
     transition: opacity .3s ease,visibility .3s ease;
-    opacity: 0;
-    visibility: hidden
+    opacity: 0
 }
 
 .index-hero__background.is-init {
@@ -2895,6 +2888,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .index-hero__title--word {
     display: inline-block;
+    color: var(--white);
     -webkit-transform: translate(0,.3ch);
     transform: translate(0,.3ch);
     margin: -1ch 0
@@ -2903,6 +2897,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 .index-hero__title--word .splide__slide {
     height: 1.6ch;
     padding-right: 15px;
+    white-space: nowrap;
     transition: opacity .5s ease;
     opacity: 0
 }

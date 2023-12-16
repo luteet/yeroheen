@@ -110,6 +110,7 @@
 			.splide__slide {
 				height: 1.6ch;
 				padding-right: 15px;
+				white-space: nowrap;
 
 				transition: opacity .5s ease;
 				opacity: 0;
