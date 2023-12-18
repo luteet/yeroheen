@@ -219,6 +219,7 @@ document.querySelectorAll('.index-hero__background').forEach(sliderElement => {
 
 document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 	const navList = sliderElement.closest('section').querySelector('.work-stages__list'),
+	navButtons = navList.querySelectorAll('button'),
 	number = sliderElement.querySelector('.work-stages__gallery--number');
 
 	const slider = new Splide(sliderElement, {
@@ -228,8 +229,11 @@ document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 		autoplay: "pause",
 		intersection: {
 			inView: {
-			  autoplay: true,
+				autoplay: true,
 			},
+			outView: {
+				autoplay: false,
+			}
 		},
 		arrows: false,
 		pagination: false,
@@ -241,11 +245,19 @@ document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 
 	});
 
-	setTimeout(() => {
+	/* setTimeout(() => {
 		slider.go('>');
-	},5000)
-
-	slider.on('mounted moved', function () {
+	},5000) */
+	slider.on( 'intersection:in', function ( entry ) {
+		clearInterval(progress);
+		let value = 0;
+		progress = setInterval(() => {
+			navButtons[slider.index].style.setProperty('--value', `${Math.min(100, value++)}%`);
+		},50)
+	});
+	
+	let progress;
+	slider.on('moved', function () {
 		//slider.go('>');
 		navList.querySelectorAll('button').forEach(button => {
 			button.classList.remove('is-active');
@@ -256,7 +268,32 @@ document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 
 		number.textContent = `${currentNumber} / ${length}`;
 
-		navList.querySelectorAll('button')[slider.index].classList.add('is-active');
+		navButtons[slider.index].classList.add('is-active');
+		clearInterval(progress);
+		let value = 0;
+		progress = setInterval(() => {
+			navButtons[slider.index].style.setProperty('--value', `${Math.min(100, value++)}%`);
+		},50)
+	})
+
+	slider.on('mounted', function () {
+		//slider.go('>');
+		navList.querySelectorAll('button').forEach(button => {
+			button.classList.remove('is-active');
+		})
+
+		let currentNumber = (slider.index >= 9) ? slider.index : '0' + (slider.index+1),
+		length = (slider.length >= 10) ? slider.length : '0' + slider.length;
+
+		number.textContent = `${currentNumber} / ${length}`;
+
+		setTimeout(() => {
+			navList.querySelectorAll('button')[slider.index].classList.add('is-active');
+			let value = 0;
+			progress = setInterval(() => {
+				navButtons[slider.index].style.setProperty('--value', `${Math.min(100, value++)}%`);
+			},50)
+		},4500)
 	})
 
 	navList.querySelectorAll('button').forEach((button, index) => {
@@ -272,7 +309,7 @@ document.querySelectorAll('.work-stages__gallery').forEach(sliderElement => {
 		
 	})
 
-	slider.mount();
+	slider.mount(window.splide.Extensions);
 
 })
 

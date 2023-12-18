@@ -138,8 +138,8 @@
 			}
 
 			&.is-active::after {
-				transition: width 4.8s linear;
-				width: 100%;
+				transition: width 0.05s linear;
+				width: var(--value,0%);
 			}
 			
 			span::before {
