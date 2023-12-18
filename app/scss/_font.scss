@@ -28,6 +28,11 @@
 		font-size: 5.75rem; // 92px
 		letter-spacing: -0.46rem;
 	}
+
+	@include _container {
+		font-size: 6.388889vw; // 92px
+		letter-spacing: -0.511111vw;
+	}
 }
 
 .title {
@@ -56,7 +61,7 @@
 
 	&.is-min {
 		font-size: 1.75rem; // 28px
-		line-height: 114.286%;
+		line-height: 134.286%;
 		letter-spacing: -0.105rem;
 	}
 	
@@ -86,6 +91,18 @@
 			letter-spacing: -0.22rem;
 		}
 	}
+
+	@include _container {
+		line-height: 107.576%;
+		letter-spacing: -0.366667vw;
+		font-size: 4.583333vw; // 66px
+
+		&.is-min {
+			font-size: 3.055556vw; // 44px
+			line-height: 118.182%;
+			letter-spacing: -0.244444vw;
+		}
+	}
 }
 
 
@@ -98,6 +115,10 @@
 	line-height: 123.077%;
 	letter-spacing: -0.0325rem;
 	text-transform: uppercase;
+
+	@include _container {
+		font-size: 0.902778vw;
+	}
 
 }
 

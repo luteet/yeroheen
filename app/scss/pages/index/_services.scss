@@ -7,6 +7,10 @@
 		padding-bottom: 1px;
 	}
 
+	@include _container {
+		padding-top: 17.361111vw;
+	}
+
 	padding-top: 150px;
 	
 	display: flex;
@@ -24,8 +28,11 @@
 
 	&__title {
 		text-align: center;
-
+		
 		max-width: 457px; margin: 10px auto 0;
+		@include _container {
+			max-width: 35vw; margin: 0.694444vw auto 0;
+		}
 	}
 
 	// .services__wrapper
@@ -36,8 +43,21 @@
 		@include _992 {
 			width: 100%;
 			overflow-x: hidden;
+
+			border-top: 1px solid var(--grey);
+			border-bottom: 1px solid var(--grey);
 		}
+
+		@include _container {
+			margin-top: 2.847222vw;
+		}
+
 		perspective: 300px;
+
+		@include _container {
+			border-top: 0.069444vw solid var(--grey);
+			border-bottom: 0.069444vw solid var(--grey);
+		}
 	}
 
 	// .services__list
@@ -47,6 +67,8 @@
 		display: flex;
 		backface-visibility: hidden;
 		counter-reset: service-card-number;
+
+		
 	}
 
 	// .services__card
@@ -58,18 +80,29 @@
 			min-width: max(33.333%, 489px); min-height: 308px;
 
 			&:last-child {
-				border-right: 0px;
+				border-right: 0;
 			}
 
 			&:first-child {
-				border-left: 0;
+				border-left: 1px solid var(--grey);
 			}
 		}
 
-		border: 1px solid var(--grey);
-		border-left: 0;
+		&:last-child {
+			border-right: 0;
+		}
+
+		@include _container {
+			min-height: 21.388889vw;
+			border-right: 0.069444vw solid var(--grey);
+			&:first-child {
+				border-left: 0.069444vw solid var(--grey);
+			}	
+		}
+
+		border-right: 1px solid var(--grey);
 		&:first-child {
-			border-left: 1px solid var(--grey);
+			border-left: 0;
 		}
 
 		display: flex;
@@ -123,6 +156,9 @@
 
 		&--body {
 			padding: 36px 26px;
+			@include _container {
+				padding: 2.5vw 1.805556vw;
+			}
 
 			flex: 1 1 auto;
 
@@ -165,6 +201,11 @@
 				font-size: 1.75rem;
 				letter-spacing: -0.105rem;
 			}
+
+			@include _container {
+				font-size: 1.944444vw;
+				letter-spacing: -0.116667vw;
+			}
 		}
 
 		// .services__card--text
@@ -180,6 +221,12 @@
 			letter-spacing: -0.04rem;
 
 			max-width: 382px;
+
+			@include _container {
+				max-width: 26.527778vw;
+				padding-top: 0.972222vw;
+				font-size: 1.111111vw;
+			}
 		}
 
 		// .services__card--open
@@ -214,22 +261,41 @@
 
 				transition: transform .2s ease;
 			}
+
+			@include _container {
+				letter-spacing: -0.044444vw;
+				margin-top: 2.083333vw;
+				padding: 0.347222vw 0;
+				font-size: 1.1111vw;
+
+				svg {
+					flex: 0 0 0.555556vw; width: 0.555556vw; height: auto;
+					margin-left: 0.694444vw;
+				}
+			}
 		}
 	}
 
 	&__slider {
 		padding-right: 40px;
+		
+		border-top: 1px solid var(--grey);
+		border-bottom: 1px solid var(--grey);
+
 		&--track {
 			&.splide__track {
 				overflow: visible;
+				
 			}
 		}
 		&--list {
 			counter-reset: service-card-number;
+			
 		}
 		&--pagination {
-			position: static;
-			
+			position: absolute;
+			left: 50%; top: 100%;
+			transform: translate(-50%,100%);
 		}
 	}
 

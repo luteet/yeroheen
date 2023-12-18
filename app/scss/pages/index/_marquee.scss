@@ -7,10 +7,18 @@
 		margin-top: 125px;
 	}
 
+	@include _container {
+		padding-top: 8.680556vw; padding-bottom: 7.638889vw;
+		margin-top: 8.680556vw;
+	}
+
 	// .marquee__slider
 
 	&__slider {
 		height: 70px;
+		@include _container {
+			height: 4.861111vw;
+		}
 	}
 
 	// .marquee__element

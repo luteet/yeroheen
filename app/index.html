@@ -1,10 +1,6 @@
 @@include("html/_header.html")
 
 	<main class="main">
-		<a href="#" class="start-button btn-2" aria-label="Start a project">
-			<span>Start a project</span>
-			<span>Start a project</span>
-		</a>
 		<section class="index-hero container">
 			<div class="index-hero__background splide">
 				<div class="index-hero__background--track splide__track">
@@ -83,8 +79,8 @@
 			</div>
 		</section>
 		<section class="our-work container" data-change-theme-to="#FFF" data-change-theme-is="light">
-			<h2 class="our-work__title section-title" data-animation="fade-in">
-				Our work
+			<h2 class="our-work__title section-title">
+				<div data-animation="fade-up" data-animation-delay="0.5">Our work</div>
 			</h2>
 			<div class="our-work__text" data-animation="fade-in" data-animation-delay="0.2">
 				<p>
@@ -260,11 +256,11 @@
 				<h2 class="services__section-name section-name">
 					Comprehensive Event Services:
 				</h2>
-				<h3 class="services__title section-title is-min">
+				<h3 class="services__title section-title is-min" data-animation="split-fade-up" data-animation-delay="0.4">
 					From Creative Concepts to Hi-End Technology
 				</h3>
 			</div>
-			<div class="services__wrapper">
+			<div class="services__wrapper" data-animation="fade-in" data-animation-delay="0.6">
 				<ul class="services__list visible-on-desktop">
 					@@loop("html/_service-card.html", [
 						{"class": ""},
@@ -302,7 +298,7 @@
 					<h2 class="work-stages__name section-name">
 						Work stages
 					</h2>
-					<h3 class="work-stages__title section-title is-min">
+					<h3 class="work-stages__title section-title is-min" data-animation="split-fade-up" data-animation-delay="0.6" data-animation-anchor=".work-stages">
 						All services involve the same 
 						<b>stages</b>
 					</h3>

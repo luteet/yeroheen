@@ -16,6 +16,9 @@
 
 	&__section-name {
 		max-width: 233px;
+		@include _container {
+			max-width: 16.180556vw;
+		}
 		grid-column: 1; grid-row: 1;
 	}
 
@@ -36,6 +39,12 @@
 		letter-spacing: -0.04rem;
 
 		max-width: 233px;
+
+		@include _container {
+			max-width: 16.180556vw;
+			font-size: 1.111111vw;
+			letter-spacing: -0.044444vw;
+		}
 	}
 
 	// .about-us__text
@@ -48,6 +57,10 @@
 		}
 
 		max-width: 766px;
+
+		@include _container {
+			max-width: 53.194444vw;
+		}
 
 		color: var(--white);
 		.char {
@@ -69,6 +82,11 @@
 			font-size: 2.75rem;
 			letter-spacing: -0.22rem;
 			line-height: 118.182%;
+		}
+
+		@include _container {
+			font-size: 3.055556vw;
+			letter-spacing: -0.244444vw;
 		}
 	}
 

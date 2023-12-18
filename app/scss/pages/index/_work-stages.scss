@@ -4,11 +4,16 @@
 	flex-direction: column;
 	gap: 20px;
 
-	padding-top: 150px;
+	margin-top: 150px;
 
 	@include _992 {
 		flex-direction: row;
-		padding-top: 310px;
+		margin-top: 310px;
+	}
+
+	@include _container {
+		margin-top: 21.527778vw;
+		gap: 1.388889vw;
 	}
 
 	// .work-stages__col
@@ -41,6 +46,10 @@
 			max-width: 340px;
 			margin: 0;
 		}
+
+		@include _container {
+			max-width: 23.611111vw;
+		}
 	}
 
 	// .work-stages__name
@@ -53,6 +62,9 @@
 
 	&__title {
 		margin-top: 10px;
+		@include _container {
+			margin-top: 0.694444vw;
+		}
 
 		color: var(--grey-headings);
 		b {
@@ -72,6 +84,10 @@
 		counter-reset: work-stages-number;
 
 		max-width: 325px;
+		@include _container {
+			max-width: 22.569444vw;
+			margin-top: 2.083333vw;
+		}
 
 		li:nth-child(-n + 9) button span::before {
 			content: "0"counter(work-stages-number)"/";
@@ -157,6 +173,28 @@
 
 				transition: color .3s ease;
 			
+			}
+
+			@include _container {
+
+				padding: 0.972222vw 2.222222vw 0.972222vw 0;
+				font-size: 1.388889vw;
+				letter-spacing: -0.055556vw;
+
+				&::before {
+					width: 100%; height: 0.138889vw;
+				}
+	
+				&::after {
+					height: 0.138889vw;
+				}
+
+				span::before {
+					padding-right: 1.25vw;
+					font-size: 0.902778vw;
+					letter-spacing: -0.036111vw;
+				
+				}
 			}
 			
 		}
@@ -260,7 +298,7 @@
 			counter-increment: work-stages-number;
 			content: "0"counter(work-stages-number)"/";
 
-			color: var(--black);
+			color: var(--theme-color-1);
 			font-size: 0.8125rem;
 			font-weight: 600;
 			line-height: 123.077%;
@@ -287,13 +325,13 @@
 			display: flex;
 			align-items: center;
 
-			color: var(--black);
+			color: var(--theme-color-1);
 			font-size: 1.25rem;
 			font-weight: 500;
 			line-height: 130%;
 			letter-spacing: -0.05rem;
 
-			border-bottom: 1px solid var(--black);
+			border-bottom: 1px solid var(--theme-color-1);
 		}
 
 		&--pagination {

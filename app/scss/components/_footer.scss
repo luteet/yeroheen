@@ -16,6 +16,12 @@
 		gap: 20px;
 	}
 
+	@include _container {
+		padding-top: 4.166667vw; padding-bottom: 1.111111vw;
+
+		gap: 1.388889vw;
+	}
+
 	// .footer__nav
 
 	&__nav {
@@ -24,6 +30,8 @@
 			grid-column: 2; grid-row: 2;
 			margin-top: 0;
 		}
+
+		
 
 		ul {
 			display: grid;
@@ -52,8 +60,15 @@
 				padding: 0 9px;
 			}
 
+			@include _container {
+				font-size: 1.111111vw;
+				padding: 0 0.625vw;
+				letter-spacing: -0.044444vw;
+			}
+
 			display: grid;
 			overflow: hidden;
+
 			> * {
 				grid-area: 1/1;
 
@@ -91,6 +106,11 @@
 				position: absolute;
 				left: 9px; bottom: 0;
 				width: calc(100% - 9px - 9px); height: 1px;
+				@include _container {
+					left: 0.625vw; bottom: 0;
+					width: calc(100% - 0.625vw - 0.625vw); height: 0.069444vw;
+				}
+
 				background: var(--white);
 				opacity: 0;
 			}
@@ -107,6 +127,9 @@
 
 	&__contacts {
 		margin-top: 80px;
+		@include _container {
+			margin-top: 5.555556vw;
+		}
 
 		grid-column: 2 span;
 	}
@@ -129,6 +152,9 @@
 		// .footer__logo--img
 
 		&--img {
+			@include _container {
+				min-width: 8.611111vw; height: auto;
+			}
 		}
 	}
 
@@ -148,6 +174,11 @@
 		line-height: 123.077%;
 		letter-spacing: -0.0325rem;
 		text-transform: uppercase;
+
+		@include _container {
+			font-size: 0.902778vw;
+			letter-spacing: -0.036111vw;
+		}
 	}
 
 	// .footer__privacy
@@ -155,6 +186,7 @@
 	&__privacy {
 		grid-column: 2 span;
 		margin-top: 16px;
+
 		@include _992 {
 			margin-top: 0;
 			grid-column: 3; grid-row: 2;
@@ -167,6 +199,11 @@
 			line-height: 123.077%;
 			letter-spacing: -0.0325rem;
 			text-transform: uppercase;
+
+			@include _container {
+				font-size: 0.902778vw;
+				letter-spacing: -0.036111vw;
+			}
 
 			@media (any-hover: hover) {
 				transition: color .15s ease;

@@ -8,6 +8,14 @@
 		padding-top: 140px;
 	}
 
+	@include _container {
+		gap: 0 1.388889vw;
+
+		padding-top: 9.722222vw;
+	}
+
+	
+
 	// .contacts__col
 
 	&__col {
@@ -22,6 +30,9 @@
 
 	&__name {
 		margin-bottom: 16px;
+		@include _container {
+			margin-bottom: 1.111111vw;
+		}
 		color: var(--grey-text);
 	}
 
@@ -32,9 +43,15 @@
 		flex-direction: column;
 
 		gap: 10px;
+		@include _992 {
+			gap: 0.694444vw;
+		}
 
 		a {
 			color: var(--white);
+			@include _container {
+				font-size: 1.1111vw;
+			}
 		}
 	}
 
@@ -48,10 +65,19 @@
 
 		gap: 6px;
 
+		@include _container {
+			margin-top: 0.694444vw;
+			gap: 0.416667vw;
+		}
+
 		a {
 			width: 48px; height: 49px;
 			@include _992 {
 				width: 28px; height: 28px;
+			}
+
+			@include _container {
+				width: 1.944444vw; height: 1.944444vw;
 			}
 
 			svg {
@@ -61,6 +87,7 @@
 				align-self: center; justify-self: center;
 
 				transition: transform .3s ease;
+
 				&:nth-child(2) {
 					transform: translate(0,100%) scale(1.1);
 				}
@@ -75,6 +102,9 @@
 			color: var(--black);
 
 			padding-top: 2px;
+			@include _container {
+				padding-top: 0.138889vw;
+			}
 
 			@media (any-hover: hover) {
 				&:hover > * {
@@ -95,6 +125,9 @@
 	&__offices {
 
 		margin-top: 40px;
+		@include _container {
+			margin-top: 2.777778vw;
+		}
 
 		// .contacts__offices--list
 
@@ -107,18 +140,28 @@
 
 			gap: 20px;
 
+			color: var(--white);
+			line-height: 137.5%;
+			letter-spacing: -0.04rem;
 			font-size: 0.9375rem;
 			@include _992 {
 				font-size: 1rem;
 			}
-			color: var(--white);
-			line-height: 137.5%;
-			letter-spacing: -0.04rem;
+
+			@include _container {
+				font-size: 1.111111vw;
+				gap: 1.388889vw;
+			}
 
 			a {
 				margin-top: 7px;
 				display: inline-grid;
 				overflow: hidden;
+
+				@include _container {
+					margin-top: 0.486111vw;
+				}
+
 				> * {
 					display: block;
 					grid-area: 1/1;
@@ -164,10 +207,13 @@
 			grid-template-columns: 1fr 1fr;
 			gap: 40px 20px;
 		}
+
+		@include _container {
+			margin-top: 2.777778vw;
+			gap: 2.777778vw 1.388889vw;
+		}
 		
 		position: relative;
-
-		
 
 		label {
 			display: flex;
@@ -188,6 +234,10 @@
 				width: 14px; height: 14px;
 				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='14' height='14' rx='7' fill='white'/%3E%3Cpath d='M3.95312 6.87201L6.06196 9.17578L10.0453 4.82422' stroke='%23171718'/%3E%3C/svg%3E%0A")
 				center / contain no-repeat;
+				@include _container {
+					top: 1.041667vw;
+					width: 0.972222vw; height: 0.972222vw;
+				}
 			}
 
 			&.is-error::after {
@@ -197,6 +247,10 @@
 				width: 14px; height: 14px;
 				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='14' height='14' rx='7' fill='%23EA2525'/%3E%3Cpath d='M4.5 4.5L9.42611 9.5M4.57389 9.5L9.5 4.5' stroke='white'/%3E%3C/svg%3E%0A")
 				center / contain no-repeat;
+				@include _container {
+					top: 1.041667vw;
+					width: 0.972222vw; height: 0.972222vw;
+				}
 			}
 
 			&.is-error::before {
@@ -209,12 +263,21 @@
 				font-weight: 500;
 				line-height: 138.298%;
 				letter-spacing: -0.0138rem;
+
+				@include _container {
+					font-size: 0.694444vw;
+					top: calc(100% + 0.138889vw);
+				}
 			}
 
 			textarea {
-				//min-height: 120px;
-				height: 41px;
 				overflow-y: hidden;
+
+				height: 41px;
+				@include _container {
+					height: 2.847222vw;
+					font-size: 1.1111vw;
+				}
 			}
 
 			@media (any-hover: hover) {
@@ -245,7 +308,12 @@
 				transition: border-color .3s ease;
 
 				border-bottom: 1px solid var(--grey-text);
-				
+				@include _container {
+					letter-spacing: -0.044444vw;
+					font-size: 1.1111vw;
+					padding: 0.694444vw 1.388889vw 0.694444vw 0;
+					border-bottom: 0.069444vw solid var(--grey-text);
+				}
 			}
 
 			input:focus + span, input:not(:placeholder-shown) + span {
@@ -259,6 +327,18 @@
 				font-size: 0.625rem;
 			}
 
+			@include _container {
+				input:focus + span, input:not(:placeholder-shown) + span {
+					top: -0.694444vw;
+					font-size: 0.694444vw;
+				}
+	
+				textarea:focus + span, textarea:not(:placeholder-shown) + span {
+					top: -0.694444vw;
+					font-size: 0.694444vw;
+				}
+			}
+
 			> span {
 				position: absolute;
 				left: 0; top: 10px;
@@ -269,6 +349,12 @@
 				letter-spacing: -0.04rem;
 
 				pointer-events: none; user-select: none;
+
+				@include _container {
+					top: 0.694444vw;
+					letter-spacing: -0.044444vw;
+					font-size: 1.1111vw;
+				}
 
 				span {
 					color: var(--grey-text);
@@ -287,11 +373,19 @@
 			&.tel-input-label.is-active > span {
 				top: -10px;
 				font-size: 0.625rem;
+				@include _container {
+					top: -0.694444vw;
+					font-size: 0.694444vw;
+				}
+
 				color: var(--grey-text);
 			}
 
 			&.tel-input-label > span {
 				left: 50px;
+				@include _container {
+					left: 50px;
+				}
 			}
 		}
 

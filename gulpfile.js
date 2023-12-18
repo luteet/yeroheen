@@ -103,6 +103,7 @@ function scriptsLib() {
 		'node_modules/split-type/umd/index.min.js',
 		'node_modules/gsap/dist/gsap.min.js', // GSAP (Animation) | npm i gsap --save-dev | https://www.npmjs.com/package/gsap
 		'node_modules/gsap/dist/ScrollTrigger.min.js', // GSAP (Animation) | npm i gsap --save-dev | https://www.npmjs.com/package/gsap
+		'app/js/smoothscroll.js',
 		'node_modules/intl-tel-input/build/js/utils.js',
 		'node_modules/intl-tel-input/build/js/data.min.js',
 		'node_modules/intl-tel-input/build/js/intlTelInput.min.js',
