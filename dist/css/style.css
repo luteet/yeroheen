@@ -4676,6 +4676,10 @@ input:focus::placeholder,textarea:focus::placeholder {
         transition: border-color .3s ease
     }
 
+    .start-button,.start-button.is-reverse-theme {
+        transition: background .3s ease
+    }
+
     .btn:hover {
         border-color: var(--white)
     }
@@ -4712,6 +4716,22 @@ input:focus::placeholder,textarea:focus::placeholder {
         border-color: var(--grey)
     }
 
+    .start-button:hover {
+        background: var(--grey-headings)
+    }
+
+    .start-button:active {
+        background: var(--grey)
+    }
+
+    .start-button.is-reverse-theme:hover {
+        background: var(--grey-text)
+    }
+
+    .start-button.is-reverse-theme:active,.tel-input-label .iti__country:hover {
+        background: var(--black-hover)
+    }
+
     .link:hover span {
         -webkit-transform: translate(28px,0);
         transform: translate(28px,0)
@@ -4720,10 +4740,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     .link:hover svg:nth-child(1),.link:hover svg:nth-child(3) {
         -webkit-transform: translate(100%,0);
         transform: translate(100%,0)
-    }
-
-    .tel-input-label .iti__country:hover {
-        background: var(--black-hover)
     }
 
     .header.is-light .header__feedback:hover {

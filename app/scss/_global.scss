@@ -278,18 +278,31 @@ section {
 	background: var(--white);
 	color: var(--black);
 
-	/* animation: zoomIn 2.5s ease 0s infinite normal both;
 	@media (any-hover: hover) {
-		//transition: transform .3s ease;
+		transition: background .3s ease;
 		&:hover {
-			animation-play-state: paused;
+			background: var(--grey-headings);
 		}
-	} */
+
+		&:active {
+			background: var(--grey);
+		}
+	}
 
 	&.is-reverse-theme {
 		background: var(--black);
 		color: var(--white);
 		border-color: rgba(255, 255, 255, 0.10);
+		@media (any-hover: hover) {
+			transition: background .3s ease;
+			&:hover {
+				background: var(--grey-text);
+			}
+
+			&:active {
+				background: var(--black-hover);
+			}
+		}
 	}
 
 	&.is-hidden {
