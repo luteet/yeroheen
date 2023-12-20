@@ -141,15 +141,15 @@
 				position: absolute;
 				left: 0; bottom: 0;
 				width: 0; height: 2px;
-				background: var(--theme-color-2);
+				background: var(--theme-color-1);
 
-				transition: width .2s ease;
+				transition: width .2s ease, background .2s ease;
 			}
 
 			&.is-active {
-				color: var(--theme-color-2);
+				color: var(--theme-color-1);
 				span::before {
-					color: var(--theme-color-2);
+					color: var(--theme-color-1);
 				}
 			}
 
@@ -262,7 +262,10 @@
 			font-weight: 500;
 			line-height: 137.5%;
 			letter-spacing: -0.04rem;
-
+			@include _container {
+				font-size: 1.1111vw;
+				letter-spacing: -0.044444vw;
+			}
 			//text-shadow: 0 1px 5px var(--black), 0 -1px 5px var(--black);
 		}
 	}

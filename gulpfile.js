@@ -106,7 +106,8 @@ function scriptsLib() {
 		'app/js/smoothscroll.js',
 		'node_modules/intl-tel-input/build/js/utils.js',
 		'node_modules/intl-tel-input/build/js/data.min.js',
-		'node_modules/intl-tel-input/build/js/intlTelInput.min.js',
+		'node_modules/@studio-freight/lenis/bundled/lenis.min.js',
+		//'app/js/intlTelInput.js',
 		//'node_modules/split-type/umd/index.min.js', // split text | npm i split-type --save-dev | https://www.npmjs.com/package/split-type
 		//'app/js/ScrollSmoother.min.js', // GSAP
 		//'node_modules/slim-select/dist/slimselect.min.js', // Select | npm i slim-select --save-dev | https://www.npmjs.com/package/slim-select
@@ -190,7 +191,7 @@ function stylesLib() {
 	return src([
 		'node_modules/normalize.css/normalize.css',
 		'node_modules/@splidejs/splide/dist/css/splide.min.css', // Слайдер
-		'node_modules/intl-tel-input/build/css/intlTelInput.min.css',
+		//'node_modules/intl-tel-input/build/css/intlTelInput.min.css',
 		//'node_modules/@splidejs/splide/dist/css/splide-core.min.css', // Слайдер
 		//'node_modules/swiper/swiper-bundle.min.css', // Слайдер
 		//'node_modules/slim-select/dist/slimselect.css', // Select

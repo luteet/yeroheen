@@ -8,7 +8,7 @@ const
 	header = document.querySelector('.header');
 
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger/* , ScrollSmoother */);
 
 
 // =-=-=-=-=-=-=-=-=-=- <image-aspect-ratio> -=-=-=-=-=-=-=-=-=-=-
@@ -111,6 +111,8 @@ let workStagesGallery = [];
 
 const telLabels = document.querySelectorAll('.tel-input-label');
 
+let forms = document.querySelectorAll('form');
+
 function resize() {
 
 	windowSize = window.innerWidth;
@@ -126,6 +128,9 @@ function resize() {
 	}
 	
 	windowSize = window.innerWidth;
+	forms.forEach(form => {
+		form.style.setProperty('--width-form', form.offsetWidth + 'px');
+	})
 
 	/* resizeCheckFunc(992,
 	function () {  // screen > 992px
@@ -435,8 +440,8 @@ let scrollButtonCheck = false, headerOnTop = false, scrollSmoother;
 const smoothContent = document.querySelector('#smooth-content');
 
 function scroll() {
-	if(windowSize <= 992 && !scrollSmoother) {
-		let y = Math.abs(smoothContent.getBoundingClientRect().top)
+	if(windowSize <= 992) {
+		let y = Math.abs(wrapper.getBoundingClientRect().top)
 		if(y > 100 && !headerOnTop) {
 			headerOnTop = true;
 			header.classList.add('on-scroll');
@@ -445,13 +450,13 @@ function scroll() {
 			header.classList.remove('on-scroll');
 		}
 
-		//console.log(window.scrollY + body.offsetHeight + ' ' + wrapper.offsetHeight);
-		if(window.scrollY + body.offsetHeight > wrapper.offsetHeight - 300 && !scrollButtonCheck) {
+		//console.log(window.scrollY + window.innerHeight + ' ' + wrapper.offsetHeight);
+		if(window.scrollY + window.innerHeight > wrapper.offsetHeight - 300 && !scrollButtonCheck) {
 			scrollButtonCheck = true;
 			startButtons.forEach(button => {
 				button.classList.add('is-hidden');
 			})
-		}  else if(window.scrollY + body.offsetHeight < wrapper.offsetHeight - 300 && scrollButtonCheck) {
+		}  else if(window.scrollY + window.innerHeight < wrapper.offsetHeight - 300 && scrollButtonCheck) {
 			scrollButtonCheck = false;
 			startButtons.forEach(button => {
 				button.classList.remove('is-hidden');
@@ -573,7 +578,7 @@ document.querySelectorAll('.split-text').forEach(splitText => {
 const animMedia = gsap.matchMedia();
 	
 animMedia.add("(min-width: 992px)", () => {
-	scrollSmoother = ScrollSmoother.create({
+	/* scrollSmoother = ScrollSmoother.create({
 		smooth: 1,
 		effects: true,
 		onUpdate: function () {
@@ -600,7 +605,47 @@ animMedia.add("(min-width: 992px)", () => {
 				}
 			}
 		}
-	});
+	}); */
+
+	const lenis = new Lenis();
+	
+	lenis.on('scroll', (event) => {
+
+		let y = event.animatedScroll;
+		if(y > 100 && !headerOnTop) {
+			headerOnTop = true;
+			header.classList.add('on-scroll');
+		} else if(y <= 100 && headerOnTop) {
+			headerOnTop = false;
+			header.classList.remove('on-scroll');
+		}
+
+		//console.log(y + window.innerHeight + ' ' + (wrapper.offsetHeight - 300))
+
+		if(y + window.innerHeight > wrapper.offsetHeight - 300 && !scrollButtonCheck) {
+			scrollButtonCheck = true;
+			startButtons.forEach(button => {
+				button.classList.add('is-hidden');
+			})
+		}  else if(y + window.innerHeight < wrapper.offsetHeight - 300 && scrollButtonCheck) {
+			scrollButtonCheck = false;
+			startButtons.forEach(button => {
+				button.classList.remove('is-hidden');
+			})
+		}
+	})
+
+	function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf);
+	/* setTimeout(() => {
+		lenis.scrollTo(0, {
+			immediate: false,
+		})
+	},50) */
 
 	document.querySelectorAll('.services__wrapper').forEach(wrapper => {
 
@@ -619,13 +664,19 @@ animMedia.add("(min-width: 992px)", () => {
 				trigger: wrapper.closest('section'),
 				scrub: true,
 				pin: true,
-				start: `${wrapper.closest('section').offsetHeight + 100} bottom`,
+				start: `center center`,
 				end: `${height} center`,
 			},
 			
 		})
 	})
 })
+
+/* animMedia.add("(max-width: 991px)", () => {
+	setTimeout(() => {
+		window.scrollTo({left: 0, top: 0, behavior: "instant"})
+	},500)
+}) */
 
 const animElements = document.querySelectorAll('[data-animation]');
 animElements.forEach(element => {
@@ -703,48 +754,58 @@ document.querySelectorAll('.video').forEach(video => {
 	})
 })
 
-Object.keys(document.querySelectorAll('[data-change-theme-to]')).reverse().forEach(index => {
-	let changeTheme = false, section = document.querySelectorAll('[data-change-theme-to]')[index];
+let firstStart = true, firstStart2 = true,
+timelineList = [];
+
+document.querySelectorAll('[data-change-theme-to]').forEach((el,index) => {
 	
-	let timeline = gsap.timeline();
+	let changeTheme = false, 
+	section = document.querySelectorAll('[data-change-theme-to]')[index],
+	prevSection = index-1 != -1 ? document.querySelectorAll('[data-change-theme-to]')[index-1] : false;
+	timeline = gsap.timeline(),
+	timelineList.push(timeline);
+
+	//console.log(index-1)
+
 	timeline.from(body, {
 		background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
 	})
 
-	/* gsap.set(body, {
-		'--theme-color-1': '#171718',
-	})
-
-	timeline.to(body, {
-		background: section.dataset.changeThemeTo,
-		'--theme-color-1': '#fff',
-	}) */
-
 	if(section.dataset.changeThemeIs == "light") {
-		gsap.set(body, {
+		/* gsap.set(body, {
+			'--theme-color-1': '#fff',
+			'--theme-color-1-reverse': '#171718',
+		}) */
+
+		timelineList[index].from(body, {
 			'--theme-color-1': '#fff',
 			'--theme-color-1-reverse': '#171718',
 		})
 	
-		timeline.to(body, {
+		timelineList[index].to(body, {
 			background: section.dataset.changeThemeTo,
 			'--theme-color-1': '#171718',
 			'--theme-color-1-reverse': '#fff',
 		})
 	} else {
-		gsap.set(body, {
+		/* gsap.set(body, {
+			'--theme-color-1': '#171718',
+			'--theme-color-1-reverse': '#fff',
+		}) */
+		timelineList[index].from(body, {
 			'--theme-color-1': '#171718',
 			'--theme-color-1-reverse': '#fff',
 		})
 	
-		timeline.to(body, {
+		timelineList[index].to(body, {
 			background: section.dataset.changeThemeTo,
 			'--theme-color-1': '#fff',
 			'--theme-color-1-reverse': '#171718',
 		})
+		
 	}
 
-	timeline.pause();
+	timelineList[index].pause();
 
 	let start, end;
 	if(section.hasAttribute('data-change-theme-on-top')) {
@@ -756,99 +817,144 @@ Object.keys(document.querySelectorAll('[data-change-theme-to]')).reverse().forEa
 	}
 
 	ScrollTrigger.create({
+
 		trigger: section,
 		scrub: true,
 		//markers: (index == 1) ? true : false,
 		start: start,
 		end: end,
+		
 		onUpdate: (self) => {
-			//console.log(self.progress)
-			timeline.progress(self.progress);
-			/* if(section.dataset.changeThemeIs == "light") {
-				themeTimeline.progress(self.progress);
-			} else {
-				themeTimeline.progress(1 - self.progress);
-			} */
-
-			if(self.progress >= 0.3 && !changeTheme) {
+			
+			if(!firstStart) {
 				
-				changeTheme = true;
-				if(section.dataset.changeThemeIs == "light") {
-					header.classList.add('is-light');
-					html.style.setProperty('--theme-color-2', '#171718');
-					document.querySelectorAll('.start-button').forEach(startButton => {
-						startButton.classList.add('is-reverse-theme');
-					})
-				} else {
-					header.classList.remove('is-light');
-					html.style.setProperty('--theme-color-2', '#FFF');
-					document.querySelectorAll('.start-button').forEach(startButton => {
-						startButton.classList.remove('is-reverse-theme');
-					})
-				}
-				
-			} else if(self.progress < 0.3 && changeTheme) {
-				changeTheme = false;
-				if(section.dataset.changeThemeIs == "light") {
-					header.classList.remove('is-light');
-					html.style.setProperty('--theme-color-2', '#FFF');
-					document.querySelectorAll('.start-button').forEach(startButton => {
-						startButton.classList.remove('is-reverse-theme');
-					})
-				} else {
-					header.classList.add('is-light');
-					html.style.setProperty('--theme-color-2', '#171718');
-					document.querySelectorAll('.start-button').forEach(startButton => {
-						startButton.classList.add('is-reverse-theme');
-					})
-				}
-			}
-		}
-		//onUpdate: ({progress}) => timeline.progress() < progress ? timeline.progress(progress) : null
-	});
-
-	
-
-	/* gsap.to(body, {
-		background: section.dataset.changeThemeTo,
-		scrollTrigger: {
-			trigger: section,
-			scrub: true,
-			markers: (index == 1) ? true : false,
-			start: `+200 bottom`,
-			end: `+500 bottom`,
-			onUpdate: (self) => {
-				console.log(self.progress)
-				if(self.progress >= 0.3 && !changeTheme) {
+				//timeline.progress(self.progress);
 					
+				if(self.progress >= 0.3 && !changeTheme) {
+					/* timelineList[index].progress(0);
+					timelineList[index].play(); */
+
 					changeTheme = true;
 					if(section.dataset.changeThemeIs == "light") {
+						/* gsap.from(body, {
+							'--theme-color-1': 'rgb(255,255,255)',
+							'--theme-color-1-reverse': '#171718',
+						}) */
+					
+						gsap.set(body, {
+							background: section.dataset.changeThemeTo,
+							'--theme-color-1': '#171718',
+							'--theme-color-1-reverse': 'rgb(255,255,255)',
+						})
+						header.classList.add('is-light');
+						html.style.setProperty('--theme-color-2', '#171718');
 						document.querySelectorAll('.start-button').forEach(startButton => {
 							startButton.classList.add('is-reverse-theme');
 						})
 					} else {
+						/* gsap.from(body, {
+							'--theme-color-1': '#171718',
+							'--theme-color-1-reverse': 'rgb(255,255,255)',
+						}) */
+					
+						gsap.set(body, {
+							background: section.dataset.changeThemeTo,
+							'--theme-color-1': 'rgb(255,255,255)',
+							'--theme-color-1-reverse': '#171718',
+						})
+						//timeline.progress(self.progress);
+						header.classList.remove('is-light');
+						html.style.setProperty('--theme-color-2', '#FFF');
 						document.querySelectorAll('.start-button').forEach(startButton => {
 							startButton.classList.remove('is-reverse-theme');
 						})
 					}
 					
 				} else if(self.progress < 0.3 && changeTheme) {
+
 					changeTheme = false;
-					if(section.dataset.changeThemeIs == "light") {
-						document.querySelectorAll('.start-button').forEach(startButton => {
-							startButton.classList.remove('is-reverse-theme');
-						})
+					//console.log(prevSection)
+					
+					if(prevSection) {
+						if(prevSection.dataset.changeThemeIs == "light") {
+
+						
+							/* gsap.from(body, {
+								'--theme-color-1': '#171718',
+								'--theme-color-1-reverse': '#fff',
+							}) */
+						
+							gsap.set(body, {
+								background:(index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
+								'--theme-color-1': '#171718',
+								'--theme-color-1-reverse': '#fff',
+							})
+	
+							if(index-1 == -1) header.classList.remove('is-light'); else header.classList.add('is-light');
+							html.style.setProperty('--theme-color-2', '#FFF');
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.remove('is-reverse-theme');
+							})
+						} else {
+	
+							
+							/* gsap.from(body, {
+								'--theme-color-1': '#fff',
+								'--theme-color-1-reverse': '#171718',
+							}) */
+						
+							
+							gsap.set(body, {
+								background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
+								'--theme-color-1': '#fff',
+								'--theme-color-1-reverse': '#171718',
+							})
+	
+							
+							if(index-1 == -1) header.classList.add('is-light'); else header.classList.remove('is-light');
+							html.style.setProperty('--theme-color-2', '#171718');
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.add('is-reverse-theme');
+							})
+						}
 					} else {
+
+						gsap.set(body, {
+							background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
+							'--theme-color-1': '#fff',
+							'--theme-color-1-reverse': '#171718',
+						})
+
+						
+						header.classList.remove('is-light');
+						html.style.setProperty('--theme-color-2', '#171718');
 						document.querySelectorAll('.start-button').forEach(startButton => {
 							startButton.classList.add('is-reverse-theme');
 						})
 					}
+					
+
 				}
+
 			}
-		},
+			
+		}
+		//onUpdate: ({progress}) => timeline.progress() < progress ? timeline.progress(progress) : null
+	});
+
+	if(firstStart && index == document.querySelectorAll('[data-change-theme-to]').length-1) {
 		
-	}) */
+		gsap.set(body, {
+			background: '#0B0B0C',
+			'--theme-color-1': '#fff',
+			'--theme-color-1-reverse': '#171718',
+		})
+	}
+	
+
 })
+
+firstStart = false
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </animation> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -869,24 +975,28 @@ function validateName(name) {
 document.querySelectorAll('.form input').forEach(input => {
 	if(input.name == "first-name" || input.name == "last-name" && input.type == "text") {
 		input.addEventListener('blur', function (event) {
-			if(!validateName(input.value)) {
-				input.closest('label').classList.remove('is-error');
-				if(input.value != "") input.closest('label').classList.add('is-valid');
-			} else {
-				input.closest('label').classList.add('is-error');
-				input.closest('label').classList.remove('is-valid');
+			if(input.value) {
+				if(!validateName(input.value)) {
+					input.closest('label').classList.remove('is-error');
+					if(input.value != "") input.closest('label').classList.add('is-valid');
+				} else {
+					input.closest('label').classList.add('is-error');
+					input.closest('label').classList.remove('is-valid');
+				}
 			}
 		})
 	}
 
 	if(input.type == "email") {
 		input.addEventListener('blur', function (event) {
-			if(validateEmail(input.value)) {
-				input.closest('label').classList.remove('is-error');
-				if(input.value != "") input.closest('label').classList.add('is-valid');
-			} else {
-				input.closest('label').classList.add('is-error');
-				input.closest('label').classList.remove('is-valid');
+			if(input.value) {
+				if(validateEmail(input.value)) {
+					input.closest('label').classList.remove('is-error');
+					if(input.value != "") input.closest('label').classList.add('is-valid');
+				} else {
+					input.closest('label').classList.add('is-error');
+					input.closest('label').classList.remove('is-valid');
+				}
 			}
 		})
 	}
@@ -901,7 +1011,17 @@ document.querySelectorAll('.form').forEach(form => {
 document.querySelectorAll('.form textarea').forEach(textarea => {
 
 	textarea.addEventListener('input', function (event) {
-		textarea.style.height = textarea.scrollHeight + 'px';
+		textarea.parentElement.dataset.value = textarea.value;
+	})
+
+	textarea.addEventListener('blur', function (event) {
+		if(scrollSmoother) {
+			scrollSmoother.paused(true);
+			setTimeout(() => {
+				scrollSmoother.scrollTrigger.refresh();
+				scrollSmoother.paused(false);
+			},100)
+		}
 	})
 	
 	textarea.addEventListener('blur', function (event) {
@@ -916,10 +1036,9 @@ document.querySelectorAll('.form textarea').forEach(textarea => {
 
 document.querySelectorAll('.tel-input').forEach(telInput => {
 	const intl = window.intlTelInput(telInput, {
-		utilsScript: "libs.min.js",
+		utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.0.3/js/utils.js",
 		initialCountry: "auto",
 		useFullscreenPopup: false,
-		//autoInsertDialCode: true,
 		geoIpLookup: function(callback) {
 			fetch("https://ipapi.co/json")
 			.then(function(res) { return res.json(); })
@@ -927,6 +1046,19 @@ document.querySelectorAll('.tel-input').forEach(telInput => {
 			.catch(function() { callback("us"); });
 		}
 	});
+
+	document.querySelectorAll('.iti__country-list').forEach(list => {
+		const lenis2 = new Lenis({
+			wrapper: list
+		})
+
+		function raf(time) {
+			lenis2.raf(time)
+			requestAnimationFrame(raf)
+		}
+	
+		requestAnimationFrame(raf)
+	})
 
 	const label = telInput.closest('.tel-input-label');
 	telInput.addEventListener('focus', function (event) {
@@ -936,13 +1068,14 @@ document.querySelectorAll('.tel-input').forEach(telInput => {
 	telInput.addEventListener('blur', function (event) {
 		if(telInput.value == "") label.classList.remove('is-active');
 
-		//if(telInput.isValidNumber())
-		if(intl.isValidNumber()) {
-			label.classList.remove('is-error');
-			if(telInput.value != "") label.classList.add('is-valid');
-		} else {
-			label.classList.add('is-error');
-			label.classList.remove('is-valid');
+		if(telInput.value != "" && telInput.value != `+${intl.getSelectedCountryData()['dialCode']}`) {
+			if(intl.isValidNumber()) {
+				label.classList.remove('is-error');
+				if(telInput.value != "") label.classList.add('is-valid');
+			} else {
+				label.classList.add('is-error');
+				label.classList.remove('is-valid');
+			}
 		}
 	})
 	//telInput.closest('label').classList.add('tel-input-label')

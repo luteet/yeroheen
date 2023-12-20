@@ -219,6 +219,31 @@
 			display: flex;
 			position: relative;
 
+			&[data-value] {
+				display: grid;
+			}
+
+			&[data-value]::before {
+				content: attr(data-value) ' ';
+				visibility: hidden;
+				white-space: pre-wrap;
+				width: 100%;
+				grid-area: 1/1;
+
+				color: transparent;
+				/* font-weight: 500;
+				line-height: 137.5%;
+				letter-spacing: -0.04rem;
+
+				@include _container {
+					letter-spacing: -0.044444vw;
+					font-size: 1.1111vw;
+					padding: 0.694444vw 1.388889vw 0.694444vw 0;
+					border-bottom: 0.069444vw solid var(--grey-text);
+				} */
+
+			}
+
 			&.is-error input {
 				border-color: red;
 			}
@@ -271,8 +296,10 @@
 			}
 
 			textarea {
-				overflow-y: hidden;
+				overflow-x: hidden;
+				grid-area: 1/1;
 
+				width: 100%;
 				height: 41px;
 				@include _container {
 					height: 2.847222vw;
@@ -286,11 +313,12 @@
 				}
 			}
 
-			input, textarea {
+			input, textarea, &[data-value]::before {
 				background: transparent;
 
 				padding: 10px 20px 10px 0;
-				width: 100%;
+				width: 100%; min-height: 100%;
+				max-width: var(--width-form,100%);
 
 				resize: none;
 
@@ -308,6 +336,7 @@
 				transition: border-color .3s ease;
 
 				border-bottom: 1px solid var(--grey-text);
+
 				@include _container {
 					letter-spacing: -0.044444vw;
 					font-size: 1.1111vw;
@@ -384,7 +413,7 @@
 			&.tel-input-label > span {
 				left: 50px;
 				@include _container {
-					left: 50px;
+					left: 3.472222vw;
 				}
 			}
 		}
