@@ -893,7 +893,7 @@ document.querySelectorAll('[data-change-theme-to]').forEach((el,index) => {
 							if(index-1 == -1) header.classList.remove('is-light'); else header.classList.add('is-light');
 							html.style.setProperty('--theme-color-2', '#FFF');
 							document.querySelectorAll('.start-button').forEach(startButton => {
-								startButton.classList.remove('is-reverse-theme');
+								startButton.classList.add('is-reverse-theme');
 							})
 						} else {
 	
@@ -914,7 +914,7 @@ document.querySelectorAll('[data-change-theme-to]').forEach((el,index) => {
 							if(index-1 == -1) header.classList.add('is-light'); else header.classList.remove('is-light');
 							html.style.setProperty('--theme-color-2', '#171718');
 							document.querySelectorAll('.start-button').forEach(startButton => {
-								startButton.classList.add('is-reverse-theme');
+								startButton.classList.remove('is-reverse-theme');
 							})
 						}
 					} else {
@@ -929,7 +929,7 @@ document.querySelectorAll('[data-change-theme-to]').forEach((el,index) => {
 						header.classList.remove('is-light');
 						html.style.setProperty('--theme-color-2', '#171718');
 						document.querySelectorAll('.start-button').forEach(startButton => {
-							startButton.classList.add('is-reverse-theme');
+							startButton.classList.remove('is-reverse-theme');
 						})
 					}
 					
