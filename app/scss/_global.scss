@@ -59,6 +59,8 @@ html {
 	@include _container {
 		font-size: 1.111111vw;
 	}
+
+	//perspective: 400px;
 }
 
 html.lenis {
@@ -93,14 +95,18 @@ body {
 	display: flex;
 	flex-direction: column;
 
-	background: var(--black-bg);
+	//transform: translateZ(0);
+	background-color: var(--background-color, var(--black-bg));
 	font-size: 16px;
 	height: auto;
 
-	transition: background .3s ease;
+	
+	//transition: background-color .2s ease;
 
 	@include _992 {
 		height: 100%;
+		transition: none;
+		//transition: background-color .2s ease;
 	}
 
 	@include _container {
@@ -140,6 +146,8 @@ section {
 	flex-direction: column;
 
 	overflow: hidden;
+
+	
 }
 
 .main {
@@ -304,6 +312,7 @@ section {
 }
 
 .start-button {
+	//display: none;
 	position: fixed;
 	right: var(--mob-container-padding); bottom: var(--mob-container-padding);
 	@include _992 {

@@ -754,205 +754,293 @@ document.querySelectorAll('.video').forEach(video => {
 	})
 })
 
-let firstStart = true, firstStart2 = true,
+let firstStart = true, firstStart2 = false,
 timelineList = [];
+
+/* gsap.set(body, {
+	'--theme-color-1': '#fff',
+	'--theme-color-1-reverse': '#171718',
+}) */
+
+/* const ourWork = document.querySelector('.our-work');
+const anim1 = gsap.fromTo(body, {
+	"--background-color": 'rgba(11,11,12,1)',
+},{
+	'--background-color': "rgba(255,255,255,1)",
+	overwrite: "auto", 
+	immediateRender: !1, 
+	paused: !0,
+})
+
+ScrollTrigger.create(
+	{ 
+		trigger: ourWork, 
+		start: "top 75%", end: "+1000 top", 
+		scrub: 1, 
+		animation: anim1 
+	}
+) */
 
 document.querySelectorAll('[data-change-theme-to]').forEach((el,index) => {
 	
 	let changeTheme = false, 
 	section = document.querySelectorAll('[data-change-theme-to]')[index],
-	prevSection = index-1 != -1 ? document.querySelectorAll('[data-change-theme-to]')[index-1] : false;
-	timeline = gsap.timeline(),
-	timelineList.push(timeline);
+	prevSection = index-1 != -1 ? document.querySelectorAll('[data-change-theme-to]')[index-1] : false,
+	timeline = gsap.timeline();
 
+	//timeline.pause();
+	timelineList.push(timeline);
 	//console.log(index-1)
 
-	timeline.from(body, {
+	/* timeline.from(body, {
 		background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
-	})
-
-	if(section.dataset.changeThemeIs == "light") {
-		/* gsap.set(body, {
-			'--theme-color-1': '#fff',
-			'--theme-color-1-reverse': '#171718',
-		}) */
-
-		timelineList[index].from(body, {
-			'--theme-color-1': '#fff',
-			'--theme-color-1-reverse': '#171718',
-		})
+	}) */
 	
-		timelineList[index].to(body, {
-			background: section.dataset.changeThemeTo,
-			'--theme-color-1': '#171718',
-			'--theme-color-1-reverse': '#fff',
-		})
-	} else {
-		/* gsap.set(body, {
-			'--theme-color-1': '#171718',
-			'--theme-color-1-reverse': '#fff',
-		}) */
-		timelineList[index].from(body, {
-			'--theme-color-1': '#171718',
-			'--theme-color-1-reverse': '#fff',
-		})
-	
-		timelineList[index].to(body, {
-			background: section.dataset.changeThemeTo,
-			'--theme-color-1': '#fff',
-			'--theme-color-1-reverse': '#171718',
-		})
+	let anim;
+	if(section.dataset.changeThemeTo == "light") {
 		
+
+		/* gsap.set(html, {
+			"--background-color": 'rgba(11,11,12,1)',
+			//"--test":"rgba(255, 0, 0, 1)",
+			//background: 'rgba(11,11,12,1)',
+			'--theme-color-1': 'rgb(255,255,255)',
+			'--theme-color-1-reverse': 'rgb(23,23,24)',
+		})
+	
+		timeline.to(html, {
+			'--background-color': "rgba(255,255,255,1)",
+			//"--test": "rgba(0, 0, 255, 1)"
+			//background: 'rgba(255,255,255,1)',
+			'--theme-color-1': 'rgb(23,23,24)',//171718
+			'--theme-color-1-reverse': 'rgb(255,255,255)',
+		}) */
+
+		anim = gsap.fromTo(html, {
+			overwrite: "auto", 
+			immediateRender: !1, 
+			paused: !0,
+			"--background-color": 'rgba(11,11,12,1)',
+			'--theme-color-1': 'rgb(255,255,255)',
+			'--theme-color-1-reverse': 'rgb(23,23,24)',
+		},
+		{
+			'--background-color': "rgba(255,255,255,1)",
+			'--theme-color-1': 'rgb(23,23,24)',//171718
+			'--theme-color-1-reverse': 'rgb(255,255,255)',
+		})
+
+		
+	} else {
+		
+		/* gsap.set(html, {
+			'--background-color': "rgb(255,255,255)",
+			'--theme-color-1': 'rgb(23,23,24)',
+			'--theme-color-1-reverse': 'rgb(255,255,255)',
+		})
+	
+		timeline.to(html, {
+			'--background-color': 'rgb(11,11,12)',
+			'--theme-color-1': 'rgb(255,255,255)',
+			'--theme-color-1-reverse': 'rgb(23,23,24)',
+		}) */
+		anim = gsap.fromTo(html, {
+			overwrite: "auto", 
+			immediateRender: !1, 
+			paused: !0,
+			'--background-color': "rgb(255,255,255)",
+			'--theme-color-1': 'rgb(23,23,24)',
+			'--theme-color-1-reverse': 'rgb(255,255,255)',
+		},
+		{
+			'--background-color': 'rgb(11,11,12)',
+			'--theme-color-1': 'rgb(255,255,255)',
+			'--theme-color-1-reverse': 'rgb(23,23,24)',
+		})
+
 	}
 
-	timelineList[index].pause();
+	timeline.pause();
 
 	let start, end;
 	if(section.hasAttribute('data-change-theme-on-top')) {
 		start = `+100 bottom`;
 		end = `+500 bottom`;
 	} else {
-		start = `+100 25%`;
-		end = `+300 25%`;
+		start = `-${window.innerHeight/7} 15%`;
+		end = `+${window.innerHeight/3} 15%`;
 	}
+
+	
+
+	let progress = 0;
 
 	ScrollTrigger.create({
 
 		trigger: section,
-		scrub: true,
+		scrub: 1,
+		//lazy: !1,
+		//markers: true,
 		//markers: (index == 1) ? true : false,
 		start: start,
 		end: end,
+
+		animation: anim,
 		
 		onUpdate: (self) => {
-			
-			if(!firstStart) {
-				
-				//timeline.progress(self.progress);
-					
-				if(self.progress >= 0.3 && !changeTheme) {
-					/* timelineList[index].progress(0);
-					timelineList[index].play(); */
 
-					changeTheme = true;
-					if(section.dataset.changeThemeIs == "light") {
+			progress = self.progress;
+
+			//timeline.progress(self.progress);
+			
+			if(index == 0 && self.progress == 1) firstStart2 = true;
+			
+			if(self.progress >= 0.3 && !changeTheme) {
+				/* timelineList[index].progress(0);
+				timelineList[index].play(); */
+
+				changeTheme = true;
+				if(section.dataset.changeThemeTo == "light") {
+					/* gsap.from(body, {
+						'--theme-color-1': 'rgb(255,255,255)',
+						'--theme-color-1-reverse': '#171718',
+					}) */
+				
+					/* gsap.set(body, {
+						background: section.dataset.changeThemeTo,
+						'--theme-color-1': '#171718',
+						'--theme-color-1-reverse': 'rgb(255,255,255)',
+					}) */
+					header.classList.add('is-light');
+					html.style.setProperty('--theme-color-2', '#171718');
+					document.querySelectorAll('.start-button').forEach(startButton => {
+						startButton.classList.add('is-reverse-theme');
+					})
+				} else {
+					/* gsap.from(body, {
+						'--theme-color-1': '#171718',
+						'--theme-color-1-reverse': 'rgb(255,255,255)',
+					}) */
+				
+					/* gsap.set(body, {
+						background: section.dataset.changeThemeTo,
+						'--theme-color-1': 'rgb(255,255,255)',
+						'--theme-color-1-reverse': '#171718',
+					}) */
+					//timeline.progress(self.progress);
+					header.classList.remove('is-light');
+					html.style.setProperty('--theme-color-2', '#FFF');
+					document.querySelectorAll('.start-button').forEach(startButton => {
+						startButton.classList.remove('is-reverse-theme');
+					})
+				}
+				
+			} else if(self.progress < 0.3 && changeTheme) {
+
+				changeTheme = false;
+				//console.log(prevSection)
+				
+				if(prevSection) {
+					if(prevSection.dataset.changeThemeTo == "light") {
+
+					
 						/* gsap.from(body, {
-							'--theme-color-1': 'rgb(255,255,255)',
-							'--theme-color-1-reverse': '#171718',
+							'--theme-color-1': '#171718',
+							'--theme-color-1-reverse': '#fff',
 						}) */
 					
-						gsap.set(body, {
-							background: section.dataset.changeThemeTo,
+						/* gsap.set(body, {
+							background:(index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
 							'--theme-color-1': '#171718',
-							'--theme-color-1-reverse': 'rgb(255,255,255)',
-						})
-						header.classList.add('is-light');
-						html.style.setProperty('--theme-color-2', '#171718');
+							'--theme-color-1-reverse': '#fff',
+						}) */
+
+						if(index-1 == -1) header.classList.remove('is-light'); else header.classList.add('is-light');
+						html.style.setProperty('--theme-color-2', '#FFF');
 						document.querySelectorAll('.start-button').forEach(startButton => {
 							startButton.classList.add('is-reverse-theme');
 						})
 					} else {
+
+						
 						/* gsap.from(body, {
-							'--theme-color-1': '#171718',
-							'--theme-color-1-reverse': 'rgb(255,255,255)',
+							'--theme-color-1': '#fff',
+							'--theme-color-1-reverse': '#171718',
 						}) */
 					
-						gsap.set(body, {
-							background: section.dataset.changeThemeTo,
-							'--theme-color-1': 'rgb(255,255,255)',
-							'--theme-color-1-reverse': '#171718',
-						})
-						//timeline.progress(self.progress);
-						header.classList.remove('is-light');
-						html.style.setProperty('--theme-color-2', '#FFF');
-						document.querySelectorAll('.start-button').forEach(startButton => {
-							startButton.classList.remove('is-reverse-theme');
-						})
-					}
-					
-				} else if(self.progress < 0.3 && changeTheme) {
-
-					changeTheme = false;
-					//console.log(prevSection)
-					
-					if(prevSection) {
-						if(prevSection.dataset.changeThemeIs == "light") {
-
 						
-							/* gsap.from(body, {
-								'--theme-color-1': '#171718',
-								'--theme-color-1-reverse': '#fff',
-							}) */
-						
-							gsap.set(body, {
-								background:(index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
-								'--theme-color-1': '#171718',
-								'--theme-color-1-reverse': '#fff',
-							})
-	
-							if(index-1 == -1) header.classList.remove('is-light'); else header.classList.add('is-light');
-							html.style.setProperty('--theme-color-2', '#FFF');
-							document.querySelectorAll('.start-button').forEach(startButton => {
-								startButton.classList.add('is-reverse-theme');
-							})
-						} else {
-	
-							
-							/* gsap.from(body, {
-								'--theme-color-1': '#fff',
-								'--theme-color-1-reverse': '#171718',
-							}) */
-						
-							
-							gsap.set(body, {
-								background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
-								'--theme-color-1': '#fff',
-								'--theme-color-1-reverse': '#171718',
-							})
-	
-							
-							if(index-1 == -1) header.classList.add('is-light'); else header.classList.remove('is-light');
-							html.style.setProperty('--theme-color-2', '#171718');
-							document.querySelectorAll('.start-button').forEach(startButton => {
-								startButton.classList.remove('is-reverse-theme');
-							})
-						}
-					} else {
-
-						gsap.set(body, {
+						/* gsap.set(body, {
 							background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
 							'--theme-color-1': '#fff',
 							'--theme-color-1-reverse': '#171718',
-						})
+						}) */
 
 						
-						header.classList.remove('is-light');
+						if(index-1 == -1) header.classList.add('is-light'); else header.classList.remove('is-light');
 						html.style.setProperty('--theme-color-2', '#171718');
 						document.querySelectorAll('.start-button').forEach(startButton => {
 							startButton.classList.remove('is-reverse-theme');
 						})
 					}
-					
+				} else {
 
+					/* gsap.set(body, {
+						background: (index-1 == -1) ? "#0B0B0C" : document.querySelectorAll('[data-change-theme-to]')[index-1].dataset.changeThemeTo,
+						'--theme-color-1': '#fff',
+						'--theme-color-1-reverse': '#171718',
+					}) */
+
+					
+					header.classList.remove('is-light');
+					html.style.setProperty('--theme-color-2', '#171718');
+					document.querySelectorAll('.start-button').forEach(startButton => {
+						startButton.classList.remove('is-reverse-theme');
+					})
 				}
+				
 
 			}
 			
-		}
-		//onUpdate: ({progress}) => timeline.progress() < progress ? timeline.progress(progress) : null
+		},
+		
 	});
+
+	/* setInterval(() => {
+		console.log(progress)
+		timeline.progress(progress);
+	},150) */
 
 	if(firstStart && index == document.querySelectorAll('[data-change-theme-to]').length-1) {
 		
-		gsap.set(body, {
+		/* gsap.set(body, {
 			background: '#0B0B0C',
 			'--theme-color-1': '#fff',
 			'--theme-color-1-reverse': '#171718',
-		})
+		}) */
+		
 	}
 	
 
 })
+
+if(!firstStart2) {
+	gsap.set(html, {
+		"--background-color": 'rgba(11,11,12,1)',
+		//"--test":"rgba(255, 0, 0, 1)",
+		//background: 'rgba(11,11,12,1)',
+		'--theme-color-1': 'rgb(255,255,255)',
+		'--theme-color-1-reverse': 'rgb(23,23,24)',
+	})
+}/*  else {
+	gsap.set(html, {
+		"--background-color": 'rgba(255,255,255,1)',
+		//"--test":"rgba(255, 0, 0, 1)",
+		//background: 'rgba(11,11,12,1)',
+		'--theme-color-1': 'rgb(23,23,24)',
+		'--theme-color-1-reverse': 'rgb(23,23,24)',
+	})
+} */
+
 
 firstStart = false
 

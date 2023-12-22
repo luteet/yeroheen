@@ -9,6 +9,7 @@
 
 	//transition: transform .2s ease;
 	perspective: 400px;
+	
 
 	&::before {
 		content: '';
@@ -21,13 +22,14 @@
 		transition: opacity .3s ease;
 	}
 
-	transition: background .3s ease, padding-top .3s ease, padding-bottom .3s ease, opacity .3s ease, visibility .3s ease;
+	transition: padding-top .3s ease, padding-bottom .3s ease, opacity .3s ease, visibility .3s ease;
 	&.is-hide {
 		opacity: 0; visibility: hidden;
 	}
 	background: transparent;
 	&.on-scroll {
-		background: var(--black-bg);
+		//background: var(--black-bg);
+		background: var(--background-color);
 		&::before {
 			opacity: 0;
 		}
@@ -65,9 +67,9 @@
 		padding-top: 10px; padding-bottom: 10px;
 	}
 
-	&.is-light.on-scroll {
-		background: var(--white);
-	}
+	/* &.is-light.on-scroll {
+		background: var(--background-color);
+	} */
 
 	&.is-light & {
 		&__nav--list a span:first-child {

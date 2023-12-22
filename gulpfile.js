@@ -49,6 +49,7 @@ function browsersync() {
 		},
 		notify: false,
 		open: false,
+		ghostMode: false,
 	})
 }
 
@@ -58,6 +59,7 @@ function browsersyncStart() {
 			baseDir: 'dist/',
 		},
 		notify: false,
+		ghostMode: false,
 	})
 }
 
