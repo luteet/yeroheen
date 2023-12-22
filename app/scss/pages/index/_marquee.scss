@@ -1,24 +1,17 @@
 .marquee {
 
-	padding-top: 75px; padding-bottom: 75px;
-	margin-top: 75px;
-	@include _992 {
-		padding-top: 125px; padding-bottom: 110px;
-		margin-top: 125px;
-	}
+	padding-top: 4.6875rem; padding-bottom: 4.6875rem;
+	margin-top: 4.6875rem;
 
-	@include _container {
-		padding-top: 8.680556vw; padding-bottom: 7.638889vw;
-		margin-top: 8.680556vw;
+	@include _992 {
+		padding-top: 7.8125rem; padding-bottom: 6.875rem;
+		margin-top: 7.8125rem;
 	}
 
 	// .marquee__slider
 
 	&__slider {
-		height: 70px;
-		@include _container {
-			height: 4.861111vw;
-		}
+		height: 4.375rem;
 	}
 
 	// .marquee__element

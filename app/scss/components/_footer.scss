@@ -2,36 +2,28 @@
 
 	flex: 0 0 auto;
 
-	padding-bottom: 16px; padding-top: 80px;
+	padding-bottom: 1rem; padding-top: 5rem;
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 0 16px;
+	gap: 0 1rem;
 
 	@include _992 {
-		padding-top: 60px;
+		padding-top: 3.75rem;
 
 		grid-template-columns: 1fr 1fr 1fr;
 		align-items: center;
-		gap: 20px;
-	}
-
-	@include _container {
-		padding-top: 4.166667vw; padding-bottom: 1.111111vw;
-
-		gap: 1.388889vw;
+		gap: 1.25rem;
 	}
 
 	// .footer__nav
 
 	&__nav {
-		margin-top: -12px;
+		margin-top: -0.75rem;
 		@include _992 {
 			grid-column: 2; grid-row: 2;
 			margin-top: 0;
 		}
-
-		
 
 		ul {
 			display: grid;
@@ -57,13 +49,7 @@
 
 			@include _992 {
 				font-size: 1rem;
-				padding: 0 9px;
-			}
-
-			@include _container {
-				font-size: 1.111111vw;
-				padding: 0 0.625vw;
-				letter-spacing: -0.044444vw;
+				padding: 0 0.5625rem;
 			}
 
 			display: grid;
@@ -86,7 +72,7 @@
 				}
 			}
 
-			padding: 8px;
+			padding: 0.5rem;
 
 			@media (any-hover: hover) and (min-width: 992px) {
 				&:hover > * {
@@ -104,12 +90,8 @@
 			&::before {
 				content: '';
 				position: absolute;
-				left: 9px; bottom: 0;
-				width: calc(100% - 9px - 9px); height: 1px;
-				@include _container {
-					left: 0.625vw; bottom: 0;
-					width: calc(100% - 0.625vw - 0.625vw); height: 0.069444vw;
-				}
+				left: 0.5625rem; bottom: 0;
+				width: calc(100% - 0.5625rem - 0.5625rem); height: 0.0625rem;
 
 				background: var(--white);
 				opacity: 0;
@@ -126,10 +108,7 @@
 	// .footer__contacts
 
 	&__contacts {
-		margin-top: 80px;
-		@include _container {
-			margin-top: 5.555556vw;
-		}
+		margin-top: 5rem;
 
 		grid-column: 2 span;
 	}
@@ -138,7 +117,7 @@
 
 	&__logo {
 
-		margin-top: 80px;
+		margin-top: 5rem;
 		@include _992 {
 			margin-top: 0;
 			grid-column: 1; grid-row: 1;
@@ -152,8 +131,8 @@
 		// .footer__logo--img
 
 		&--img {
-			@include _container {
-				min-width: 8.611111vw; height: auto;
+			@include _992 {
+				min-width: 7.8125rem; height: auto;
 			}
 		}
 	}
@@ -162,7 +141,7 @@
 
 	&__copyright {
 		grid-column: 2 span;
-		margin-top: 20px;
+		margin-top: 1.25rem;
 		@include _992 {
 			grid-column: 1; grid-row: 2;
 			margin-top: 0;
@@ -175,18 +154,13 @@
 		line-height: 123.077%;
 		letter-spacing: -0.0325rem;
 		text-transform: uppercase;
-
-		@include _container {
-			font-size: 0.902778vw;
-			letter-spacing: -0.036111vw;
-		}
 	}
 
 	// .footer__privacy
 
 	&__privacy {
 		grid-column: 2 span;
-		margin-top: 16px;
+		margin-top: 1rem;
 
 		@include _992 {
 			margin-top: 0;
@@ -200,11 +174,6 @@
 			line-height: 123.077%;
 			letter-spacing: -0.0325rem;
 			text-transform: uppercase;
-
-			@include _container {
-				font-size: 0.902778vw;
-				letter-spacing: -0.036111vw;
-			}
 
 			@media (any-hover: hover) {
 				transition: color .15s ease;

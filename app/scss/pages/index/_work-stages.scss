@@ -2,18 +2,13 @@
 
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 1.25rem;
 
-	margin-top: 150px;
+	margin-top: 9.375rem;
 
 	@include _992 {
 		flex-direction: row;
-		margin-top: 310px;
-	}
-
-	@include _container {
-		margin-top: 21.527778vw;
-		gap: 1.388889vw;
+		margin-top: 19.375rem;
 	}
 
 	// .work-stages__col
@@ -36,19 +31,15 @@
 
 	&__header {
 		text-align: center;
-		max-width: 230px; margin: 0 auto;
+		max-width: 14.375rem; margin: 0 auto;
 		@include _550 {
-			max-width: 290px;
+			max-width: 18.125rem;
 		}
 
 		@include _992 {
 			text-align: start;
-			max-width: 340px;
+			max-width: 21.25rem;
 			margin: 0;
-		}
-
-		@include _container {
-			max-width: 23.611111vw;
 		}
 	}
 
@@ -61,10 +52,7 @@
 	// .work-stages__title
 
 	&__title {
-		margin-top: 10px;
-		@include _container {
-			margin-top: 0.694444vw;
-		}
+		margin-top: 0.625rem;
 
 		color: var(--grey-headings);
 		b {
@@ -76,18 +64,14 @@
 	// .work-stages__list
 
 	&__list {
-		margin-top: 30px;
+		margin-top: 1.875rem;
 
 		display: flex;
 		flex-direction: column;
 
 		counter-reset: work-stages-number;
 
-		max-width: 325px;
-		@include _container {
-			max-width: 22.569444vw;
-			margin-top: 2.083333vw;
-		}
+		max-width: 20.3125rem;
 
 		li:nth-child(-n + 9) button span::before {
 			content: "0"counter(work-stages-number)"/";
@@ -100,7 +84,7 @@
 			display: flex;
 			align-items: center;
 
-			padding: 14px 32px 14px 0;
+			padding: 0.875rem 2rem 0.875rem 0;
 
 			width: 100%;
 
@@ -119,20 +103,13 @@
 						color: var(--theme-color-2);
 					}
 				}
-				
-				/* &:active {
-					color: var(--black-bg);
-					span::before {
-						color: var(--black-bg);
-					}
-				} */
 			}
 
 			&::before {
 				content: '';
 				position: absolute;
 				left: 0; bottom: 0;
-				width: 100%; height: 2px;
+				width: 100%; height: 0.125rem;
 				background: var(--grey);
 			}
 
@@ -140,7 +117,7 @@
 				content: '';
 				position: absolute;
 				left: 0; bottom: 0;
-				width: 0; height: 2px;
+				width: 0; height: 0.125rem;
 				background: var(--theme-color-1);
 
 				transition: width .2s ease, background .2s ease;
@@ -162,7 +139,7 @@
 				counter-increment: work-stages-number;
 				content: counter(work-stages-number)"/";
 
-				padding-right: 18px;
+				padding-right: 1.125rem;
 
 				color: var(--grey);
 				font-size: 0.8125rem;
@@ -173,28 +150,6 @@
 
 				transition: color .3s ease;
 			
-			}
-
-			@include _container {
-
-				padding: 0.972222vw 2.222222vw 0.972222vw 0;
-				font-size: 1.388889vw;
-				letter-spacing: -0.055556vw;
-
-				&::before {
-					width: 100%; height: 0.138889vw;
-				}
-	
-				&::after {
-					height: 0.138889vw;
-				}
-
-				span::before {
-					padding-right: 1.25vw;
-					font-size: 0.902778vw;
-					letter-spacing: -0.036111vw;
-				
-				}
 			}
 			
 		}
@@ -256,17 +211,12 @@
 
 		&--number {
 			position: absolute;
-			left: 24px; bottom: 24px;
+			left: 1.5rem; bottom: 1.5rem;
 			color: var(--white);
 
 			font-weight: 500;
 			line-height: 137.5%;
 			letter-spacing: -0.04rem;
-			@include _container {
-				font-size: 1.1111vw;
-				letter-spacing: -0.044444vw;
-			}
-			//text-shadow: 0 1px 5px var(--black), 0 -1px 5px var(--black);
 		}
 	}
 
@@ -274,9 +224,8 @@
 
 	&__slider {
 
-		padding-right: 14px;
+		padding-right: 0.875rem;
 		
-
 		// .work-stages__slider--track
 
 		&--track {
@@ -308,7 +257,7 @@
 			letter-spacing: -0.0325rem;
 			text-transform: uppercase;
 
-			padding-right: 14px;
+			padding-right: 0.875rem;
 		}
 
 		// .work-stages__slider--image
@@ -322,8 +271,8 @@
 		// .work-stages__slider--name
 
 		&--name {
-			margin-top: 20px;
-			padding: 14px 0;
+			margin-top: 1.25rem;
+			padding: 0.875rem 0;
 
 			display: flex;
 			align-items: center;
@@ -334,7 +283,7 @@
 			line-height: 130%;
 			letter-spacing: -0.05rem;
 
-			border-bottom: 1px solid var(--theme-color-1);
+			border-bottom: 0.0625rem solid var(--theme-color-1);
 		}
 
 		&--pagination {

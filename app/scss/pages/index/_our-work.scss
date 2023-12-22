@@ -1,32 +1,28 @@
 .our-work {
 	
-	padding-top: 150px;
+	padding-top: 9.375rem;
 
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
+	gap: 2rem;
 
 	@include _992 {
-		padding-top: 250px;
+		padding-top: 15.625rem;
 
 		display: grid;
 		grid-template-columns: 1fr 1.3fr;
-		gap: 0 20px;
-	}
-
-	@include _container {
-		padding-top: 17.361111vw;
-		gap: 0 1.388889vw;
+		gap: 0 1.25rem;
 	}
 
 	// .our-work__title
 
 	&__title {
 		overflow: hidden;
-		padding-right: 10px;
+		padding-right: 0.625rem;
+
 		span {
 			color: var(--theme-color-1);
-			padding-right: 10px;
+			padding-right: 0.625rem;
 		}
 
 		@include _992 {
@@ -39,21 +35,16 @@
 	&__text {
 		@include _992 {
 			grid-column: 1; grid-row: 2;
-			margin-top: 35px;
+			margin-top: 2.1875rem;
 		}
 
 		color: var(--grey);
 		font-weight: 500;
 		line-height: 137.5%;
 		letter-spacing: -0.04rem;
+		font-size: 1rem;
 
-		max-width: 328px;
-
-		@include _container {
-			margin-top: 2.430556vw;
-			max-width: 22.777778vw;
-			font-size: 1.1111vw;
-		}
+		max-width: 20.5rem;
 	}
 
 	// .our-work__card
@@ -64,11 +55,7 @@
 			@include _992 {
 				grid-column: 2; grid-row: 2 span;
 				align-self: self-start;
-				margin-top: 35px;
-			}
-
-			@include _container {
-				margin-top: 2.430556vw;
+				margin-top: 2.1875rem;
 			}
 		}
 
@@ -76,13 +63,9 @@
 			
 			@include _992 {
 				grid-column: 1;
-				margin-top: 9.722222vw;
+				margin-top: 8.75rem;
 
 				max-width: 76%;
-			}
-
-			@include _container {
-				margin-top: 9.722222vw;
 			}
 		}
 
@@ -90,16 +73,12 @@
 			
 			@include _992 {
 				grid-column: 2 span;
-				margin-top: 13.888889vw;
+				margin-top: 12.5rem;
 				margin-left: auto; margin-right: auto;
 
 				max-width: 66.5%; 
 				width: 100%;
 			}
-
-			@include _container {
-				margin-top: 13.888889vw;
-			}			
 			
 		}
 
@@ -108,15 +87,11 @@
 			@include _992 {
 				grid-column: 2; grid-row: 2 span;
 				align-self: self-start;
-				margin-top: 13.888889vw;
+				margin-top: 12.5rem;
 
 				width: 100%;
 				justify-self: end;
 				max-width: 89%;
-			}
-
-			@include _container {
-				margin-top: 13.888889vw;
 			}
 
 		}
@@ -178,14 +153,10 @@
 
 			i {
 				position: absolute;
-				right: 24px; bottom: 24px;
+				right: 1.5rem; bottom: 1.5rem;
 				z-index: 2;
 	
-				width: 34px; height: 34px;
-				@include _container {
-					right: 1.666667%; bottom: 1.666667%;
-					width: 2.361111vw; height: 2.361111vw;
-				}
+				width: 2.125rem; height: 2.125rem;
 	
 				display: flex;
 				flex-direction: column;
@@ -206,10 +177,7 @@
 	
 					border-radius: 50%;
 	
-					width: 34px; height: 34px; flex: 0 0 34px;
-					@include _container {
-						width: 2.361111vw; height: 2.361111vw; flex: 0 0 2.361111vw;
-					}
+					width: 2.125rem; height: 2.125rem; flex: 0 0 2.125rem;
 
 					transition: transform .3s ease;
 	
@@ -230,18 +198,14 @@
 		// .our-work__card--content
 
 		&--content {
-			padding-top: 10px;
-			max-width: 560px;
-
-			@include _container {
-				padding-top: 0.694444vw;
-				max-width: 38.888889vw;
-			}
+			padding-top: 0.625rem;
+			max-width: 35rem;
 
 			h3 {
 
 				overflow: hidden;
 				display: grid;
+
 				> * {
 					grid-area: 1/1;
 					display: block;
@@ -253,7 +217,7 @@
 					}
 				}
 
-				padding-top: 8px;
+				padding-top: 0.5rem;
 
 				font-size: 1.4375rem;
 				line-height: 121.739%;
@@ -267,29 +231,15 @@
 					line-height: 121.429%;
 					letter-spacing: -0.105rem;
 				}
-
-				@include _container {
-					padding-top: 0.555556vw;
-
-					font-size: 1.944444vw;
-					line-height: 121.429%;
-					letter-spacing: -0.116667%;
-				}
 			}
 
 			p {
-				padding-top: 8px;
+				padding-top: 0.5rem;
 
 				color: var(--grey);
 				font-weight: 500;
 				line-height: 137.5%;
 				letter-spacing: -0.04rem;
-
-				@include _container {
-					font-size: 1.1111vw;
-					padding-top: 0.555556vw;
-					letter-spacing: -0.044444vw;
-				}
 			}
 		}
 	}
@@ -300,11 +250,7 @@
 		align-self: self-start;
 		@include _992 {
 			grid-column: 2; justify-self: start;
-			margin-left: 111px;
-		}
-
-		@include _container {
-			margin-left: 7.708333vw;
+			margin-left: 6.9375rem;
 		}
 	}
 }

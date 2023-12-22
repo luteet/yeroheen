@@ -3,18 +3,10 @@
 	@include _992 {
 		display: grid;
 		grid-template-columns: 1fr 1.3fr;
-		gap: 0 20px;
+		gap: 0 1.25rem;
 
-		padding-top: 140px;
+		padding-top: 8.75rem;
 	}
-
-	@include _container {
-		gap: 0 1.388889vw;
-
-		padding-top: 9.722222vw;
-	}
-
-	
 
 	// .contacts__col
 
@@ -29,10 +21,7 @@
 	// .contacts__name
 
 	&__name {
-		margin-bottom: 16px;
-		@include _container {
-			margin-bottom: 1.111111vw;
-		}
+		margin-bottom: 1rem;
 		color: var(--grey-text);
 	}
 
@@ -42,42 +31,28 @@
 		display: flex;
 		flex-direction: column;
 
-		gap: 10px;
-		@include _992 {
-			gap: 0.694444vw;
-		}
+		gap: 0.625rem;
 
 		a {
 			color: var(--white);
-			@include _container {
-				font-size: 1.1111vw;
-			}
+			font-size: 1rem;
 		}
 	}
 
 	// .contacts__social
 
 	&__social {
-		margin-top: 10px;
+		margin-top: 0.625rem;
 
 		display: flex;
 		flex-wrap: wrap;
 
-		gap: 6px;
-
-		@include _container {
-			margin-top: 0.694444vw;
-			gap: 0.416667vw;
-		}
+		gap: 0.375rem;
 
 		a {
-			width: 48px; height: 49px;
+			width: 3rem; height: 3.0625rem;
 			@include _992 {
-				width: 28px; height: 28px;
-			}
-
-			@include _container {
-				width: 1.944444vw; height: 1.944444vw;
+				width: 1.75rem; height: 1.75rem;
 			}
 
 			svg {
@@ -101,10 +76,7 @@
 			background: var(--white);
 			color: var(--black);
 
-			padding-top: 2px;
-			@include _container {
-				padding-top: 0.138889vw;
-			}
+			padding-top: 0.125rem;
 
 			@media (any-hover: hover) {
 				&:hover > * {
@@ -124,10 +96,7 @@
 
 	&__offices {
 
-		margin-top: 40px;
-		@include _container {
-			margin-top: 2.777778vw;
-		}
+		margin-top: 2.5rem;
 
 		// .contacts__offices--list
 
@@ -138,7 +107,7 @@
 				grid-template-columns: auto auto;
 			}
 
-			gap: 20px;
+			gap: 1.25rem;
 
 			color: var(--white);
 			line-height: 137.5%;
@@ -148,19 +117,10 @@
 				font-size: 1rem;
 			}
 
-			@include _container {
-				font-size: 1.111111vw;
-				gap: 1.388889vw;
-			}
-
 			a {
-				margin-top: 7px;
+				margin-top: 0.4375rem;
 				display: inline-grid;
 				overflow: hidden;
-
-				@include _container {
-					margin-top: 0.486111vw;
-				}
 
 				> * {
 					display: block;
@@ -199,18 +159,13 @@
 	// .contacts__form
 
 	&__form {
-		margin-top: 40px;
+		margin-top: 2.5rem;
 
 		display: grid;
-		gap: 24px;
+		gap: 1.5rem;
 		@include _550 {
 			grid-template-columns: 1fr 1fr;
-			gap: 40px 20px;
-		}
-
-		@include _container {
-			margin-top: 2.777778vw;
-			gap: 2.777778vw 1.388889vw;
+			gap: 2.5rem 1.25rem;
 		}
 		
 		position: relative;
@@ -231,16 +186,6 @@
 				grid-area: 1/1;
 
 				color: transparent;
-				/* font-weight: 500;
-				line-height: 137.5%;
-				letter-spacing: -0.04rem;
-
-				@include _container {
-					letter-spacing: -0.044444vw;
-					font-size: 1.1111vw;
-					padding: 0.694444vw 1.388889vw 0.694444vw 0;
-					border-bottom: 0.069444vw solid var(--grey-text);
-				} */
 
 			}
 
@@ -255,44 +200,31 @@
 			&.is-valid::after {
 				content: '';
 				position: absolute;
-				right: 0; top: 15px;
-				width: 14px; height: 14px;
+				right: 0; top: 0.9375rem;
+				width: 0.875rem; height: 0.875rem;
 				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='14' height='14' rx='7' fill='white'/%3E%3Cpath d='M3.95312 6.87201L6.06196 9.17578L10.0453 4.82422' stroke='%23171718'/%3E%3C/svg%3E%0A")
 				center / contain no-repeat;
-				@include _container {
-					top: 1.041667vw;
-					width: 0.972222vw; height: 0.972222vw;
-				}
 			}
 
 			&.is-error::after {
 				content: '';
 				position: absolute;
-				right: 0; top: 15px;
-				width: 14px; height: 14px;
+				right: 0; top: 0.9375rem;
+				width: 0.875rem; height: 0.875rem;
 				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='14' height='14' rx='7' fill='%23EA2525'/%3E%3Cpath d='M4.5 4.5L9.42611 9.5M4.57389 9.5L9.5 4.5' stroke='white'/%3E%3C/svg%3E%0A")
 				center / contain no-repeat;
-				@include _container {
-					top: 1.041667vw;
-					width: 0.972222vw; height: 0.972222vw;
-				}
 			}
 
 			&.is-error::before {
 				content: attr(data-error-text);
 				position: absolute;
-				left: 0; top: calc(100% + 2px);
+				left: 0; top: calc(100% + 0.125rem);
 				width: 100%;
 				color: #EA2525;
 				font-size: 0.625rem;
 				font-weight: 500;
 				line-height: 138.298%;
 				letter-spacing: -0.0138rem;
-
-				@include _container {
-					font-size: 0.694444vw;
-					top: calc(100% + 0.138889vw);
-				}
 			}
 
 			textarea {
@@ -300,11 +232,8 @@
 				grid-area: 1/1;
 
 				width: 100%;
-				height: 41px;
-				@include _container {
-					height: 2.847222vw;
-					font-size: 1.1111vw;
-				}
+				height: 2.5625rem;
+				font-size: 1rem;
 			}
 
 			@media (any-hover: hover) {
@@ -316,7 +245,7 @@
 			input, textarea, &[data-value]::before {
 				background: transparent;
 
-				padding: 10px 20px 10px 0;
+				padding: 0.625rem 1.25rem 0.625rem 0;
 				width: 100%; min-height: 100%;
 				max-width: var(--width-form,100%);
 
@@ -335,42 +264,23 @@
 
 				transition: border-color .3s ease;
 
-				border-bottom: 1px solid var(--grey-text);
-
-				@include _container {
-					letter-spacing: -0.044444vw;
-					font-size: 1.1111vw;
-					padding: 0.694444vw 1.388889vw 0.694444vw 0;
-					border-bottom: 0.069444vw solid var(--grey-text);
-				}
+				border-bottom: 0.0625rem solid var(--grey-text);
 			}
 
 			input:focus + span, input:not(:placeholder-shown) + span {
-				top: -10px;
+				top: -0.625rem;
 				font-size: 0.625rem;
 				color: var(--grey-text);
 			}
 
 			textarea:focus + span, textarea:not(:placeholder-shown) + span {
-				top: -10px;
+				top: -0.625rem;
 				font-size: 0.625rem;
-			}
-
-			@include _container {
-				input:focus + span, input:not(:placeholder-shown) + span {
-					top: -0.694444vw;
-					font-size: 0.694444vw;
-				}
-	
-				textarea:focus + span, textarea:not(:placeholder-shown) + span {
-					top: -0.694444vw;
-					font-size: 0.694444vw;
-				}
 			}
 
 			> span {
 				position: absolute;
-				left: 0; top: 10px;
+				left: 0; top: 0.625rem;
 
 				color: var(--white);
 				font-weight: 500;
@@ -378,12 +288,6 @@
 				letter-spacing: -0.04rem;
 
 				pointer-events: none; user-select: none;
-
-				@include _container {
-					top: 0.694444vw;
-					letter-spacing: -0.044444vw;
-					font-size: 1.1111vw;
-				}
 
 				span {
 					color: var(--grey-text);
@@ -400,21 +304,14 @@
 			}
 
 			&.tel-input-label.is-active > span {
-				top: -10px;
+				top: -0.625rem;
 				font-size: 0.625rem;
-				@include _container {
-					top: -0.694444vw;
-					font-size: 0.694444vw;
-				}
 
 				color: var(--grey-text);
 			}
 
 			&.tel-input-label > span {
-				left: 50px;
-				@include _container {
-					left: 3.472222vw;
-				}
+				left: 3.125rem;
 			}
 		}
 
@@ -428,7 +325,7 @@
 
 		button[type="submit"] {
 			justify-self: start;
-			margin-top: 16px;
+			margin-top: 1rem;
 			@include _550 {
 				margin-top: 0;
 			}
