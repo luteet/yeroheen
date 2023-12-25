@@ -811,7 +811,7 @@ animMedia.add("(min-width: 992px)", () => {
 							}) */
 
 							if(index-1 == -1) header.classList.remove('is-light'); else header.classList.add('is-light');
-							html.style.setProperty('--theme-color-2', '#FFF');
+							html.style.setProperty('--theme-color-2', '#171718');
 							document.querySelectorAll('.start-button').forEach(startButton => {
 								startButton.classList.add('is-reverse-theme');
 							})
@@ -832,7 +832,8 @@ animMedia.add("(min-width: 992px)", () => {
 
 							
 							if(index-1 == -1) header.classList.add('is-light'); else header.classList.remove('is-light');
-							html.style.setProperty('--theme-color-2', '#171718');
+							
+							html.style.setProperty('--theme-color-2', '#FFF');
 							document.querySelectorAll('.start-button').forEach(startButton => {
 								startButton.classList.remove('is-reverse-theme');
 							})
