@@ -296,11 +296,11 @@ video.lazy {
 		color: var(--black);
 	}
 
-	&.is-change-theme {
+	/* &.is-change-theme {
 		background: transparent;
 		color: var(--theme-color-1);
 		border-color: var(--grey);
-	}
+	} */
 
 	border-radius: 6.25rem;
 
@@ -331,9 +331,9 @@ video.lazy {
 		&.is-alternative-2:hover {
 			border-color: var(--black);
 		}
-		&.is-change-theme:hover {
+		/* &.is-change-theme:hover {
 			border-color: var(--theme-color-1);
-		}
+		} */
 		&:hover span {
 			&:nth-child(1) {
 				transform: translate3d(0,-150%,0.0001px);
