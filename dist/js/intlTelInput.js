@@ -1073,7 +1073,6 @@
             }, {
                 key: "_setFlag",
                 value: function _setFlag(countryCode) {
-                    
                     var _this$options3 = this.options, allowDropdown = _this$options3.allowDropdown, separateDialCode = _this$options3.separateDialCode, showFlags = _this$options3.showFlags;
                     var prevCountry = this.selectedCountryData.iso2 ? this.selectedCountryData : {};
                     // do this first as it will throw an error and stop if countryCode is invalid
@@ -1086,14 +1085,12 @@
                         this.selectedFlagInner.setAttribute("class", "iti__flag iti__".concat(countryCode));
                     }
                     this._setSelectedCountryFlagTitleAttribute(countryCode, separateDialCode);
-                    
                     if (separateDialCode) {
-                        
                         var dialCode = this.selectedCountryData.dialCode ? "+".concat(this.selectedCountryData.dialCode) : "";
                         this.selectedDialCode.innerHTML = dialCode;
                         // offsetWidth is zero if input is in a hidden container during initialisation
                         var selectedFlagWidth = this.selectedFlag.offsetWidth || this._getHiddenSelectedFlagWidth();
-                        console.log(selectedFlagWidth)
+                        
                         // add 6px of padding after the grey selected-dial-code box, as this is what we use in the css
                         if (this.isRTL) {
                             this.telInput.style.paddingRight = "".concat(selectedFlagWidth + 6, "px");
@@ -1153,7 +1150,7 @@
                     flagsContainerClone.appendChild(selectedFlagClone);
                     var width = selectedFlagClone.offsetWidth;
                     containerClone.parentNode.removeChild(containerClone);
-                    //console.log(width)
+                    
                     return width;
                 }
             }, {

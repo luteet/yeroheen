@@ -1,0 +1,176 @@
+@@include("html/_header-2.html", {
+	"class": "is-light-start",
+})
+
+	<main class="main">
+		<section class="page-hero container">
+			<h1 class="page-hero__title split-lines main-title is-alternative" data-animation="lines-up" data-animation-delay="0.2" data-animation-anchor=".page-hero">
+				Where Every Frame <br> Tells a Story
+			</h1>
+			<div class="page-hero__text" data-animation="fade-in" data-animation-delay="0.4" data-animation-anchor=".page-hero">
+				<p>
+					Since 2014, we have crafted <b>over 100 multimedia projects.</b>
+				</p>
+			</div>
+		</section>
+		<section class="video">
+			<div class="video__wrapper">
+				<video data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" muted loop playsinline class="video__element lazy"></video>
+			</div>
+		</section>
+		<section class="about-us container is-reverse-color">
+			<h2 class="about-us__section-name section-name">
+				About us
+			</h2>
+			<div class="about-us__subtitle">
+				<p>
+					50 unique performances crafted, with dozens of video projection solutions implemented.
+				</p>
+			</div>
+			<div class="about-us__text split-text">
+				<p>We are a studio that turns the latest stage solutions and visual technologies into captivating stories. Specializing in 3D animation, we create shows by combining various technologies to achieve an exceptional effect.</p>
+			</div>
+			<div class="about-us__add-text">
+				<p>
+					Our goal is to amaze the audience, making each show unique and unforgettable. We aim for innovation and creativity, ensuring high-quality and engaging narratives in every project we undertake.
+				</p>
+			</div>
+		</section>
+		<section class="world container" data-change-theme-to="dark">
+			<h2 class="world__title section-title" data-animation="fade-in">
+				Growing Worldwide
+			</h2>
+			<div class="world__wrapper">
+				<div class="world__map" data-animation="fade-in" data-animation-delay="0.2">
+					<div class="world__map_image image-aspect-ratio">
+						<picture>
+							<source srcset="img/about/world/about-world-map.avif" media="(min-width: 992px)" type="image/avif">
+							<source srcset="img/about/world/about-world-map.webp" media="(min-width: 992px)" type="image/webp">
+							<source srcset="img/about/world/about-world-map-mob.avif" type="image/avif">
+							<source srcset="img/about/world/about-world-map-mob.webp" type="image/webp">
+							<img src="img/about/world/about-world-map.png" alt="" width="1280" height="548" decoding="async" loading="lazy">
+						</picture>
+					</div>
+					<ul class="world__map_legends">
+						<li>
+							Kyiv
+						</li>
+						<li>
+							Prague
+						</li>
+						<li>
+							Zurich
+						</li>
+						<li>
+							Geneva
+						</li>
+						<li>
+							Bucharest
+						</li>
+						<li>
+							New York
+						</li>
+						<li>
+							Los Angeles
+						</li>
+						<li>
+							Sao Paolo
+						</li>
+						<li>
+							Beirut
+						</li>
+						<li>
+							Bahrain
+						</li>
+						<li>
+							Dammam
+						</li>
+						<li>
+							Dubai
+						</li>
+						<li>
+							Doha
+						</li>
+						<li>
+							Riyadh
+						</li>
+						<li>
+							Tokyo
+						</li>
+					</ul>
+				</div>
+				<div class="world__content" data-animation="fade-in" data-animation-delay="0.4">
+					<h3>Our team has implemented many projects around the world.</h3>
+					<p>
+						We are available for you 24/7, no matter what time zone you are in.
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="ceo container">
+			<h2 class="visually-hidden">CEO</h2>
+			<div class="ceo__portrait" data-animation="fade-in">
+				<picture class="image-aspect-ratio">
+					<source srcset="img/about/ceo/about-ceo-portrait.avif" type="image/avif">
+					<source srcset="img/about/ceo/about-ceo-portrait.webp" type="image/webp">
+					<img src="img/about/ceo/about-ceo-portrait.jpg" alt="" width="555" height="660" decoding="async" loading="lazy">
+				</picture>
+			</div>
+			<div class="ceo__content" data-animation="fade-in" data-animation-delay="0.2">
+				<h3>We are creating a new type of art that operates on the level of future human perception, maximizing the saturation of airtime while at the same time infusing deep meanings into the narrative.</h3>
+				<p>We began our journey in 2014 and since that time have created over 100 multimedia shows, installations, and various digital audio-visual solutions. We are forming a new vision at the intersection of live art, 3D animation, and the latest technologies.</p>
+				<p>These are new forms of immersive storytelling that impact viewers not just visually and auditorily, but on the level of consciousness.</p>
+				<div class="ceo__by">
+					<b>Anatoliy Yeroheen</b>
+					<span>CEO</span>
+				</div>
+			</div>
+		</section>
+		<section class="partners">
+			<h2 class="partners__title section-name container" data-animation="fade-in">
+				We work with:
+			</h2>
+			<div class="partners__slider splide" data-animation="fade-in" data-animation-delay="0.2">
+				<div class="partners__track splide__track">
+					<ul class="partners__list splide__list">
+						@@loop("html/_partner-slide.html", [
+							{
+								"logo": "1",
+							},
+							{
+								"logo": "2",
+							},
+							{
+								"logo": "3",
+							},
+							{
+								"logo": "4",
+							},
+							{
+								"logo": "5",
+							},
+							{
+								"logo": "6",
+							},
+							{
+								"logo": "7",
+							},
+							{
+								"logo": "8",
+							},
+							{
+								"logo": "9",
+							},
+							{
+								"logo": "10",
+							},
+						])
+					</ul>
+				</div>
+			</div>
+		</section>
+		@@include("html/_lets-work.html")
+		@@include("html/_contacts.html")
+	</main>
+
+@@include("html/_footer.html")

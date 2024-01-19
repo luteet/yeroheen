@@ -1,0 +1,51 @@
+@@include("html/_header.html")
+
+	<main class="main">
+		<section class="page-hero container is-full-height">
+			<h1 class="page-hero__title split-lines main-title is-alternative" data-animation="lines-up" data-animation-delay="0.4" data-animation-once>
+				Portfolio Showcase
+			</h1>
+			<div class="page-hero__text" data-animation="fade-in" data-animation-delay="0.6" data-animation-anchor=".page-hero" data-animation-once>
+				<p>
+					Transforming ideas into immersive multimedia realities.
+				</p>
+			</div>
+			<a href="#" class="page-hero__scroll_link" aria-label="Our Services">
+				<span aria-hidden="true">
+					<span>
+						Our Cases
+						<svg width="22" height="18" viewBox="0 0 18 14">
+							<use xlink:href="img/sprites.svg#arrow-next"></use>
+						</svg>
+					</span>
+					<span>
+						Our Cases
+						<svg width="22" height="18" viewBox="0 0 18 14">
+							<use xlink:href="img/sprites.svg#arrow-next"></use>
+						</svg>
+					</span>
+				</span>
+			</a>
+		</section>
+		<section class="cases container" data-change-theme-to="light">
+			<h2 class="visually-hidden">Our Cases</h2>
+			<ul class="cases__list">
+				@@loop("html/_cases-item.html", [
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+					{},
+				])
+			</ul>
+		</section>
+		@@include("html/_lets-work.html")
+		@@include("html/_lets-work-marquee.html")
+		@@include("html/_contacts.html")
+	</main>
+
+@@include("html/_footer.html")

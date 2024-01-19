@@ -1,0 +1,47 @@
+.team {
+
+	// .team__title
+
+	&__title {
+	}
+
+	// .team__list
+
+	&__list {
+		padding-top: 2.5rem;
+
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+
+		@include _550 {
+			flex-direction: row;
+		}
+
+		gap: 1.875rem 4.1875rem;
+
+		li {
+
+		}
+
+		h3 {
+			text-transform: uppercase;
+			font-size: 0.8125rem;
+			font-weight: 600;
+			line-height: 123.077%;
+			letter-spacing: -0.0325rem;
+			color: var(--grey);
+		}
+
+		b {
+			display: block;
+			padding-top: 0.3125rem;
+
+			color: var(--black);
+			font-size: 1.25rem;
+			font-weight: 500;
+			line-height: 130%;
+			letter-spacing: -0.05rem;
+		}
+	}
+}

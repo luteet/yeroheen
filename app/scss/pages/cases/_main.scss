@@ -1,0 +1,39 @@
+.cases {
+
+	padding-top: 9.375rem;
+	
+	@include _992 {
+		padding-top: 15.625rem;
+	}
+
+	// .cases__list
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+
+		gap: 2rem 0;
+		@include _550 {
+			gap: 9.375rem 0;
+		}
+		
+		@include _768 {
+			gap: 9.375rem 0;
+		}
+		
+		@include _992 {
+			gap: 15.625rem 0;
+		}
+	}
+
+	// .cases__item
+
+	&__item {
+		max-width: 63.4375rem;
+		width: 100%;
+		
+		&:nth-child(even) {
+			align-self: self-end;
+		}
+	}
+}

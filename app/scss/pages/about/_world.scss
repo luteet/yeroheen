@@ -1,0 +1,88 @@
+.world {
+
+	padding-top: 9.375rem;
+	@include _992 {
+		padding-top: 15.625rem;
+	}
+
+	// .world__title
+
+	&__title {
+		text-align: center;
+		color: var(--theme-color-1, var(--black));
+	}
+
+	&__wrapper {
+		display: grid;
+		margin-top: 2.5rem;
+		@include _992 {
+			> * {
+				grid-area: 1/1;
+			}
+		}
+	}
+
+	// .world__map
+
+	&__map {
+	}
+
+	// .world__map_image
+
+	&__map_image {
+	}
+
+	// .world__map_legends
+
+	&__map_legends {
+		padding-top: 1.875rem;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.625rem;
+
+		counter-reset: number;
+
+		color: var(--white);
+
+		li {
+			
+			&::before {
+				counter-increment: number;
+				content: "0"counter(number)". ";
+			
+			}
+			
+		}
+
+		@include _992 {
+			display: none;
+		}
+	}
+
+	// .world__content
+
+	&__content {
+
+		padding-top: 2.5rem;
+		
+		@include _992 {
+			padding-top: 0;
+		}
+		
+		align-self: self-end; justify-self: start;
+		width: 100%; max-width: 17.8125rem;
+		color: var(--theme-color-1, var(--black));
+
+		p:not(:first-child), h3:not(:first-child) {
+			padding-top: 1rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+			font-weight: 500;
+			line-height: 130%;
+			letter-spacing: -0.05rem;
+		}
+	}
+}

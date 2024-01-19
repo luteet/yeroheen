@@ -1,5 +1,9 @@
 
 @font-face {
+	@include font-include('Inter', 400, swap, normal, 'Inter-Regular');
+}
+
+@font-face {
 	@include font-include('Inter', 500, swap, normal, 'Inter-Medium');
 }
 
@@ -10,6 +14,9 @@
 .main-title {
 	font-family: var(--title-font);
 	color: rgba(255, 255, 255, 0.6);
+	&.is-alternative {
+		color: var(--black);
+	}
 	font-weight: 500;
 	line-height: 93.478%;
 	letter-spacing: -0.1969rem;
@@ -29,10 +36,10 @@
 		letter-spacing: -0.46rem;
 	}
 
-	@include _container {
+	/* @include _container {
 		font-size: 6.388889vw; // 92px
 		letter-spacing: -0.511111vw;
-	}
+	} */
 }
 
 .title {
@@ -41,13 +48,22 @@
 	font-weight: 700;
 
 	font-size: 1.125rem;
+	&.is-min {
+		font-size: 1.75rem;
+	}
 
 	@include _768 {
 		font-size: 1.5rem;
+		&.is-min {
+			font-size: 1.75rem;
+		}
 	}
 
 	@include _992 {
 		font-size: 1.875rem;
+		&.is-min {
+			font-size: 1.75rem;
+		}
 	}
 
 }
@@ -92,7 +108,7 @@
 		}
 	}
 
-	@include _container {
+	/* @include _container {
 		line-height: 107.576%;
 		letter-spacing: -0.366667vw;
 		font-size: 4.583333vw; // 66px
@@ -102,7 +118,7 @@
 			line-height: 118.182%;
 			letter-spacing: -0.244444vw;
 		}
-	}
+	} */
 }
 
 
@@ -117,7 +133,7 @@
 	text-transform: uppercase;
 
 	@include _container {
-		font-size: 0.902778vw;
+		font-size: 0.8125rem;
 	}
 
 }

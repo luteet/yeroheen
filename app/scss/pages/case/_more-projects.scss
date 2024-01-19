@@ -1,0 +1,42 @@
+.more-projects {
+
+	// .more-projects__header
+
+	&__header {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+	}
+
+	// .more-projects__title
+
+	&__title {
+	}
+
+	// .more-projects__list
+
+	&__list {
+		padding-top: 2rem;
+
+		@include _992 {
+			padding-top: 2.5rem;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.25rem;
+		}
+
+		display: grid;
+		grid-template-columns: 100%;
+		gap: 2rem 1.25rem;
+	}
+
+	// .more-projects__card
+
+	&__card {
+	}
+
+	// .more-projects__footer
+
+	&__footer {
+		padding-top: 2.5rem;
+	}
+}

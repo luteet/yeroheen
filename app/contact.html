@@ -1,0 +1,18 @@
+@@include("html/_header-2.html", {
+	"class": "is-light-start is-transparent-header",
+})
+
+	<main class="main">
+		<section class="contact-hero container">
+			<div class="contact-hero__background" aria-hidden="true" style="background-image: url(img/contact/contact-hero-image.webp);"></div>
+			<h1 class="contact-hero__title main-title split-lines" data-animation="lines-up" data-animation-once data-animation-delay="0.2">
+				Get In Touch
+				<svg width="52" height="52" viewBox="0 0 52 52">
+					<use xlink:href="img/sprites.svg#flash"></use>
+				</svg>
+			</h1>
+		</section>
+		@@include("html/_contacts.html")
+	</main>
+
+@@include("html/_footer.html")

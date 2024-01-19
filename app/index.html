@@ -1,4 +1,6 @@
-@@include("html/_header.html")
+@@include("html/_header.html", {
+	"class": "",
+})
 
 	<main class="main">
 		<section class="index-hero container">
@@ -77,13 +79,13 @@
 				</a>
 			</div>
 		</section>
-		<section class="our-work container" data-change-theme-to="light">
+		<section class="our-work container" data-animation="fade-in" data-change-theme-to="light">
 			<h2 class="our-work__title section-title">
-				<div data-animation="fade-up" data-animation-delay="0.5">
+				<div data-animation="fade-up" data-animation-delay="0.5" data-animation-anchor=".our-work__title" data-animation-once>
 					<span>Our work</span>
 				</div>
 			</h2>
-			<div class="our-work__text" data-animation="fade-in" data-animation-delay="0.2">
+			<div class="our-work__text">
 				<p>
 					Our work is not only about vivid visual effects, but about independent works of art with their own mission and goals.
 				</p>
@@ -91,9 +93,9 @@
 			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="BAPCO. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
-						<source srcset="img/index/our-work/our-work-image-1.avif" type="image/avif">
-						<source srcset="img/index/our-work/our-work-image-1.webp" type="image/webp">
-						<img src="img/index/our-work/our-work-image-1.jpg" alt="" width="787" height="498" loading="lazy">
+						<source data-srcset="img/index/our-work/our-work-image-1.avif" type="image/avif">
+						<source data-srcset="img/index/our-work/our-work-image-1.webp" type="image/webp">
+						<img data-src="img/index/our-work/our-work-image-1.jpg" alt="" width="787" height="498" class="lazy" data-animation="fade-in">
 					</picture>
 					<i aria-hidden="true">
 						<span>
@@ -121,9 +123,9 @@
 			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. Multimedia show | Interactive dance">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
-						<source srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
-						<source srcset="img/index/our-work/our-work-image-2.webp" type="image/webp">
-						<img src="img/index/our-work/our-work-image-2.jpg" alt="" width="440" height="560" loading="lazy">
+						<source data-srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
+						<source data-srcset="img/index/our-work/our-work-image-2.webp" type="image/webp">
+						<img data-src="img/index/our-work/our-work-image-2.jpg" alt="" width="440" height="560" class="lazy" data-animation="fade-in">
 					</picture>
 					<i aria-hidden="true">
 						<span>
@@ -151,9 +153,9 @@
 			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. Hologram interaction dance for one of the best European TV Channels">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
-						<source srcset="img/index/our-work/our-work-image-3.avif" type="image/avif">
-						<source srcset="img/index/our-work/our-work-image-3.webp" type="image/webp">
-						<img src="img/index/our-work/our-work-image-3.jpg" alt="" width="900" height="580" loading="lazy">
+						<source data-srcset="img/index/our-work/our-work-image-3.avif" type="image/avif">
+						<source data-srcset="img/index/our-work/our-work-image-3.webp" type="image/webp">
+						<img data-src="img/index/our-work/our-work-image-3.jpg" alt="" width="900" height="580" class="lazy" data-animation="fade-in">
 					</picture>
 					<i aria-hidden="true">
 						<span>
@@ -181,9 +183,9 @@
 			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Google. Multimedia show - Google CEE Agency Summit 2019">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
-						<source srcset="img/index/our-work/our-work-image-4.avif" type="image/avif">
-						<source srcset="img/index/our-work/our-work-image-4.webp" type="image/webp">
-						<img src="img/index/our-work/our-work-image-4.jpg" alt="" width="900" height="580" loading="lazy">
+						<source data-srcset="img/index/our-work/our-work-image-4.avif" type="image/avif">
+						<source data-srcset="img/index/our-work/our-work-image-4.webp" type="image/webp">
+						<img data-src="img/index/our-work/our-work-image-4.jpg" alt="" width="900" height="580" class="lazy" data-animation="fade-in">
 					</picture>
 					<i aria-hidden="true">
 						<span>
@@ -211,9 +213,9 @@
 			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
-						<source srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
-						<source srcset="img/index/our-work/our-work-image-2.webp" type="image/webp">
-						<img src="img/index/our-work/our-work-image-2.jpg" alt="" width="440" height="560" loading="lazy">
+						<source data-srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
+						<source data-srcset="img/index/our-work/our-work-image-2.webp" type="image/webp">
+						<img data-src="img/index/our-work/our-work-image-2.jpg" alt="" width="440" height="560" class="lazy" data-animation="fade-in">
 					</picture>
 					<i aria-hidden="true">
 						<span>
@@ -252,18 +254,18 @@
 				</a>
 			</div>
 		</section>
-		<section class="services" data-animation="fade-in" data-animation-delay="0.2" data-animation-anchor=".services__wrapper">
-			<div class="services__body">
-				<div class="services__hero container">
-					<h2 class="services__section-name section-name">
+		<section class="services-section" data-animation="fade-in" data-animation-delay="0.2" data-animation-anchor=".services__wrapper">
+			<div class="services-section__body">
+				<div class="services-section__hero container">
+					<h2 class="services-section__section-name section-name">
 						Comprehensive Event Services:
 					</h2>
-					<h3 class="services__title section-title is-min" data-animation="split-fade-up" data-animation-delay="0.4">
+					<h3 class="services-section__title section-title is-min" data-animation="split-fade-up" data-animation-delay="0.3">
 						From Creative Concepts to Hi-End Technology
 					</h3>
 				</div>
-				<div class="services__wrapper" data-animation="fade-in" data-animation-delay="0.6">
-					<ul class="services__list visible-on-desktop">
+				<div class="services-section__wrapper" data-animation="fade-in" data-animation-delay="0.4">
+					<ul class="services-section__list visible-on-desktop">
 						@@loop("html/_service-card.html", [
 							{"class": "", "title": "Creative concept"},
 							{"class": "", "title": "Content production"},
@@ -272,9 +274,9 @@
 							{"class": "", "title": "Hi-end technology"},
 						])
 					</ul>
-					<div class="services__slider splide visible-on-mob">
-						<div class="services__slider--track splide__track">
-							<ul class="services__slider--list splide__list">
+					<div class="services-section__slider splide visible-on-mob">
+						<div class="services-section__slider--track splide__track">
+							<ul class="services-section__slider--list splide__list">
 								@@loop("html/_service-card.html", [
 									{"class": " splide__slide", "title": "Creative concept"},
 									{"class": " splide__slide", "title": "Content production"},
@@ -284,15 +286,15 @@
 								])
 							</ul>
 						</div>
-						<div class="services__slider--pagination splide__pagination"></div>
+						<div class="services-section__slider--pagination splide__pagination"></div>
 					</div>
 				</div>
-				<ul class="services__pagination"></ul>
+				<ul class="services-section__pagination"></ul>
 			</div>
 		</section>
 		<section class="video">
 			<div class="video__wrapper">
-				<video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" muted loop playsinline class="video__element"></video>
+				<video data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" muted loop playsinline class="video__element lazy"></video>
 			</div>
 		</section>
 		<section class="work-stages container" data-animation="fade-in" data-animation-delay="0.4">
@@ -301,7 +303,7 @@
 					<h2 class="work-stages__name section-name">
 						Work stages
 					</h2>
-					<h3 class="work-stages__title section-title is-min" data-animation="split-fade-up" data-animation-delay="0.6" data-animation-anchor=".work-stages">
+					<h3 class="work-stages__title section-title is-min" data-animation-once data-animation="split-fade-up" data-animation-delay="0.6" data-animation-anchor=".work-stages">
 						All services involve the same 
 						<b>stages</b>
 					</h3>
@@ -454,202 +456,163 @@
 			<div class="marquee__slider splide">
 				<div class="splide__track">
 					<ul class="splide__list">
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
+						<li class="splide__slide marquee__element">
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
 						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
+						<li class="splide__slide marquee__element">
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
 						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
+						<li class="splide__slide marquee__element">
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
 						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
-						</li>
-						<li class="splide__slide marquee__element section-title">
-							<svg width="52" height="52" viewBox="0 0 52 52">
-								<use xlink:href="img/sprites.svg#flash"></use>
-							</svg>
-							Let’s work
+						<li class="splide__slide marquee__element">
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
+							<span class="section-title">
+								<svg width="52" height="52" viewBox="0 0 52 52">
+									<use xlink:href="img/sprites.svg#flash"></use>
+								</svg>
+								Let’s work
+							</span>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</section>
-		<section class="contacts container">
-			<div class="contacts__col visible-on-desktop">
-				<div class="contacts__header">
-					<h3 class="contacts__name section-name">
-						Contacts
-					</h2>
-					<ul class="contacts__mails">
-						<li>
-							<a href="mailto:info@yeroheen.com">
-								info@yeroheen.com
-							</a>
-						</li>
-					</ul>
-					<ul class="contacts__social">
-						<li>
-							<a href="https://instagram.com/yeroheen?igshid=YmMyMTA2M2Y=" title="Instagram">
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#instagram"></use>
-								</svg>
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#instagram"></use>
-								</svg>
-							</a>
-						</li>
-						<li>
-							<a href="https://www.linkedin.com/in/anatoliy-yeroheen-62b7a115b" title="LinkedIn">
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#linkedin"></use>
-								</svg>
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#linkedin"></use>
-								</svg>
-							</a>
-						</li>
-						<li>
-							<a href="https://www.youtube.com/user/showPapala" title="YouTube">
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#youtube"></use>
-								</svg>
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#youtube"></use>
-								</svg>
-							</a>
-						</li>
-						<li>
-							<a href="https://wa.me/380986121352" title="WhatsApp">
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#whatsapp"></use>
-								</svg>
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#whatsapp"></use>
-								</svg>
-							</a>
-						</li>
-						<li>
-							<a href="https://www.facebook.com/yeroheen" title="Facebook">
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#facebook"></use>
-								</svg>
-								<svg width="26" height="26" viewBox="0 0 26 26">
-									<use xlink:href="img/sprites.svg#facebook"></use>
-								</svg>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="contacts__offices">
-					<h3 class="contacts__name section-name">
-						Offices
-					</h3>
-					<ul class="contacts__offices--list">
-						<li>
-							New York, USA <br>
-							<a href="tel:+19179953931">
-								<span>+1 (917) 995 39 31</span>
-								<span>+1 (917) 995 39 31</span>
-							</a>
-						</li>
-						<li>
-							Kyiv, Ukraine <br>
-							<a href="tel:+380986121352">
-								<span>+38 (098) 612 13 52</span>
-								<span>+38 (098) 612 13 52</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="contacts__col">
-				<h2 class="contacts__title section-title">
-					Contact
-				</h2>
-				<form class="contacts__form form">
-					<label data-error-text="Please enter a valid first name.">
-						<input type="text" name="first-name" placeholder="First Name" required>
-						<span>First Name</span>
-					</label>
-					<label data-error-text="Please enter a valid last name.">
-						<input type="text" name="last-name" placeholder="Last Name" required>
-						<span>Last Name</span>
-					</label>
-					<label data-error-text="Please enter a valid email address.">
-						<input type="email" name="email" placeholder="Email" required>
-						<span>Email</span>
-					</label>
-					<label class="tel-input-label" data-error-text="Please enter a valid phone number.">
-						<input type="tel" name="tel" placeholder="Phone" class="tel-input" required>
-						<span>Phone number</span>
-					</label>
-					<label class="is-full" data-value="1">
-						<textarea name="comment" placeholder="Comment (optional)"></textarea>
-						<span>Comment <span>optional</span></span>
-					</label>
-					<button type="submit" class="btn-2 is-alternative" aria-label="Submit">
-						<span>Submit</span>
-						<span>Submit</span>
-					</button>
-				</form>
-			</div>
-		</section>
+		@@include("html/_contacts.html")
 	</main>
 
 @@include("html/_footer.html")

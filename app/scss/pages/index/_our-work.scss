@@ -6,6 +6,8 @@
 	flex-direction: column;
 	gap: 2rem;
 
+	perspective: 399px;
+
 	@include _992 {
 		padding-top: 15.625rem;
 
@@ -137,13 +139,16 @@
 			transform: scale(1);
 		}
 
+		perspective: 400px;
+		display: block;
+
 		// .our-work__card--image
 
 		&--image {
 			padding-top: 69.970845%;
 			overflow: hidden;
 			img {
-				transform: scale(1.15);
+				transform: scale(1.15) translateZ(0.0005px);
 				transition: transform 1s ease;
 			}
 

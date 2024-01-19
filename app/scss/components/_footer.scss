@@ -40,7 +40,7 @@
 		}
 
 		a {
-			color: var(--white);
+			color: var(--theme-color-1);
 			font-weight: 500;
 			line-height: 137.5%;
 			letter-spacing: -0.04rem;
@@ -131,6 +131,7 @@
 		// .footer__logo--img
 
 		&--img {
+			filter: invert(var(--theme-progress));
 			@include _992 {
 				min-width: 7.8125rem; height: auto;
 			}

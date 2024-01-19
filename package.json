@@ -36,6 +36,7 @@
     "intl-tel-input": "^18.3.3",
     "normalize.css": "^8.0.1",
     "sass": "^1.45.0",
-    "split-type": "^0.3.4"
+    "split-type": "^0.3.4",
+    "vanilla-lazyload": "^17.8.5"
   }
 }

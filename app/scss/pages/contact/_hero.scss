@@ -1,0 +1,30 @@
+.contact-hero {
+
+	min-height: 27.5rem;
+	padding-top: var(--height-header,4.6875rem);
+	padding-bottom: var(--height-header,4.6875rem);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	// .contact-hero__background
+
+	&__background {
+		position: absolute;
+		left: 0; top: 0;
+		width: 100%; height: 100%;
+		z-index: -1;
+		background: center / cover no-repeat;
+	}
+
+	// .contact-hero__title
+
+	&__title {
+		z-index: 2;
+		color: var(--theme-color-1-reverse);
+		svg {
+			width: 1ch; height: auto;
+		}
+	}
+}

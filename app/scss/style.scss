@@ -9,6 +9,7 @@
 //@import 'popup';
 
 @import 'components/header';
+@import 'components/page-hero';
 
 @import 'pages/index/hero';
 @import 'pages/index/about-us';
@@ -18,5 +19,22 @@
 @import 'pages/index/work-stages';
 @import 'pages/index/marquee';
 @import 'pages/index/contacts';
+
+@import 'pages/about/world';
+@import 'pages/about/ceo';
+@import 'pages/about/partners';
+@import 'components/lets-work';
+
+@import 'pages/case/hero';
+@import 'pages/case/add-about';
+@import 'pages/case/gallery';
+@import 'pages/case/team';
+@import 'pages/case/more-projects';
+
+@import 'pages/services/main';
+
+@import 'pages/cases/main';
+
+@import 'pages/contact/hero';
 
 @import 'components/footer';
