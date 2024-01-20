@@ -232,13 +232,13 @@ export default function animations(windowSize) {
 			requestAnimationFrame(raf)
 		}
 
-		lenis.on('scroll', ScrollTrigger.update)
+		//lenis.on('scroll', ScrollTrigger.update)
 
-		gsap.ticker.add((time)=>{
+		/* gsap.ticker.add((time)=>{
 			lenis.raf(time * 1000)
 		})
 
-		gsap.ticker.lagSmoothing(0)
+		gsap.ticker.lagSmoothing(0) */
 
 		requestAnimationFrame(raf);
 
@@ -268,16 +268,14 @@ export default function animations(windowSize) {
 		let firstStart = false,
 		timelineList = [];
 
-		document.querySelectorAll('[data-change-theme-to]').forEach((el,index) => {
+		document.querySelectorAll('[data-change-theme-to]').forEach((element,index) => {
 			
-			let changeTheme = false, 
-			section = document.querySelectorAll('[data-change-theme-to]')[index],
+			let section = document.querySelectorAll('[data-change-theme-to]')[index],
 			prevSection = index-1 != -1 ? document.querySelectorAll('[data-change-theme-to]')[index-1] : false,
 			timeline = gsap.timeline();
 
 			timelineList.push(timeline);
 			
-			let anim;
 			if(section.dataset.changeThemeTo == "light") {
 				
 				gsap.set(html, {
@@ -311,41 +309,6 @@ export default function animations(windowSize) {
 				})
 			}
 
-			/* if(section.dataset.changeThemeTo == "light") {
-				
-				anim = gsap.fromTo(html, {
-					immediateRender: !1, 
-					paused: !0,
-					"--background-color": 'rgba(11,11,12,1)',
-					'--theme-color-1': 'rgb(255,255,255)',
-					'--theme-color-1-reverse': 'rgb(23,23,24)',
-					'--theme-progress': 0,
-				},
-				{
-					'--background-color': "rgba(255,255,255,1)",
-					'--theme-color-1': 'rgb(23,23,24)',
-					'--theme-color-1-reverse': 'rgb(255,255,255)',
-					'--theme-progress': 1,
-				})
-				
-			} else {
-				
-				anim = gsap.fromTo(html, {
-					immediateRender: !1, 
-					paused: !0,
-					'--background-color': "rgb(255,255,255)",
-					'--theme-color-1': 'rgb(23,23,24)',
-					'--theme-color-1-reverse': 'rgb(255,255,255)',
-					'--theme-progress': 1,
-				},
-				{
-					'--background-color': 'rgb(11,11,12)',
-					'--theme-color-1': 'rgb(255,255,255)',
-					'--theme-color-1-reverse': 'rgb(23,23,24)',
-					'--theme-progress': 0,
-				})
-			} */
-
 			timeline.pause();
 
 			let start, end;
@@ -357,25 +320,14 @@ export default function animations(windowSize) {
 				end = `+${window.innerHeight/3} 15%`;
 			}
 
-			ScrollTrigger.create({
-
-				trigger: section,
-				scrub: 1,
-				start: start,
-				end: end,
-
-				//animation: anim,
-				
-				onUpdate: (self) => {
-
-					timeline.progress(self.progress);
+			gsap.to(element, {
+				scrollTrigger: {
+					trigger: element,
+					//markers: true,
+					start: "top top",
+					end: "100px top",
 					
-					if(index == 0 && self.progress == 1) firstStart = true;
-					
-					if(self.progress >= 0.3 && !changeTheme) {
-
-						changeTheme = true;
-
+					onEnter: function () {
 						if(section.dataset.changeThemeTo == "light") {
 
 							body.classList.remove('is-dark');
@@ -397,12 +349,9 @@ export default function animations(windowSize) {
 							})
 
 						}
-						
-					} else if(self.progress < 0.3 && changeTheme) {
-
-						changeTheme = false;
+					},
+					onEnterBack: function (self) {
 						body.classList.remove('is-dark');
-						
 						if(prevSection) {
 							if(prevSection.dataset.changeThemeTo == "light") {
 
@@ -439,8 +388,112 @@ export default function animations(windowSize) {
 								startButton.classList.remove('is-reverse-theme');
 							})
 						}
+					},
+					
+				},
+				/* onEnter: function () {
+					console.log("complete")
+				} */
+			})
 
+			ScrollTrigger.create({
+
+				trigger: section,
+				scrub: 1,
+				start: start,
+				end: end,
+
+				//animation: anim,
+				
+				onUpdate: (self) => {
+
+					timeline.progress(self.progress);
+					
+					if(index == 0 && self.progress == 1) firstStart = true;
+					
+					if(self.progress >= 0.3) {
+
+						//console.log(self.progress >= 0.3 && !changeTheme)
+						//changeTheme = true;
+						//console.log('change')
+
+						/* if(section.dataset.changeThemeTo == "light") {
+
+							body.classList.remove('is-dark');
+							html.style.setProperty('--theme-color-2', '#171718');
+							html.style.setProperty('--background-color-2', 'rgba(255,255,255,1)');
+
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.add('is-reverse-theme');
+							})
+
+						} else {
+
+							body.classList.add('is-dark');
+							html.style.setProperty('--theme-color-2', '#FFF');
+							html.style.setProperty('--background-color-2', 'rgba(11,11,12,1)');
+
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.remove('is-reverse-theme');
+							})
+
+						} */
+						
+					} 
+					
+					if(self.progress < 0.2) {
+
+						//changeTheme2 = false;
+						
+						
+						
+						/* if(prevSection) {
+							if(prevSection.dataset.changeThemeTo == "light") {
+
+								if(index-1 == -1) body.classList.add('is-dark'); else body.classList.remove('is-dark');
+
+								html.style.setProperty('--theme-color-2', '#171718');
+								html.style.setProperty('--background-color-2', 'rgba(255,255,255,1)');
+								
+								document.querySelectorAll('.start-button').forEach(startButton => {
+									startButton.classList.add('is-reverse-theme');
+								})
+
+							} else {
+								
+								if(index-1 == -1) body.classList.remove('is-dark'); else body.classList.add('is-dark');
+
+								html.style.setProperty('--background-color-2', 'rgba(11,11,12,1)');
+								html.style.setProperty('--theme-color-2', '#FFF');
+
+								document.querySelectorAll('.start-button').forEach(startButton => {
+									startButton.classList.remove('is-reverse-theme');
+								})
+
+							}
+						} else {
+							
+							body.classList.add('is-dark');
+
+							html.style.setProperty('--theme-color-2', '#171718');
+							html.style.setProperty('--theme-color-2-reverse', '#fff');
+							html.style.setProperty('--background-color-2', 'rgba(255,255,255,1)');
+
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.remove('is-reverse-theme');
+							})
+						} */
 					}
+
+					/* if(self.progress >= 1) {
+						changeTheme = false;
+						changeTheme2 = true;
+					}
+
+					if(self.progress <= 0) {
+						changeTheme = false;
+						changeTheme2 = true;
+					} */
 					
 				},
 				
@@ -449,6 +502,7 @@ export default function animations(windowSize) {
 		})
 
 		if(!firstStart) {
+
 			firstStart = true;
 
 			if(html.classList.contains("is-light-start")) {
@@ -495,7 +549,7 @@ export default function animations(windowSize) {
 			})
 		})
 
-		document.querySelectorAll('[data-change-theme-to]').forEach((el,index) => {
+		document.querySelectorAll('[data-change-theme-to]').forEach((element,index) => {
 			
 			let changeTheme = false, 
 			section = document.querySelectorAll('[data-change-theme-to]')[index],
@@ -553,6 +607,79 @@ export default function animations(windowSize) {
 				end = `+${window.innerHeight/3} 15%`;
 			}
 
+			gsap.to(element, {
+				scrollTrigger: {
+					trigger: element,
+					//markers: true,
+					start: "top top",
+					end: "100px top",
+					
+					onEnter: function () {
+						if(section.dataset.changeThemeTo == "light") {
+
+							body.classList.remove('is-dark');
+							html.style.setProperty('--theme-color-2', '#171718');
+							html.style.setProperty('--background-color-2', 'rgba(255,255,255,1)');
+
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.add('is-reverse-theme');
+							})
+
+						} else {
+
+							body.classList.add('is-dark');
+							html.style.setProperty('--theme-color-2', '#FFF');
+							html.style.setProperty('--background-color-2', 'rgba(11,11,12,1)');
+
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.remove('is-reverse-theme');
+							})
+
+						}
+					},
+					onEnterBack: function (self) {
+						body.classList.remove('is-dark');
+						if(prevSection) {
+							if(prevSection.dataset.changeThemeTo == "light") {
+
+								if(index-1 == -1) body.classList.add('is-dark'); else body.classList.remove('is-dark');
+
+								html.style.setProperty('--theme-color-2', '#171718');
+								html.style.setProperty('--background-color-2', 'rgba(255,255,255,1)');
+								
+								document.querySelectorAll('.start-button').forEach(startButton => {
+									startButton.classList.add('is-reverse-theme');
+								})
+
+							} else {
+								
+								if(index-1 == -1) body.classList.remove('is-dark'); else body.classList.add('is-dark');
+
+								html.style.setProperty('--background-color-2', 'rgba(11,11,12,1)');
+								html.style.setProperty('--theme-color-2', '#FFF');
+
+								document.querySelectorAll('.start-button').forEach(startButton => {
+									startButton.classList.remove('is-reverse-theme');
+								})
+
+							}
+						} else {
+							
+							body.classList.add('is-dark');
+
+							html.style.setProperty('--theme-color-2', '#171718');
+							html.style.setProperty('--theme-color-2-reverse', '#fff');
+							html.style.setProperty('--background-color-2', 'rgba(255,255,255,1)');
+
+							document.querySelectorAll('.start-button').forEach(startButton => {
+								startButton.classList.remove('is-reverse-theme');
+							})
+						}
+					},
+					
+				},
+			})
+
 			ScrollTrigger.create({
 
 				trigger: section,
@@ -569,7 +696,7 @@ export default function animations(windowSize) {
 					
 					if(index == 0 && self.progress == 1) firstStart = true;
 					
-					if(self.progress >= 0.3 && !changeTheme) {
+					/* if(self.progress >= 0.3 && !changeTheme) {
 
 						changeTheme = true;
 						if(section.dataset.changeThemeTo == "light") {
@@ -625,7 +752,7 @@ export default function animations(windowSize) {
 
 						}
 
-					}
+					} */
 					
 				},
 				
