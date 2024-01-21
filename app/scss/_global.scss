@@ -172,6 +172,9 @@ section {
 .main {
 
 	overflow-x: hidden;
+	@include _992 {
+		overflow-x: visible;
+	}
 	
 	opacity: 0;
 	animation: fadeIn 0.3s ease 0.3s 1 normal forwards;

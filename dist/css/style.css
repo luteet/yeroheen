@@ -4937,6 +4937,10 @@ body.is-dark .contacts__form label input,body.is-dark .contacts__form label text
         overflow-x: hidden
     }
 
+    .main {
+        overflow-x: visible
+    }
+
     .start-button {
         right: var(--container-padding);
         bottom: var(--container-padding)
