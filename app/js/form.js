@@ -42,7 +42,45 @@ export default function form() {
 	
 	document.querySelectorAll('.form').forEach(form => {
 		form.addEventListener('submit', function (event) {
-			if(form.querySelector('.is-error')) event.preventDefault();
+			event.preventDefault();
+
+			if(!form.querySelector('.is-error') && admin_ajax_url) {
+
+				form.classList.add("is-loading");
+
+				let data = "action=" + form.getAttribute("action");
+
+				form.querySelectorAll('input, textarea').forEach(element => {
+					if(element.value) {
+						data += `&${element.name}=${element.value}`;
+					}
+				})
+
+				fetch(admin_ajax_url, {
+					method: "POST",
+					body: data,
+					headers:{"content-type": "application/x-www-form-urlencoded"}
+				})
+				
+				.then( (response) => {
+					if(response.status !== 200) return Promise.reject();
+					return response.text()
+				})
+				.then(result => {
+					if(result == "success") {
+						form.classList.remove("is-loading");
+						form.classList.add("is-loaded");
+					} else {
+						form.classList.remove("is-loading");
+					}
+				})
+				.catch((error) => {
+					console.log(error)
+					form.classList.remove("is-loading");
+				});
+
+			}
+			
 		})
 	})
 	
@@ -50,16 +88,6 @@ export default function form() {
 	
 		textarea.addEventListener('input', function (event) {
 			textarea.parentElement.dataset.value = textarea.value;
-		})
-	
-		textarea.addEventListener('blur', function (event) {
-			if(scrollSmoother) {
-				scrollSmoother.paused(true);
-				setTimeout(() => {
-					scrollSmoother.scrollTrigger.refresh();
-					scrollSmoother.paused(false);
-				},100)
-			}
 		})
 		
 		textarea.addEventListener('blur', function (event) {
@@ -86,10 +114,7 @@ export default function form() {
 				.catch(function() { callback("us"); });
 			}
 		});
-	
-		/* setTimeout(() => {
-			
-		},1000) */
+
 		animMedia.add("(min-width: 992px)", () => {
 			document.querySelectorAll('.iti__country-list').forEach(list => {
 				const lenis2 = new Lenis({

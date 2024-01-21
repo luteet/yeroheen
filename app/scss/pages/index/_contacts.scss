@@ -196,10 +196,72 @@
 		margin-top: 0.625rem;
 
 		display: grid;
-		gap: 1.5rem;
-		@include _550 {
-			grid-template-columns: 1fr 1fr;
-			gap: 2.5rem 1.25rem;
+		
+
+		&_block {
+			grid-area: 1/1;
+			align-self: center;
+
+			transition: opacity .3s ease, visibility .3s ease;
+
+			&:nth-child(1) {
+				display: grid;
+				gap: 1.5rem;
+				opacity: 1; visibility: visible;
+				@include _550 {
+					grid-template-columns: 1fr 1fr;
+					gap: 2.5rem 1.25rem;
+				}
+			}
+
+			&:nth-child(2) {
+				opacity: 0; visibility: hidden;
+				text-align: center;
+			}
+		}
+
+		&.is-loading &_block {
+			&:nth-child(1) {
+				opacity: .5;
+				pointer-events: none;
+			}
+		}
+
+		&.is-loading &_loader {
+			opacity: 1; visibility: visible;
+		}
+
+		&.is-loaded &_block {
+			&:nth-child(1) {
+				opacity: 0; visibility: hidden;
+			}
+
+			&:nth-child(2) {
+				opacity: 1; visibility: visible;
+			}
+		}
+
+		&_message {
+			color: var(--theme-color-1);
+
+			h3 {
+				font-family: var(--title-font);
+				font-weight: 700;
+
+				font-size: 1.125rem;
+
+				@include _768 {
+					font-size: 1.5rem;
+				}
+
+				@include _992 {
+					font-size: 1.875rem;
+				}
+			}
+
+			p {
+				padding-top: 1.5625rem;
+			}
 		}
 		
 		position: relative;
@@ -373,6 +435,10 @@ body.is-dark .contacts__form label {
 
 	&.is-valid input, &.is-valid textarea {
 		border-color: var(--theme-color-1);
+	}
+
+	&.is-error input, &.is-error textarea {
+		border-color: #ea2525;
 	}
 
 	input, textarea, &[data-value]::before {

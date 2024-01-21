@@ -518,31 +518,40 @@
 					<h2 class="contacts__title section-title">
 						Contact
 					</h2>
-					<form class="contacts__form form">
-						<label data-error-text="Please enter a valid first name.">
-							<input type="text" name="first-name" placeholder="First Name" required>
-							<span>First Name</span>
-						</label>
-						<label data-error-text="Please enter a valid last name.">
-							<input type="text" name="last-name" placeholder="Last Name" required>
-							<span>Last Name</span>
-						</label>
-						<label data-error-text="Please enter a valid email address.">
-							<input type="email" name="email" placeholder="Email" required>
-							<span>Email</span>
-						</label>
-						<label class="tel-input-label" data-error-text="Please enter a valid phone number.">
-							<input type="tel" name="tel" placeholder="Phone" class="tel-input" required>
-							<span>Phone number</span>
-						</label>
-						<label class="is-full" data-value="1">
-							<textarea name="comment" placeholder="Comment (optional)"></textarea>
-							<span>Comment <span>optional</span></span>
-						</label>
-						<button type="submit" class="btn-2 is-alternative" aria-label="Submit">
-							<span>Submit</span>
-							<span>Submit</span>
-						</button>
+					<form action="feedback_form" class="contacts__form form">
+						<div class="contacts__form_block">
+							<label data-error-text="Please enter a valid first name.">
+								<input type="text" name="first-name" placeholder="First Name" required>
+								<span>First Name</span>
+							</label>
+							<label data-error-text="Please enter a valid last name.">
+								<input type="text" name="last-name" placeholder="Last Name" required>
+								<span>Last Name</span>
+							</label>
+							<label data-error-text="Please enter a valid email address.">
+								<input type="email" name="email" placeholder="Email" required>
+								<span>Email</span>
+							</label>
+							<label class="tel-input-label" data-error-text="Please enter a valid phone number.">
+								<input type="tel" name="tel" placeholder="Phone" class="tel-input" required>
+								<span>Phone number</span>
+							</label>
+							<label class="is-full" data-value="1">
+								<textarea name="comment" placeholder="Comment (optional)"></textarea>
+								<span>Comment <span>optional</span></span>
+							</label>
+							<button type="submit" class="btn-2 is-alternative" aria-label="Submit">
+								<span>Submit</span>
+								<span>Submit</span>
+							</button>
+						</div>
+						<div class="contacts__form_block">
+							<div class="contacts__form_message">
+								<h3>Thanks</h3>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, culpa.</p>
+							</div>
+						</div>
+						<div class="contacts__form_loader loader"></div>
 					</form>
 				</div>
 			</section>
