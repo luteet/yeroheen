@@ -3953,8 +3953,12 @@ body.is-dark .page-hero__scroll_link>span>:nth-child(2) {
     color: var(--theme-color-1)
 }
 
+.contacts__title+.contacts__form {
+    margin-top: 2.5rem
+}
+
 .contacts__form {
-    margin-top: 2.5rem;
+    margin-top: .625rem;
     display: grid;
     gap: 1.5rem;
     position: relative

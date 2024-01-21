@@ -186,10 +186,14 @@
 		color: var(--theme-color-1);
 	}
 
+	&__title + &__form {
+		margin-top: 2.5rem;
+	}
+
 	// .contacts__form
 
 	&__form {
-		margin-top: 2.5rem;
+		margin-top: 0.625rem;
 
 		display: grid;
 		gap: 1.5rem;
