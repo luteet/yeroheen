@@ -138,6 +138,7 @@ function scriptsMin() {
 function scripts() {
 	return src('app/js/*.*')
 	//.pipe(scriptsMin())
+	.pipe(uglify())
 	.pipe(dest('dist/js'))
 	.pipe(browserSync.stream())
 }

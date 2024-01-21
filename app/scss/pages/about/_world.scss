@@ -10,11 +10,13 @@
 	&__title {
 		text-align: center;
 		color: var(--theme-color-1, var(--black));
+		z-index: 2;
+		position: relative;
 	}
 
 	&__wrapper {
 		display: grid;
-		margin-top: 2.5rem;
+		//margin-top: 2.5rem;
 		@include _992 {
 			> * {
 				grid-area: 1/1;
@@ -30,6 +32,21 @@
 	// .world__map_image
 
 	&__map_image {
+		display: grid;
+		@include _992 {
+			transform: scale(1.25);
+		}
+		
+		> * {
+			grid-area: 1/1;
+			&:nth-child(1) {
+				opacity: var(--theme-progress);
+			}
+
+			&:nth-child(2) {
+				opacity: var(--theme-progress-reverse);
+			}
+		}
 	}
 
 	// .world__map_legends
@@ -83,6 +100,10 @@
 			font-weight: 500;
 			line-height: 130%;
 			letter-spacing: -0.05rem;
+		}
+
+		p {
+			font-weight: 400;
 		}
 	}
 }

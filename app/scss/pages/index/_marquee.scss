@@ -1,7 +1,7 @@
 .marquee {
 
 	padding-top: 4.6875rem; padding-bottom: 4.6875rem;
-	margin-top: 4.6875rem;
+	margin-top: 4.0625rem;
 
 	@include _992 {
 		padding-top: 7.8125rem; padding-bottom: 6.875rem;
@@ -9,7 +9,7 @@
 	}
 
 	& + .contacts {
-		padding-top: 0;
+		padding-top: 4.6875rem;
 		@include _992 {
 			padding-top: 8.75rem;
 		}
@@ -18,8 +18,11 @@
 	// .marquee__slider
 
 	&__slider {
-		height: 4.375rem;
+		//height: 4.375rem;
 		perspective: 400px;
+		@include _992 {
+			height: 4.375rem;
+		}
 
 		.splide__track {
 			translate: 0 0 0.005px;

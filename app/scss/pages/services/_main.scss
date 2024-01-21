@@ -3,16 +3,46 @@
 	padding-top: calc(3.75rem + 9.375rem);
 	@include _992 {
 		padding-top: calc(3.75rem + 15.625rem);
+	}
 
-		display: grid;
+	&__row {
+		/* display: grid;
 		grid-template-columns: 1fr 2fr;
+		> * {
+			align-self: self-start;
+		} */
+		display: flex;
 	}
 
 	// .services__col
 
 	&__col {
+
 		display: flex;
 		flex-direction: column;
+
+		/* &.is-start {
+			align-self: self-start;
+		} */
+		
+		&_wrapper {
+			display: flex;
+			flex-direction: column;
+
+			min-width: 20.3125rem;
+			margin-right: 8.4375rem;
+
+			//padding-top: 1.875rem;
+
+			min-height: calc((var(--svh,1vh) * 100) - var(--height-header,4.6875rem) - 1.875rem);
+			min-height: calc(100svh - var(--height-header,4.6875rem) - 1.875rem);
+		}
+		
+		&.is-start {
+			
+			flex: 1 1;
+			//padding-bottom: calc(var(--height-header,4.6875rem) + 3.125rem);
+		}
 	}
 
 	// .services__section_name
@@ -139,12 +169,18 @@
 	// .services__list
 
 	&__list {
+
+		margin-top: -3rem;
 		
 		@include _992 {
+			margin-top: -12.5rem;
+
 			flex-direction: row;
 			height: var(--height);
 			transition: height 1s ease;
 			gap: 0;
+
+			
 		}
 
 		flex-direction: column;
@@ -157,6 +193,16 @@
 	// .services__slide
 
 	&__slide {
+
+		padding-top: 3rem;
+
+		@include _992 {
+			&:last-child {
+				margin-bottom: 1.875rem;
+			}
+			padding-top: var(--height-header,4.6875rem); margin-top: calc(12.5rem - var(--height-header,4.6875rem));
+		}
+
 		translate: 0 0 0.006px;
 		@media (max-width: 991px) {
 			transform: none !important;
@@ -172,6 +218,7 @@
 
 	&__slide_name {
 		color: var(--theme-color-1);
+		line-height: normal;
 		&::before {
 			counter-increment: number;
 			content: counter(number)". ";
@@ -182,9 +229,13 @@
 	// .services__slide_text
 
 	&__slide_text {
-		padding-top: 1rem;
+		padding-top: 0.625rem;
+		@include _992 {
+			padding-top: 1rem;
+		}
 		line-height: 137.5%;
 		letter-spacing: -0.04rem;
+		font-weight: 400;
 		color: var(--grey);
 		max-width: 31.875rem;
 	}
@@ -192,6 +243,10 @@
 	// .services__slide_image
 
 	&__slide_image {
-		margin-top: 2rem;
+		margin-top: 1.125rem;
+		min-height: 240px;
+		@include _992 {
+			margin-top: 2rem;
+		}
 	}
 }

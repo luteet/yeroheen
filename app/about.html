@@ -1,5 +1,9 @@
 @@include("html/_header-2.html", {
 	"class": "is-light-start",
+	"about": "is-current",
+	"services": "",
+	"cases": "",
+	"contacts": "",
 })
 
 	<main class="main">
@@ -13,18 +17,51 @@
 				</p>
 			</div>
 		</section>
-		<section class="video">
+		<!-- <section class="video">
 			<div class="video__wrapper">
 				<video data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" muted loop playsinline class="video__element lazy"></video>
 			</div>
-		</section>
+		</section> -->
+		<div class="gallery-slider splide">
+			<div class="gallery-slider__track splide__track">
+				<ul class="gallery-slider__list splide__list">
+					<li class="gallery-slider__slide splide__slide">
+						<div class="gallery-slider__image">
+							<picture>
+								<source srcset="img/index/hero/index-hero-slide-1.avif" type="image/avif">
+								<source srcset="img/index/hero/index-hero-slide-1.webp" type="image/webp">
+								<img src="img/index/hero/index-hero-slide-1.jpg" alt="" width="1920" height="1000" loading="lazy">
+							</picture>
+						</div>
+					</li>
+					<li class="gallery-slider__slide splide__slide">
+						<div class="gallery-slider__image">
+							<picture>
+								<source srcset="img/index/our-work/our-work-image-1.avif" type="image/avif">
+								<source srcset="img/index/our-work/our-work-image-1.webp" type="image/webp">
+								<img src="img/index/our-work/our-work-image-1.jpg" alt="" width="1920" height="1000" loading="lazy">
+							</picture>
+						</div>
+					</li>
+					<li class="gallery-slider__slide splide__slide">
+						<div class="gallery-slider__image">
+							<picture>
+								<source srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
+								<source srcset="img/index/our-work/our-work-image-2.webp" type="image/webp">
+								<img src="img/index/our-work/our-work-image-2.jpg" alt="" width="1920" height="1000" loading="lazy">
+							</picture>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<section class="about-us container is-reverse-color">
 			<h2 class="about-us__section-name section-name">
-				About us
+				We control every project phase. 
 			</h2>
 			<div class="about-us__subtitle">
 				<p>
-					50 unique performances crafted, with dozens of video projection solutions implemented.
+					From developing storyboards to executing installations on-site.
 				</p>
 			</div>
 			<div class="about-us__text split-text">
@@ -42,14 +79,25 @@
 			</h2>
 			<div class="world__wrapper">
 				<div class="world__map" data-animation="fade-in" data-animation-delay="0.2">
-					<div class="world__map_image image-aspect-ratio">
-						<picture>
-							<source srcset="img/about/world/about-world-map.avif" media="(min-width: 992px)" type="image/avif">
-							<source srcset="img/about/world/about-world-map.webp" media="(min-width: 992px)" type="image/webp">
-							<source srcset="img/about/world/about-world-map-mob.avif" type="image/avif">
-							<source srcset="img/about/world/about-world-map-mob.webp" type="image/webp">
-							<img src="img/about/world/about-world-map.png" alt="" width="1280" height="548" decoding="async" loading="lazy">
-						</picture>
+					<div class="world__map_image">
+						<div class="image-aspect-ratio">
+							<picture>
+								<source srcset="img/about/world/about-world-map-2.avif" media="(min-width: 992px)" type="image/avif">
+								<source srcset="img/about/world/about-world-map-2.webp" media="(min-width: 992px)" type="image/webp">
+								<source srcset="img/about/world/about-world-map-mob-2.avif" type="image/avif">
+								<source srcset="img/about/world/about-world-map-mob-2.webp" type="image/webp">
+								<img src="img/about/world/about-world-map-2.png" alt="" width="1280" height="548" decoding="async" loading="lazy">
+							</picture>
+						</div>
+						<div class="image-aspect-ratio">
+							<picture>
+								<source srcset="img/about/world/about-world-map.avif" media="(min-width: 992px)" type="image/avif">
+								<source srcset="img/about/world/about-world-map.webp" media="(min-width: 992px)" type="image/webp">
+								<source srcset="img/about/world/about-world-map-mob.avif" type="image/avif">
+								<source srcset="img/about/world/about-world-map-mob.webp" type="image/webp">
+								<img src="img/about/world/about-world-map.png" alt="" width="1280" height="548" decoding="async" loading="lazy">
+							</picture>
+						</div>
 					</div>
 					<ul class="world__map_legends">
 						<li>

@@ -217,8 +217,8 @@ export default function sliders(windowSize) {
 			gap: 10,
 			perPage: 1,
 			perMove: 1,
-			speed: 300,
-			easing: "ease",
+			speed: 700,
+			//easing: "ease",
 			arrows: false,
 	
 		});
@@ -271,7 +271,7 @@ export default function sliders(windowSize) {
 			perPage: 2,
 			perMove: 1,
 
-			speed: 500,
+			speed: 700,
 			arrows: false,
 	
 			breakpoints: {
@@ -299,7 +299,7 @@ export default function sliders(windowSize) {
 			
 			autoScroll: {
 				pauseOnHover: false,
-				speed: 0.5,
+				speed: 1,
 				autoStart: false,
 			},
 	
@@ -337,7 +337,7 @@ export default function sliders(windowSize) {
 	
 	})
 
-	document.querySelectorAll('.services__slider').forEach(sliderElement => {
+	/* document.querySelectorAll('.services__slider').forEach(sliderElement => {
 
 		const 
 		section = sliderElement.closest('section'),
@@ -433,6 +433,40 @@ export default function sliders(windowSize) {
         })
 	
 		slider.mount(window.splide.Extensions);
+	
+	}) */
+
+	document.querySelectorAll('.gallery-slider').forEach(sliderElement => {
+
+		const slides = sliderElement.querySelectorAll('.splide__slide');
+	
+		const slider = new Splide(sliderElement, {
+	
+			type: "fade",
+			rewind: true,
+			perPage: 1,
+			arrows: false,
+			pagination: false,
+			drag: false,
+			easing: "ease",
+			speed: 1700,
+			pauseOnHover: false,
+			interval: 3000,
+			autoplay: true,
+			updateOnMove: true,
+	
+		});
+
+		slider.on('moved', function () {
+			slides[slider.index].classList.remove('is-actived');
+			setTimeout(() => {
+				slides[slider.index].classList.add('is-actived');
+			},0)
+		})
+	
+		slider.mount();
+		
+		
 	
 	})
 }

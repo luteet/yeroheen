@@ -1,4 +1,9 @@
-@@include("html/_header.html")
+@@include("html/_header.html", {
+	"about": "",
+	"services": "is-current",
+	"cases": "",
+	"contacts": "",
+})
 
 	<main class="main">
 		<section class="page-hero container is-full-height">
@@ -25,121 +30,121 @@
 		</section>
 		<section class="services container" data-change-theme-to="light">
 			<h2 class="visible-on-mob visually-hidden">Our Services:</h2>
-			<div class="services__col visible-on-desktop">
-				<h2 class="services__section_name">
-					Our Services:
-				</h2>
-				<ul class="services__nav">
-					<li>
-						<button type="button" class="is-active">
-							Creative concept 
-						</button>
-					</li>
-					<li>
-						<button type="button">
-							Content production
-						</button>
-					</li>
-					<li>
-						<button type="button">
-							Show direction
-						</button>
-					</li>
-					<li>
-						<button type="button">
-							Tech production & supervision
-						</button>
-					</li>
-					<li>
-						<button type="button">
-							Hi-end technology
-						</button>
-					</li>
-				</ul>
-				<div class="services__get_in_touch">
-					<h3 class="services__get_in_touch_title">Get in Touch with Us</h3>
-					<div class="services__get_in_touch_text">
-						<p>
-							Let's discuss your project! Drop us a message, and we'll get back to you shortly.
-						</p>
-					</div>
-					<a href="#" class="services__get_in_touch_button btn-2 is-alternative-2">
-						<span>Contact us</span>
-						<span>Contact us</span>
-					</a>
-				</div>
-			</div>
-			<div class="services__col">
-				<div class="services__slider splide">
-					<div class="services__track splide__track">
-						<ul class="services__list splide__list">
-							<li class="services__slide splide__slide">
-								<h3 class="services__slide_name section-title is-min">
-									Creative concept
-								</h3>
-								<div class="services__slide_text">
-									<p>
-										We create and bring imaginative show concepts to life, transforming inspiration into detailed plans with passion and precision, from idea inception to breathtaking execution.
-									</p>
-								</div>
-								<div class="services__slide_image image-aspect-ratio">
-									<img src="https://picsum.photos/id/500/1920" alt="" width="900" height="506" loading="lazy">
-								</div>
+			<div class="services__row">
+				<div class="services__col visible-on-desktop">
+					<div class="services__col_wrapper">
+						<h2 class="services__section_name">
+							Our Services:
+						</h2>
+						<ul class="services__nav">
+							<li>
+								<button type="button" class="is-active">
+									Creative concept 
+								</button>
 							</li>
-							<li class="services__slide splide__slide">
-								<h3 class="services__slide_name section-title is-min">
+							<li>
+								<button type="button">
 									Content production
-								</h3>
-								<div class="services__slide_text">
-									<p>
-										Our 3D animation studio pioneers breathtaking solutions, meticulously crafting stunning content that seamlessly intertwines with state-of-the-art technology, igniting inspiration at every step of the journey.
-									</p>
-								</div>
-								<div class="services__slide_image image-aspect-ratio">
-									<img src="https://picsum.photos/id/520/1920" alt="" width="900" height="506" loading="lazy">
-								</div>
+								</button>
 							</li>
-							<li class="services__slide splide__slide">
-								<h3 class="services__slide_name section-title is-min">
+							<li>
+								<button type="button">
 									Show direction
-								</h3>
-								<div class="services__slide_text">
-									<p>
-										Our team of directors, choreographers, performers, engineers, and animators bring shows to life, from concept development to dress rehearsals and the actual performance.
-									</p>
-								</div>
-								<div class="services__slide_image image-aspect-ratio">
-									<img src="https://picsum.photos/id/530/1920" alt="" width="900" height="506" loading="lazy">
-								</div>
+								</button>
 							</li>
-							<li class="services__slide splide__slide">
-								<h3 class="services__slide_name section-title is-min">
+							<li>
+								<button type="button">
 									Tech production & supervision
-								</h3>
-								<div class="services__slide_text">
-									<p>
-										In addition to unique technical capabilities, we can execute the full technical production of your show.
-									</p>
-								</div>
-								<div class="services__slide_image image-aspect-ratio">
-									<img src="https://picsum.photos/id/600/1920" alt="" width="900" height="506" loading="lazy">
-								</div>
+								</button>
 							</li>
-							<li class="services__slide splide__slide">
-								<h3 class="services__slide_name section-title is-min">
+							<li>
+								<button type="button">
 									Hi-end technology
-								</h3>
-								<div class="services__slide_text">
-									<p>
-										We consistently lead the way in the forefront of technological advancements in the realm of visual arts, poised to bring to life the most cutting-edge and innovative solutions.
-									</p>
-								</div>
-								<div class="services__slide_image image-aspect-ratio">
-									<img src="https://picsum.photos/id/610/1920" alt="" width="900" height="506" loading="lazy">
-								</div>
+								</button>
 							</li>
 						</ul>
+						<div class="services__get_in_touch">
+							<h3 class="services__get_in_touch_title">Get in Touch with Us</h3>
+							<div class="services__get_in_touch_text">
+								<p>
+									Let's discuss your project! Drop us a message, and we'll get back to you shortly.
+								</p>
+							</div>
+							<a href="contact.html" class="services__get_in_touch_button btn-2 is-alternative-2">
+								<span>Contact us</span>
+								<span>Contact us</span>
+							</a>
+						</div>
 					</div>
+				</div>
+				<div class="services__col is-start">
+					<ul class="services__list">
+						<li class="services__slide">
+							<h3 class="services__slide_name section-title is-min">
+								Creative concept
+							</h3>
+							<div class="services__slide_text">
+								<p>
+									We create and bring imaginative show concepts to life, transforming inspiration into detailed plans with passion and precision, from idea inception to breathtaking execution.
+								</p>
+							</div>
+							<div class="services__slide_image image-aspect-ratio">
+								<img src="https://picsum.photos/id/500/1920" alt="" width="900" height="506" loading="lazy">
+							</div>
+						</li>
+						<li class="services__slide">
+							<h3 class="services__slide_name section-title is-min">
+								Content production
+							</h3>
+							<div class="services__slide_text">
+								<p>
+									Our 3D animation studio pioneers breathtaking solutions, meticulously crafting stunning content that seamlessly intertwines with state-of-the-art technology, igniting inspiration at every step of the journey.
+								</p>
+							</div>
+							<div class="services__slide_image image-aspect-ratio">
+								<img src="https://picsum.photos/id/520/1920" alt="" width="900" height="506" loading="lazy">
+							</div>
+						</li>
+						<li class="services__slide">
+							<h3 class="services__slide_name section-title is-min">
+								Show direction
+							</h3>
+							<div class="services__slide_text">
+								<p>
+									Our team of directors, choreographers, performers, engineers, and animators bring shows to life, from concept development to dress rehearsals and the actual performance.
+								</p>
+							</div>
+							<div class="services__slide_image image-aspect-ratio">
+								<img src="https://picsum.photos/id/530/1920" alt="" width="900" height="506" loading="lazy">
+							</div>
+						</li>
+						<li class="services__slide">
+							<h3 class="services__slide_name section-title is-min">
+								Tech production & supervision
+							</h3>
+							<div class="services__slide_text">
+								<p>
+									In addition to unique technical capabilities, we can execute the full technical production of your show.
+								</p>
+							</div>
+							<div class="services__slide_image image-aspect-ratio">
+								<img src="https://picsum.photos/id/600/1920" alt="" width="900" height="506" loading="lazy">
+							</div>
+						</li>
+						<li class="services__slide">
+							<h3 class="services__slide_name section-title is-min">
+								Hi-end technology
+							</h3>
+							<div class="services__slide_text">
+								<p>
+									We consistently lead the way in the forefront of technological advancements in the realm of visual arts, poised to bring to life the most cutting-edge and innovative solutions.
+								</p>
+							</div>
+							<div class="services__slide_image image-aspect-ratio">
+								<img src="https://picsum.photos/id/610/1920" alt="" width="900" height="506" loading="lazy">
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</section>

@@ -46,6 +46,7 @@
 		display: inline-block;
 		img {
 			object-fit: contain;
+			object-position: center center;
 			width: 5rem; height: 2.5rem;
 
 			@media (min-width: 360px) {
@@ -57,7 +58,7 @@
 			}
 
 			@include _992 {
-				width: 12.5rem; height: 6.25rem;
+				width: 10.5rem; height: 4.75rem;
 			}
 		}
 	}

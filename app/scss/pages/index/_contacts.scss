@@ -24,7 +24,7 @@
 
 	&__name {
 		margin-bottom: 1rem;
-		color: var(--grey-text);
+		color: var(--theme-color-3);
 	}
 
 	// .contacts__mails
@@ -38,6 +38,34 @@
 		a {
 			color: var(--theme-color-1);
 			font-size: 1rem;
+
+			overflow: hidden;
+
+			display: grid;
+			> * {
+				grid-area: 1/1;
+				transition: transform .2s ease;
+				&:nth-child(1) {
+					transform: translate(0,0);
+				}
+
+				&:nth-child(2) {
+					transform: translate(0,100%);
+					color: var(--grey);
+				}
+			}
+
+			@media (any-hover: hover) {
+				&:hover > * {
+					&:nth-child(1) {
+						transform: translate(0,-100%);
+					}
+
+					&:nth-child(2) {
+						transform: translate(0,0);
+					}
+				}
+			}
 		}
 	}
 
@@ -206,6 +234,7 @@
 				width: 0.875rem; height: 0.875rem;
 				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='14' height='14' rx='7' fill='white'/%3E%3Cpath d='M3.95312 6.87201L6.06196 9.17578L10.0453 4.82422' stroke='%23171718'/%3E%3C/svg%3E%0A")
 				center / contain no-repeat;
+				filter: invert(1);
 			}
 
 			&.is-error::after {
@@ -266,7 +295,7 @@
 
 				transition: border-color .3s ease;
 
-				border-bottom: 0.0625rem solid var(--grey-text);
+				border-bottom: 0.0625rem solid var(--grey-headings);
 			}
 
 			input:focus + span, input:not(:placeholder-shown) + span {
@@ -329,6 +358,26 @@
 			@include _550 {
 				margin-top: 0;
 			}
+		}
+	}
+}
+
+body.is-dark .contacts__form label {
+	&.is-valid::after {
+		filter: none;
+	}
+
+	&.is-valid input, &.is-valid textarea {
+		border-color: var(--theme-color-1);
+	}
+
+	input, textarea, &[data-value]::before {
+		border-bottom: 0.0625rem solid var(--grey-text);
+	}
+
+	@media (any-hover: hover) {
+		&:not(.is-error):hover input, &:not(.is-error):hover textarea {
+			border-color: var(--theme-color-1);
 		}
 	}
 }

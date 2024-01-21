@@ -46,6 +46,9 @@
 	// .lets-work__link
 
 	&__link {
-		margin-top: 1.25rem;
+		margin-top: 0.5rem;
+		@include _992 {
+			margin-top: 1.25rem;
+		}
 	}
 }

@@ -7,6 +7,9 @@
 .is-transparent-header .header {
 	&__nav--list li a {
 		color: var(--black);
+		&.is-current {
+			border-bottom: 1px solid var(--white);
+		}
 		@include _992 {
 			color: var(--white);
 			transition: color .2s ease;
@@ -19,9 +22,7 @@
 	}
 
 	&__feedback {
-		@include _992 {
-			filter: invert(0);
-		}
+		filter: invert(0);
 
 		@media (any-hover: hover) and (min-width: 992px) {
 			&:hover {
@@ -72,6 +73,8 @@
 		background: var(--black);
 	}
 }
+
+
 
 .header {
 	position: fixed;
@@ -287,6 +290,10 @@
 			> * {
 				grid-area: 1/1;
 				display: block;
+				justify-self: start;
+				@include _992 {
+					justify-self: stretch;
+				}
 
 				transition: transform .3s ease;
 				&:nth-child(2) {
@@ -301,6 +308,17 @@
 			}
 
 			padding: 9px 16px;
+			&.is-current {
+				span {
+					border-bottom: 2px solid var(--black);
+					@include _992 {
+						border-bottom: 0;
+					}
+				}
+				@include _992 {
+					border-bottom: 1px solid var(--theme-color-1);
+				}
+			}
 
 			color: var(--black);
 			font-size: 2.25rem;

@@ -1,8 +1,14 @@
 .contact-hero {
 
-	min-height: 27.5rem;
+	min-height: 21.25rem;
+
+	@include _992 {
+		min-height: 27.5rem;
+		padding-bottom: var(--height-header,4.6875rem);
+	}
+	
 	padding-top: var(--height-header,4.6875rem);
-	padding-bottom: var(--height-header,4.6875rem);
+	padding-bottom: 1.875rem;
 
 	display: flex;
 	align-items: center;
@@ -26,5 +32,12 @@
 		svg {
 			width: 1ch; height: auto;
 		}
+	}
+}
+
+.contact-hero + .contacts {
+	padding-top: 5rem;
+	@include _992 {
+		padding-top: 9.375rem;
 	}
 }

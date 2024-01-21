@@ -71,6 +71,8 @@ export default function form() {
 		})
 		
 	})
+
+	const animMedia = gsap.matchMedia();
 	
 	document.querySelectorAll('.tel-input').forEach(telInput => {
 		const intl = window.intlTelInput(telInput, {
@@ -85,18 +87,25 @@ export default function form() {
 			}
 		});
 	
-		document.querySelectorAll('.iti__country-list').forEach(list => {
-			const lenis2 = new Lenis({
-				wrapper: list
-			})
-	
-			function raf(time) {
-				lenis2.raf(time)
-				requestAnimationFrame(raf)
-			}
+		/* setTimeout(() => {
+			
+		},1000) */
+		animMedia.add("(min-width: 992px)", () => {
+			document.querySelectorAll('.iti__country-list').forEach(list => {
+				const lenis2 = new Lenis({
+					wrapper: list,
+					content: list,
+				})
 		
-			requestAnimationFrame(raf)
+				function raf(time) {
+					lenis2.raf(time)
+					requestAnimationFrame(raf)
+				}
+			
+				requestAnimationFrame(raf)
+			})
 		})
+		
 	
 		const label = telInput.closest('.tel-input-label');
 		telInput.addEventListener('focus', function (event) {
@@ -116,10 +125,20 @@ export default function form() {
 				}
 			}
 		})
-		//telInput.closest('label').classList.add('tel-input-label')
+		
 		telInput.addEventListener("countrychange", function() {
 			label.classList.add('is-active');
 			telInput.value = '+' + intl.getSelectedCountryData()['dialCode'];
+		});
+
+		/* telInput.addEventListener("open:countrydropdown", function() {
+			
+		}); */
+
+		telInput.addEventListener("input", function() {
+			telInput.value = telInput.value.replace(/[^+\d]/g, "");
+			/* label.classList.add('is-active');
+			telInput.value = '+' + intl.getSelectedCountryData()['dialCode']; */
 		});
 	})
 }

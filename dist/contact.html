@@ -34,25 +34,25 @@
 			<div class="header__nav--body">
 				<ul class="header__nav--list">
 					<li>
-						<a href="about.html" aria-label="About">
+						<a href="about.html" aria-label="About" class="">
 							<span>About</span>
 							<span>About</span>
 						</a>
 					</li>
 					<li>
-						<a href="services.html" aria-label="Services">
+						<a href="services.html" aria-label="Services" class="">
 							<span>Services</span>
 							<span>Services</span>
 						</a>
 					</li>
 					<li>
-						<a href="cases.html" aria-label="Cases">
+						<a href="cases.html" aria-label="Cases" class="">
 							<span>Cases</span>
 							<span>Cases</span>
 						</a>
 					</li>
 					<li>
-						<a href="contact.html" aria-label="Contact">
+						<a href="contact.html" aria-label="Contact" class="is-current">
 							<span>Contact</span>
 							<span>Contact</span>
 						</a>
@@ -74,10 +74,6 @@
 			<span></span>
 		</button>
 	</header>
-	<a href="contact.html" class="start-button btn-2" aria-label="Start a project">
-		<span>Start a project</span>
-		<span>Start a project</span>
-	</a>
 	<div class="wrapper">
 
 		<main class="main">
@@ -85,76 +81,88 @@
 				<div class="contact-hero__background" aria-hidden="true" style="background-image: url(img/contact/contact-hero-image.webp);"></div>
 				<h1 class="contact-hero__title main-title split-lines" data-animation="lines-up" data-animation-once data-animation-delay="0.2">
 					Get In Touch
-					<svg width="52" height="52" viewBox="0 0 52 52">
-						<use xlink:href="img/sprites.svg#flash"></use>
-					</svg>
+					<i class="anim-icons">
+						<svg width="52" height="52" viewBox="0 0 52 52">
+							<use xlink:href="img/sprites.svg#flash"></use>
+						</svg>
+						<svg width="52" height="52" viewBox="0 0 52 52">
+							<use xlink:href="img/sprites.svg#chat"></use>
+						</svg>
+						<svg width="52" height="52" viewBox="0 0 52 52">
+							<use xlink:href="img/sprites.svg#email"></use>
+						</svg>
+						<svg width="52" height="52" viewBox="0 0 52 52">
+							<use xlink:href="img/sprites.svg#tel"></use>
+						</svg>
+					</i>
 				</h1>
 			</section>
 			<section class="contacts container">
 				<div class="contacts__col visible-on-desktop">
 					<div class="contacts__header">
-						<h3 class="contacts__name section-name">
+						<h2 class="contacts__name section-name">
 							Contacts
-							</h2>
-							<ul class="contacts__mails">
-								<li>
-									<a href="mailto:info@yeroheen.com">
-										info@yeroheen.com
-									</a>
-								</li>
-							</ul>
-							<ul class="contacts__social">
-								<li>
-									<a href="https://instagram.com/yeroheen?igshid=YmMyMTA2M2Y=" title="Instagram">
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#instagram"></use>
-										</svg>
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#instagram"></use>
-										</svg>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.linkedin.com/in/anatoliy-yeroheen-62b7a115b" title="LinkedIn">
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#linkedin"></use>
-										</svg>
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#linkedin"></use>
-										</svg>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.youtube.com/user/showPapala" title="YouTube">
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#youtube"></use>
-										</svg>
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#youtube"></use>
-										</svg>
-									</a>
-								</li>
-								<li>
-									<a href="https://wa.me/380986121352" title="WhatsApp">
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#whatsapp"></use>
-										</svg>
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#whatsapp"></use>
-										</svg>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.facebook.com/yeroheen" title="Facebook">
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#facebook"></use>
-										</svg>
-										<svg width="26" height="26" viewBox="0 0 26 26">
-											<use xlink:href="img/sprites.svg#facebook"></use>
-										</svg>
-									</a>
-								</li>
-							</ul>
+						</h2>
+						<ul class="contacts__mails">
+							<li>
+								<a href="mailto:info@yeroheen.com">
+									<span>info@yeroheen.com</span>
+									<span>info@yeroheen.com</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="contacts__social">
+							<li>
+								<a href="https://instagram.com/yeroheen?igshid=YmMyMTA2M2Y=" title="Instagram">
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#instagram"></use>
+									</svg>
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#instagram"></use>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/in/anatoliy-yeroheen-62b7a115b" title="LinkedIn">
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#linkedin"></use>
+									</svg>
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#linkedin"></use>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/user/showPapala" title="YouTube">
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#youtube"></use>
+									</svg>
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#youtube"></use>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="https://wa.me/380986121352" title="WhatsApp">
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#whatsapp"></use>
+									</svg>
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#whatsapp"></use>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/yeroheen" title="Facebook">
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#facebook"></use>
+									</svg>
+									<svg width="26" height="26" viewBox="0 0 26 26">
+										<use xlink:href="img/sprites.svg#facebook"></use>
+									</svg>
+								</a>
+							</li>
+						</ul>
 					</div>
 					<div class="contacts__offices">
 						<h3 class="contacts__name section-name">
@@ -179,9 +187,6 @@
 					</div>
 				</div>
 				<div class="contacts__col">
-					<h2 class="contacts__title section-title">
-						Contact
-					</h2>
 					<form class="contacts__form form">
 						<label data-error-text="Please enter a valid first name.">
 							<input type="text" name="first-name" placeholder="First Name" required>
@@ -203,7 +208,7 @@
 							<textarea name="comment" placeholder="Comment (optional)"></textarea>
 							<span>Comment <span>optional</span></span>
 						</label>
-						<button type="submit" class="btn-2 is-alternative" aria-label="Submit">
+						<button type="submit" class="btn-2 is-alternative-2" aria-label="Submit">
 							<span>Submit</span>
 							<span>Submit</span>
 						</button>
@@ -216,25 +221,25 @@
 			<nav class="footer__nav">
 				<ul>
 					<li>
-						<a href="#" aria-label="About">
+						<a href="about.html" aria-label="About">
 							<span>About</span>
 							<span>About</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" aria-label="Services">
+						<a href="services.html" aria-label="Services">
 							<span>Services</span>
 							<span>Services</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" aria-label="Cases">
+						<a href="cases.html" aria-label="Cases">
 							<span>Cases</span>
 							<span>Cases</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" aria-label="Contact">
+						<a href="contact.html" aria-label="Contact">
 							<span>Contact</span>
 							<span>Contact</span>
 						</a>

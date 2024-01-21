@@ -6,6 +6,10 @@
 		display: flex;
 		align-items: flex-end;
 		justify-content: space-between;
+
+		.link span {
+			min-width: 8.75rem;
+		}
 	}
 
 	// .more-projects__title
@@ -16,7 +20,7 @@
 	// .more-projects__list
 
 	&__list {
-		padding-top: 2rem;
+		padding-top: 1rem;
 
 		@include _992 {
 			padding-top: 2.5rem;
@@ -38,5 +42,8 @@
 
 	&__footer {
 		padding-top: 2.5rem;
+		.link span {
+			min-width: 8.75rem;
+		}
 	}
 }

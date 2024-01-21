@@ -162,14 +162,19 @@ section {
 	display: flex;
 	flex-direction: column;
 
-	overflow: hidden;
+	//overflow-x: hidden;
+	@include _992 {
+		overflow-x: hidden;
+	}
 	
-	opacity: 0;
-	animation: fadeIn 0.3s ease 0.3s 1 normal forwards;
 }
 
 .main {
-	//overflow: hidden;
+
+	overflow-x: hidden;
+	
+	opacity: 0;
+	animation: fadeIn 0.3s ease 0.3s 1 normal forwards;
 
 	flex: 1 0 auto;
 	position: relative;
@@ -694,6 +699,10 @@ video.lazy {
 	}
 }
 
+/* .iti__hide {
+	display: block;
+} */
+
 /* .iti__selected-flag {
 	@include _container {
 		padding: 0 0.416667vw 0 0.555556vw;
@@ -717,6 +726,18 @@ video.lazy {
 	
 	@include _992 {
 		margin-top: 15.625rem;
+	}
+}
+
+.anim-icons {
+	display: inline-grid !important;
+	> * {
+		grid-area: 1/1;
+
+		align-self: center;
+		justify-content: center;
+
+		opacity: 0;
 	}
 }
 

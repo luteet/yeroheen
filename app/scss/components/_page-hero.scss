@@ -1,3 +1,16 @@
+body.is-dark .page-hero {
+	&__text {
+		color: var(--white);
+	}
+
+	&__scroll_link {
+		> span > *:nth-child(2) {
+			opacity: 1;
+			color: var(--grey-headings);
+		}
+	}
+}
+
 .page-hero {
 
 	min-height: calc(var(--svh,1vh) * 90);
@@ -38,14 +51,20 @@
 
 	&__text {
 		padding-top: 1rem;
+		max-width: 17.5625rem;
+
 		@include _992 {
 			padding-top: 2.125rem;
+
+			max-width: 24.125rem;
 		}
 
 		color: var(--grey);
 		font-weight: 500;
 		line-height: 137.5%;
 		letter-spacing: -0.04rem;
+
+		
 
 		b {
 			color: var(--theme-color-1);
@@ -57,8 +76,12 @@
 
 	&__scroll_link {
 		position: absolute;
-		left: 50%; bottom: 2.5rem;
-		transform: translate(-50%,0);
+		left: 1rem; bottom: 1rem;
+		transform: translate(0,-50%);
+		@include _992 {
+			left: 50%; bottom: 2.5rem;
+			transform: translate(-50%,0);
+		}
 
 		display: inline-block;
 		color: var(--theme-color-1);

@@ -11,11 +11,8 @@
 	}
 
 	&.is-reverse-color & {
-		&__subtitle {
-			color: var(--grey-text);
-			&::first-line {
-				color: var(--black);
-			}
+		&__section-name {
+			color: var(--black);
 		}
 
 		&__text {
@@ -40,9 +37,10 @@
 		margin-top: 0.875rem;
 
 		grid-column: 1; grid-row: 2;
-		color: var(--grey-text);
-		&::first-line {
-			color: var(--white);
+		color: var(--theme-color-3);
+		b {
+			font-weight: 500;
+			color: var(--theme-color-1);
 		}
 
 		font-size: 1rem;
