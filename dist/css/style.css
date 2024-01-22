@@ -3253,9 +3253,12 @@ body.is-dark .page-hero__scroll_link>span>:nth-child(2) {
     max-width: 14.5625rem
 }
 
-.about-us__subtitle b {
-    font-weight: 500;
+.about-us__subtitle b,.about-us__subtitle strong {
     color: var(--theme-color-1)
+}
+
+.about-us__subtitle b {
+    font-weight: 500
 }
 
 .about-us__add-title {
