@@ -1,4 +1,4 @@
-export default function form() {
+export default function form(geoData) {
 	
 	function validateEmail(email) {
 		let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -43,6 +43,7 @@ export default function form() {
 	document.querySelectorAll('.form').forEach(form => {
 		form.addEventListener('submit', function (event) {
 			event.preventDefault();
+			console.log("submit");
 
 			if(!form.querySelector('.is-error') && admin_ajax_url) {
 
@@ -100,36 +101,35 @@ export default function form() {
 		
 	})
 
-	const animMedia = gsap.matchMedia();
+	let forms = document.querySelectorAll('form');
+	forms.forEach(form => {
+		form.style.setProperty('--width-form', form.offsetWidth + 'px');
+	})
+
+	const telLabels = document.querySelectorAll('.tel-input-label');
+	telLabels.forEach(tel => {
+		tel.style.setProperty('--width', tel.offsetWidth + 'px');
+	})
 	
 	document.querySelectorAll('.tel-input').forEach(telInput => {
-		const intl = window.intlTelInput(telInput, {
+		//telInput.destroy();
+		const 
+			intl = window.intlTelInput(telInput, {
 			utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.0.3/js/utils.js",
 			initialCountry: "auto",
 			useFullscreenPopup: false,
 			geoIpLookup: function(callback) {
-				fetch("https://ipapi.co/json")
-				.then(function(res) { return res.json(); })
-				.then(function(data) { callback(data.country_code); })
-				.catch(function() { callback("us"); });
+				callback(geoData);
 			}
 		});
 
-		animMedia.add("(min-width: 992px)", () => {
+		if(window.innerWidth >= 992) {
 			document.querySelectorAll('.iti__country-list').forEach(list => {
-				const lenis2 = new Lenis({
-					wrapper: list,
-					content: list,
-				})
-		
-				function raf(time) {
-					lenis2.raf(time)
-					requestAnimationFrame(raf)
-				}
-			
-				requestAnimationFrame(raf)
+
+				list.setAttribute("data-lenis-prevent", true);
+				
 			})
-		})
+		}
 		
 	
 		const label = telInput.closest('.tel-input-label');
@@ -153,8 +153,20 @@ export default function form() {
 		
 		telInput.addEventListener("countrychange", function() {
 			label.classList.add('is-active');
-			telInput.value = '+' + intl.getSelectedCountryData()['dialCode'];
+			if(intl.getSelectedCountryData()['dialCode']) {
+				//telInput.value = '+' + intl.getSelectedCountryData()['dialCode'];
+			}
+			
+			/* if(lenis) {
+				lenis.scrollTo(document.querySelector(".iti__active"))
+			} */
 		});
+
+		setTimeout(() => {
+			if(intl.getSelectedCountryData()['dialCode']) {
+				telInput.value = '+' + intl.getSelectedCountryData()['dialCode'];
+			}
+		},0)
 
 		/* telInput.addEventListener("open:countrydropdown", function() {
 			
@@ -165,5 +177,8 @@ export default function form() {
 			/* label.classList.add('is-active');
 			telInput.value = '+' + intl.getSelectedCountryData()['dialCode']; */
 		});
+
+		
+		//telInput.value = '+' + intl.getSelectedCountryData()['dialCode'];
 	})
 }

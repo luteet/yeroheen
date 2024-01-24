@@ -56,7 +56,7 @@ body.is-dark .page-hero {
 		@include _992 {
 			padding-top: 2.125rem;
 
-			max-width: 24.125rem;
+			max-width: 26.125rem; width: 100%;
 		}
 
 		color: var(--grey);

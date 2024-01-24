@@ -105,9 +105,9 @@ body {
 	//background: transparent;
 	
 	//font-size: 16px;
-	height: auto;
+	height: 100%;
 
-	
+	//opacity: 0;
 	//perspective: 400px;
 	//transition: background-color .2s ease;
 	/* &:not(.is-dark) .footer__logo--img, &:not(.is-dark) .header__logo--img {
@@ -166,7 +166,11 @@ section {
 	@include _992 {
 		overflow-x: hidden;
 	}
+
+	//transition: opacity .3s ease;
 	
+	/* opacity: 0;
+	animation: fadeIn 0.3s ease 0.5s 1 normal forwards; */
 }
 
 .main {
@@ -176,8 +180,7 @@ section {
 		overflow-x: visible;
 	}
 	
-	opacity: 0;
-	animation: fadeIn 0.3s ease 0.3s 1 normal forwards;
+	
 
 	flex: 1 0 auto;
 	position: relative;
@@ -314,7 +317,7 @@ video.lazy {
 
 	overflow: hidden;
 
-	transition: border-color .3s ease, color .3s ease, background .3s ease, opacity .3s ease, visibility .3s ease;
+	transition: border-color .3s ease, background .3s ease, opacity .3s ease, visibility .3s ease, filter .3s ease;
 
 	span {
 		grid-area: 1/1;
@@ -331,7 +334,7 @@ video.lazy {
 
 	@media (any-hover: hover) {
 
-		transition: border-color .3s ease, color .3s ease, background .3s ease, opacity .3s ease, visibility .3s ease;
+		transition: border-color .3s ease, color .3s ease, background .3s ease, opacity .3s ease, visibility .3s ease, filter .3s ease;
 
 		&.is-alternative:hover {
 			border-color: var(--white);
@@ -604,6 +607,8 @@ video.lazy {
 }
 
 .iti__flag {
+	box-shadow: none;
+	filter: drop-shadow(0 0 1px var(--grey));
 	@include _container {
 		width: 1.25rem;
 		background-size: auto 0.9375rem;
@@ -702,28 +707,6 @@ video.lazy {
 	}
 }
 
-/* .iti__hide {
-	display: block;
-} */
-
-/* .iti__selected-flag {
-	@include _container {
-		padding: 0 0.416667vw 0 0.555556vw;
-	}
-} */
-
-/* .iti__flag {
-	@include _container {
-		width: 1.388889vw;
-	}
-}
-
-.iti__flag {
-	@include _container {
-		height: 0.972222vw !important;
-	}
-} */
-
 .section-gap-top {
 	margin-top: 9.375rem;
 	
@@ -791,7 +774,7 @@ video.lazy {
 		}
 		.line-inner {
 			transition: opacity 1s ease, transform .5s ease;
-			transform: var(--transform, translate3d(0,100%,0.0001px));
+			transform: var(--transform, translate3d(0,120%,0.0001px));
 		}
 		&.is-animated {
 			opacity: 1; visibility: visible;
@@ -811,7 +794,7 @@ video.lazy {
 		.line {
 			overflow: hidden;
 			.line-inner {
-				transform: translate(0,100%);
+				transform: translate(0,120%);
 			}
 		}
 

@@ -109,6 +109,7 @@ function scriptsLib() {
 		'node_modules/intl-tel-input/build/js/utils.js',
 		'node_modules/intl-tel-input/build/js/data.min.js',
 		'node_modules/@studio-freight/lenis/bundled/lenis.min.js',
+		'node_modules/@barba/core/dist/barba.umd.js',
 		//'app/js/intlTelInput.js',
 		//'node_modules/split-type/umd/index.min.js', // split text | npm i split-type --save-dev | https://www.npmjs.com/package/split-type
 		//'app/js/ScrollSmoother.min.js', // GSAP

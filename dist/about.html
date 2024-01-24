@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#0B0B0C">
 	<title>yeroheen</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.min.css?1">
 	<noscript>
 		<style>
@@ -18,7 +21,7 @@
 	</noscript>
 </head>
 
-<body>
+<body data-barba="wrapper">
 
 	<header class="header container">
 		<div class="header__logo">
@@ -78,14 +81,14 @@
 		<span>Start a project</span>
 		<span>Start a project</span>
 	</a>
-	<div class="wrapper">
+	<div class="wrapper light-theme" data-barba-namespace="about" data-barba="container">
 
-		<main class="main">
+		<main class="main is-light-theme">
 			<section class="page-hero container">
 				<h1 class="page-hero__title split-lines main-title is-alternative" data-animation="lines-up" data-animation-delay="0.2" data-animation-anchor=".page-hero">
 					Where Every Frame <br> Tells a Story
 				</h1>
-				<div class="page-hero__text" data-animation="fade-in" data-animation-delay="0.4" data-animation-anchor=".page-hero">
+				<div class="page-hero__text" data-animation="fade-in" data-animation-delay="0.6" data-animation-anchor=".page-hero">
 					<p>
 						Since 2014, we have crafted <b>over 100 multimedia projects.</b>
 					</p>
@@ -96,7 +99,7 @@
 				<video data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" muted loop playsinline class="video__element lazy"></video>
 			</div>
 		</section> -->
-			<div class="gallery-slider splide">
+			<div class="gallery-slider splide" data-animation="fade-in" data-animation-delay="0.8">
 				<div class="gallery-slider__track splide__track">
 					<ul class="gallery-slider__list splide__list">
 						<li class="gallery-slider__slide splide__slide">
@@ -362,7 +365,7 @@
 						Let’s work together!
 					</h2>
 					<div class="lets-work__link">
-						<a href="#" class="link is-light">
+						<a href="contact.html" class="link is-light">
 							<svg width="18" height="14" viewBox="0 0 18 14">
 								<use xlink:href="img/sprites.svg#arrow-next"></use>
 							</svg>
@@ -384,8 +387,9 @@
 						</h2>
 						<ul class="contacts__mails">
 							<li>
-								<a href="mailto:info@yeroheen.com">
-									info@yeroheen.com
+								<a href="mailto:info@yeroheen.com" aria-label="info@yeroheen.com">
+									<span>info@yeroheen.com</span>
+									<span>info@yeroheen.com</span>
 								</a>
 							</li>
 						</ul>
@@ -484,7 +488,6 @@
 							</label>
 							<label class="tel-input-label" data-error-text="Please enter a valid phone number.">
 								<input type="tel" name="tel" placeholder="Phone" class="tel-input" required>
-								<span>Phone number</span>
 							</label>
 							<label class="is-full" data-value="1">
 								<textarea name="comment" placeholder="Comment (optional)"></textarea>

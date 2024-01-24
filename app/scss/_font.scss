@@ -1,5 +1,5 @@
 
-@font-face {
+/* @font-face {
 	@include font-include('Inter', 400, swap, normal, 'Inter-Regular');
 }
 
@@ -9,7 +9,7 @@
 
 @font-face {
 	@include font-include('Inter', 600, swap, normal, 'Inter-SemiBold');
-}
+} */
 
 .main-title {
 	font-family: var(--title-font);

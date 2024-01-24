@@ -149,7 +149,7 @@
 		}
 
 		
-		color: var(--grey-text);
+		color: var(--theme-color-3);
 		font-size: 0.8125rem;
 		font-weight: 600;
 		line-height: 123.077%;
@@ -169,7 +169,7 @@
 		}
 
 		a {
-			color: var(--grey-text);
+			color: var(--theme-color-3);
 			font-size: 0.8125rem;
 			font-weight: 600;
 			line-height: 123.077%;
@@ -179,11 +179,11 @@
 			@media (any-hover: hover) {
 				transition: color .15s ease;
 				&:hover {
-					color: var(--white);
+					color: var(--theme-color-1);
 				}
 				
 				&:active {
-					color: var(--grey);
+					color: var(--theme-color-1);
 				}
 			}
 		}

@@ -248,5 +248,9 @@
 		@include _992 {
 			margin-top: 2rem;
 		}
+
+		img {
+			background: var(--grey-headings);
+		}
 	}
 }

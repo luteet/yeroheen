@@ -60,7 +60,12 @@ body.addEventListener('click', function (event) {
 	// =-=-=-=-=-=-=-=-=-=-=-=- </menu-in-header> -=-=-=-=-=-=-=-=-=-=-=-=
 
 	
-	
+
+	/* if($(".header__nav--list li a")) {
+		menu.forEach(element => {
+			element.classList.remove('is-mobile-menu-active')
+		})
+	} */
 
 })
 
@@ -110,10 +115,18 @@ sliders(windowSize);
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
+let geoData = "ua";
+fetch("https://ipapi.co/json")
+.then(function(res) { return res.json(); })
+.then(function(data) {
+	geoData = data.country_code;
+})
+.catch();
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <animation> -=-=-=-=-=-=-=-=-=-=-=-=
 
-animations(windowSize);
+animations(windowSize, geoData);
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </animation> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -121,7 +134,7 @@ animations(windowSize);
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <form> -=-=-=-=-=-=-=-=-=-=-=-=
 
-form();
+form(geoData);
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </form> -=-=-=-=-=-=-=-=-=-=-=-=
 

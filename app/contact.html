@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="is-light-start is-transparent-header" style="--background-color: rgba(255,255,255,1); --theme-color-1: rgb(23,23,24); --theme-color-1-reverse: rgb(255,255,255);">
+<html lang="en" class="is-light-start" style="--background-color: rgba(255,255,255,1); --theme-color-1: rgb(23,23,24); --theme-color-1-reverse: rgb(255,255,255);">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#0B0B0C">
 	<title>yeroheen</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.min.css?1">
 	<noscript><style>.image-aspect-ratio img { width: 100%; height: auto; position: static; }</style></noscript>
 </head>
-<body>
+<body data-barba="wrapper">
 	
-	<header class="header container">
+	<header class="header container is-transparent-mode">
 		<div class="header__logo">
 			<a href="index.html" class="header__logo--link">
 				<picture>
@@ -64,12 +67,16 @@
 			<span></span>
 		</button>
 	</header>
-	<div class="wrapper">
+	<a href="contact.html" class="start-button btn-2" aria-label="Start a project">
+		<span>Start a project</span>
+		<span>Start a project</span>
+	</a>
+	<div class="wrapper light-theme transparent-header" data-barba="container" data-barba-namespace="contact">
 
 	<main class="main">
-		<section class="contact-hero container">
+		<section class="contact-hero container" data-animation="fade-in" data-animation-delay="0.2" data-animation-once>
 			<div class="contact-hero__background" aria-hidden="true" style="background-image: url(img/contact/contact-hero-image.webp);"></div>
-			<h1 class="contact-hero__title main-title split-lines" data-animation="lines-up" data-animation-once data-animation-delay="0.2">
+			<h1 class="contact-hero__title main-title">
 				Get In Touch
 				<i class="anim-icons">
 					<svg width="52" height="52" viewBox="0 0 52 52">
@@ -87,7 +94,7 @@
 				</i>
 			</h1>
 		</section>
-		<section class="contacts container">
+		<section class="contacts container" data-animation="fade-in" data-animation-delay="0.4" data-animation-once>
 			<div class="contacts__col visible-on-desktop">
 				<div class="contacts__header">
 					<h2 class="contacts__name section-name">
@@ -193,7 +200,7 @@
 						</label>
 						<label class="tel-input-label" data-error-text="Please enter a valid phone number.">
 							<input type="tel" name="tel" placeholder="Phone" class="tel-input" required>
-							<span>Phone number</span>
+							<!-- <span>Phone number</span> -->
 						</label>
 						<label class="is-full" data-value="1">
 							<textarea name="comment" placeholder="Comment (optional)"></textarea>

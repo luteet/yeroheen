@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#0B0B0C">
 	<title>yeroheen</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.min.css?1">
 	<noscript>
 		<style>
@@ -18,7 +21,7 @@
 	</noscript>
 </head>
 
-<body>
+<body data-barba="wrapper">
 	<header class="header container">
 		<div class="header__logo">
 			<a href="index.html" class="header__logo--link">
@@ -33,25 +36,25 @@
 			<div class="header__nav--body">
 				<ul class="header__nav--list">
 					<li>
-						<a href="about.html" aria-label="About" class="@@about">
+						<a href="about.html" aria-label="About" class="">
 							<span>About</span>
 							<span>About</span>
 						</a>
 					</li>
 					<li>
-						<a href="services.html" aria-label="Services" class="@@services">
+						<a href="services.html" aria-label="Services" class="">
 							<span>Services</span>
 							<span>Services</span>
 						</a>
 					</li>
 					<li>
-						<a href="cases.html" aria-label="Cases" class="@@cases">
+						<a href="cases.html" aria-label="Cases" class="">
 							<span>Cases</span>
 							<span>Cases</span>
 						</a>
 					</li>
 					<li>
-						<a href="contact.html" aria-label="Contact" class="@@contacts">
+						<a href="contact.html" aria-label="Contact" class="">
 							<span>Contact</span>
 							<span>Contact</span>
 						</a>
@@ -77,10 +80,10 @@
 		<span>Start a project</span>
 		<span>Start a project</span>
 	</a>
-	<div class="wrapper">
+	<div class="wrapper dark-theme" data-barba-namespace="case" data-barba="container">
 
 		<main class="main">
-			<section class="case-hero container">
+			<section class="case-hero container" data-animation="fade-in" data-animation-delay="0.4">
 				<div class="case-hero__background" aria-hidden="true" style="background-image: url(img/case/hero/case-hero.webp);"></div>
 				<div class="case-hero__content">
 					<h1 class="case-hero__title main-title">
@@ -216,7 +219,7 @@
 						Let’s work together!
 					</h2>
 					<div class="lets-work__link">
-						<a href="#" class="link is-light">
+						<a href="contact.html" class="link is-light">
 							<svg width="18" height="14" viewBox="0 0 18 14">
 								<use xlink:href="img/sprites.svg#arrow-next"></use>
 							</svg>
@@ -235,7 +238,7 @@
 					<h2 class="more-projects__title section-title">
 						More projects
 					</h2>
-					<a href="#" class="link is-reverse-theme visible-on-desktop">
+					<a href="cases.html" class="link is-reverse-theme visible-on-desktop">
 						<svg width="18" height="14" viewBox="0 0 18 14">
 							<use xlink:href="img/sprites.svg#arrow-next"></use>
 						</svg>
@@ -249,12 +252,12 @@
 				</div>
 				<ul class="more-projects__list">
 					<li class="more-projects__card">
-						<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="BAPCO. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
+						<a href="single-case.html" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Google">
 							<div class="our-work__card--image image-aspect-ratio">
 								<picture>
-									<source data-srcset="img/index/our-work/our-work-image-1.avif" type="image/avif">
-									<source data-srcset="img/index/our-work/our-work-image-1.webp" type="image/webp">
-									<img data-src="img/index/our-work/our-work-image-1.jpg" alt="" width="787" height="498" class="lazy" data-animation="fade-in">
+									<source data-srcset="img/index/our-work/our-work-image-4.avif" type="image/avif">
+									<source data-srcset="img/index/our-work/our-work-image-4.webp" type="image/webp">
+									<img data-src="img/index/our-work/our-work-image-4.jpg" alt="" width="787" height="498" class="lazy" data-animation="fade-in">
 								</picture>
 								<i aria-hidden="true">
 									<span>
@@ -271,22 +274,22 @@
 							</div>
 							<div class="our-work__card--content">
 								<h3>
-									<span>BAPCO</span>
-									<span>BAPCO</span>
+									<span>Google</span>
+									<span>Google</span>
 								</h3>
 								<p>
-									3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid
+									Multimedia show - Google CEE Agency Summit 2019
 								</p>
 							</div>
 						</a>
 					</li>
 					<li class="more-projects__card">
-						<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="BAPCO. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
+						<a href="single-case.html" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova">
 							<div class="our-work__card--image image-aspect-ratio">
 								<picture>
-									<source data-srcset="img/index/our-work/our-work-image-1.avif" type="image/avif">
-									<source data-srcset="img/index/our-work/our-work-image-1.webp" type="image/webp">
-									<img data-src="img/index/our-work/our-work-image-1.jpg" alt="" width="787" height="498" class="lazy" data-animation="fade-in">
+									<source data-srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
+									<source data-srcset="img/index/our-work/our-work-image-2.webp" type="image/webp">
+									<img data-src="img/index/our-work/our-work-image-2.jpg" alt="" width="787" height="498" class="lazy" data-animation="fade-in">
 								</picture>
 								<i aria-hidden="true">
 									<span>
@@ -303,8 +306,8 @@
 							</div>
 							<div class="our-work__card--content">
 								<h3>
-									<span>BAPCO</span>
-									<span>BAPCO</span>
+									<span>Nova</span>
+									<span>Nova</span>
 								</h3>
 								<p>
 									3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid
@@ -314,7 +317,7 @@
 					</li>
 				</ul>
 				<div class="more-projects__footer visible-on-mob">
-					<a href="#" class="link is-reverse-theme">
+					<a href="cases.html" class="link is-reverse-theme">
 						<svg width="18" height="14" viewBox="0 0 18 14">
 							<use xlink:href="img/sprites.svg#arrow-next"></use>
 						</svg>
@@ -415,8 +418,9 @@
 						</h2>
 						<ul class="contacts__mails">
 							<li>
-								<a href="mailto:info@yeroheen.com">
-									info@yeroheen.com
+								<a href="mailto:info@yeroheen.com" aria-label="info@yeroheen.com">
+									<span>info@yeroheen.com</span>
+									<span>info@yeroheen.com</span>
 								</a>
 							</li>
 						</ul>
@@ -515,7 +519,6 @@
 							</label>
 							<label class="tel-input-label" data-error-text="Please enter a valid phone number.">
 								<input type="tel" name="tel" placeholder="Phone" class="tel-input" required>
-								<span>Phone number</span>
 							</label>
 							<label class="is-full" data-value="1">
 								<textarea name="comment" placeholder="Comment (optional)"></textarea>

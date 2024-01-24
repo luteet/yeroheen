@@ -30,6 +30,10 @@
 	// .case-hero__content
 
 	&__content {
+		padding-bottom: 1.75rem;
+		@include _992 {
+			padding-bottom: 0;
+		}
 	}
 
 	// .case-hero__title
@@ -47,15 +51,18 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 5px;
+
+		gap: 0.125rem 0.3125rem;
+		
+		@include _992 {
+			gap: 0.3125rem;
+		}
 
 		li {
 			font-size: 1.25rem;
 			font-weight: 500;
 			line-height: 130%;
 			letter-spacing: -0.05rem;
-
-
 		}
 	}
 }

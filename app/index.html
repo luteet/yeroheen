@@ -4,6 +4,8 @@
 	"services": "",
 	"cases": "",
 	"contacts": "",
+	"theme": "dark-theme",
+	"name": "home",
 })
 
 	<main class="main">
@@ -70,7 +72,7 @@
 				<p>Bringing dreams to life with multimedia show artistry. Our company doesn't just create content — we craft stories, turning 3D animation into captivating experiences that ignite the imagination.</p>
 			</div>
 			<div class="about-us__more" data-animation="fade-in" data-animation-delay="0.2" data-animation-anchor=".about-us" data-animation-once>
-				<a href="#" class="link">
+				<a href="about.html" class="link">
 					<svg width="18" height="14" viewBox="0 0 18 14">
 						<use xlink:href="img/sprites.svg#arrow-next"></use>
 					</svg>
@@ -94,7 +96,7 @@
 					Our work is not only about vivid visual effects, but about independent works of art with their own mission and goals.
 				</p>
 			</div>
-			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="BAPCO. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
+			<a href="single-case.html" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="BAPCO. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
 						<source data-srcset="img/index/our-work/our-work-image-1.avif" type="image/avif">
@@ -124,7 +126,7 @@
 					</p>
 				</div>
 			</a>
-			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. Multimedia show | Interactive dance">
+			<a href="single-case.html" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. Multimedia show | Interactive dance">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
 						<source data-srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
@@ -154,7 +156,7 @@
 					</p>
 				</div>
 			</a>
-			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. Hologram interaction dance for one of the best European TV Channels">
+			<a href="single-case.html" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. Hologram interaction dance for one of the best European TV Channels">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
 						<source data-srcset="img/index/our-work/our-work-image-3.avif" type="image/avif">
@@ -184,7 +186,7 @@
 					</p>
 				</div>
 			</a>
-			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Google. Multimedia show - Google CEE Agency Summit 2019">
+			<a href="single-case.html" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Google. Multimedia show - Google CEE Agency Summit 2019">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
 						<source data-srcset="img/index/our-work/our-work-image-4.avif" type="image/avif">
@@ -214,7 +216,7 @@
 					</p>
 				</div>
 			</a>
-			<a href="#" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
+			<a href="single-case.html" class="our-work__card" data-animation="fade-in" data-animation-delay="0.2" aria-label="Nova. 3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid">
 				<div class="our-work__card--image image-aspect-ratio">
 					<picture>
 						<source data-srcset="img/index/our-work/our-work-image-2.avif" type="image/avif">
@@ -245,12 +247,12 @@
 				</div>
 			</a>
 			<div class="our-work__more" data-animation="fade-in" data-animation-delay="0.2">
-				<a href="#" class="link is-reverse-theme">
+				<a href="cases.html" class="link is-reverse-theme">
 					<svg width="18" height="14" viewBox="0 0 18 14">
 						<use xlink:href="img/sprites.svg#arrow-next"></use>
 					</svg>
 					<span>
-						More About Us
+						View all projects
 					</span>
 					<svg width="18" height="14" viewBox="0 0 18 14">
 						<use xlink:href="img/sprites.svg#arrow-next"></use>
@@ -271,22 +273,22 @@
 				<div class="services-section__wrapper" data-animation="fade-in" data-animation-delay="0.4">
 					<ul class="services-section__list visible-on-desktop">
 						@@loop("html/_service-card.html", [
-							{"class": "", "title": "Creative concept"},
-							{"class": "", "title": "Content production"},
-							{"class": "", "title": "Show direction"},
-							{"class": "", "title": "Tech production & supervision"},
-							{"class": "", "title": "Hi-end technology"},
+							{"class": "", "title": "Creative concept", "id": "creative-concept"},
+							{"class": "", "title": "Content production", "id": "content-production"},
+							{"class": "", "title": "Show direction", "id": "show-direction"},
+							{"class": "", "title": "Tech production & supervision", "id": "tech-production-supervision"},
+							{"class": "", "title": "Hi-end technology", "id": "hi-end-technology"},
 						])
 					</ul>
 					<div class="services-section__slider splide visible-on-mob">
 						<div class="services-section__slider--track splide__track">
 							<ul class="services-section__slider--list splide__list">
 								@@loop("html/_service-card.html", [
-									{"class": " splide__slide", "title": "Creative concept"},
-									{"class": " splide__slide", "title": "Content production"},
-									{"class": " splide__slide", "title": "Show direction"},
-									{"class": " splide__slide", "title": "Tech production & supervision"},
-									{"class": " splide__slide", "title": "Hi-end technology"},
+									{"class": " splide__slide", "title": "Creative concept", "id": "creative-concept"},
+									{"class": " splide__slide", "title": "Content production", "id": "content-production"},
+									{"class": " splide__slide", "title": "Show direction", "id": "show-direction"},
+									{"class": " splide__slide", "title": "Tech production & supervision", "id": "tech-production-supervision"},
+									{"class": " splide__slide", "title": "Hi-end technology", "id": "hi-end-technology"},
 								])
 							</ul>
 						</div>

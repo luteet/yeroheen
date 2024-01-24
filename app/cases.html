@@ -3,6 +3,8 @@
 	"services": "",
 	"cases": "is-current",
 	"contacts": "",
+	"theme": "dark-theme",
+	"name": "cases",
 })
 
 	<main class="main">
@@ -15,7 +17,7 @@
 					Transforming ideas into immersive multimedia realities.
 				</p>
 			</div>
-			<a href="#" class="page-hero__scroll_link" data-animation="fade-in" data-animation-delay="0.8" data-animation-anchor=".page-hero" aria-label="Our Services">
+			<a href="#" class="page-hero__scroll_link" data-animation="fade-in" data-animation-delay="0.8" data-animation-anchor=".page-hero" data-animation-once aria-label="Our Services">
 				<span aria-hidden="true">
 					<span>
 						Our Cases
@@ -36,15 +38,61 @@
 			<h2 class="visually-hidden">Our Cases</h2>
 			<ul class="cases__list">
 				@@loop("html/_cases-item.html", [
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
-					{},
+					{
+						"image": "1",
+						"title": "BAPCO",
+						"text": "Multimedia show | Interactive dance",
+					},
+					{
+						"image": "2",
+						"title": "NOVA",
+						"text": "3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid",
+					},
+					{
+						"image": "3",
+						"title": "Project name",
+						"text": "Multimedia performance",
+					},
+					{
+						"image": "4",
+						"title": "Bentley",
+						"text": "Multimedia performance",
+					},
+					{
+						"image": "5",
+						"title": "Google",
+						"text": "Multimedia show - Google CEE Agency Summit 2019",
+					},
+					{
+						"image": "6",
+						"title": "ITHRA",
+						"text": "This holographic dance was created especially for the opening of the Saudi Film Festival in 2022.",
+					},
+					{
+						"image": "7",
+						"title": "Chameleon",
+						"text": "Multimedia show - 360 Dome projectionMultimedia show created for a bank, using doug projections technology.",
+					},
+					{
+						"image": "8",
+						"title": "Comfy",
+						"text": "Interactive performance, showing kinetic equipment, video content and laser tracker interaction",
+					},
+					{
+						"image": "9",
+						"title": "SEROTONIN",
+						"text": "3-minute multimedia performance, a contemporary dance, showing interaction of modern choreography with dynamic content on a projection grid",
+					},
+					{
+						"image": "10",
+						"title": "ARABAL",
+						"text": "Multimedia performance conducted by projecting on a fountain water surface",
+					},
+					{
+						"image": "11",
+						"title": "Kyivstar",
+						"text": "Multimedia performance, the interactive contemporary dance, complemented by dancer's interaction with net projection surface",
+					},
 				])
 			</ul>
 		</section>

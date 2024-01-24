@@ -88,14 +88,14 @@
 
 			svg {
 				width: 100%; height: 100%;
-				transform: scale(1.1);
+				transform: translate(0,-1.5px) scale(1.1);
 				grid-area: 1/1;
 				align-self: center; justify-self: center;
 
 				transition: transform .3s ease;
 
 				&:nth-child(2) {
-					transform: translate(0,100%) scale(1.1);
+					transform: translate(0,calc(100% - 1px)) scale(1.1);
 				}
 			}
 
@@ -351,10 +351,6 @@
 
 				background: transparent;
 
-				&::placeholder {
-					color: transparent;
-				}
-
 				color: var(--theme-color-1);
 				font-weight: 500;
 				line-height: 137.5%;
@@ -366,14 +362,16 @@
 			}
 
 			input:focus + span, input:not(:placeholder-shown) + span {
-				top: -0.625rem;
-				font-size: 0.625rem;
+				translate: -0rem -1.1rem;
+				scale: 0.6;
+				//font-size: 0.625rem;
 				color: var(--grey-text);
 			}
 
 			textarea:focus + span, textarea:not(:placeholder-shown) + span {
-				top: -0.625rem;
-				font-size: 0.625rem;
+				translate: -0rem -1.1rem;
+				scale: 0.6;
+				//font-size: 0.625rem;
 			}
 
 			> span {
@@ -386,9 +384,10 @@
 				letter-spacing: -0.04rem;
 
 				pointer-events: none; user-select: none;
+				transform-origin: left;
 
 				span {
-					color: var(--grey-text);
+					color: var(--theme-color-3);
 					&::before {
 						content: '(';
 					}
@@ -398,14 +397,14 @@
 					}
 				}
 
-				transition: color .3s ease, top .3s ease, font-size .3s ease;
+				transition: color .3s ease, translate .3s ease, scale .3s ease;
 			}
 
 			&.tel-input-label.is-active > span {
-				top: -0.625rem;
+				translate: -0.625rem;
 				font-size: 0.625rem;
 
-				color: var(--grey-text);
+				color: var(--theme-color-3);
 			}
 
 			&.tel-input-label > span {
